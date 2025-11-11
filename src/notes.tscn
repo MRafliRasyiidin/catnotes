@@ -34,3 +34,13 @@ theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
+
+[node name="VSplitContainer" type="VSplitContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect/MarginContainer/VSplitContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
