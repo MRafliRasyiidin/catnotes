@@ -85,7 +85,7 @@ size_flags_vertical = 0
 text = "Month"
 label_settings = SubResource("LabelSettings_k02u4")
 
-[node name="Month2" type="Label" parent="TextureRect/MarginContainer/VSplitContainer/VBoxContainer2"]
+[node name="Expand" type="Label" parent="TextureRect/MarginContainer/VSplitContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
