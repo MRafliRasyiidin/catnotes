@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://khhrkvs1kj6l"]
 
-[ext_resource type="Script" uid="uid://b2rfoaefnpvq8" path="res://src/cat.gd" id="1_hisqa"]
-[ext_resource type="Texture2D" uid="uid://cj7qolyyyf43t" path="res://assets/cats/debug_loaf.PNG" id="1_oyrie"]
-[ext_resource type="Texture2D" uid="uid://bnkeglrfpo7vm" path="res://assets/cats/debug_picked.PNG" id="3_fdeeb"]
+[ext_resource type="Script" uid="uid://b2rfoaefnpvq8" path="res://src/cat/cat.gd" id="1_hisqa"]
+[ext_resource type="Texture2D" uid="uid://ki1m2c5fiq71" path="res://assets/cats/cat_1/IMG_4560.PNG" id="2_fdeeb"]
+[ext_resource type="Texture2D" uid="uid://df43kt0u78n4t" path="res://assets/cats/cat_1/IMG_4559.PNG" id="3_fdeeb"]
 
 [node name="DebugCat" type="Node2D"]
 script = ExtResource("1_hisqa")
 
 [node name="Loaf" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_oyrie")
+texture = ExtResource("2_fdeeb")
 offset = Vector2(0, -145)
 
 [node name="Picked" type="Sprite2D" parent="."]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://cikw1idqash3a"]
+
+[ext_resource type="PackedScene" uid="uid://dxmci80euw36f" path="res://src/cat/cat_1.tscn" id="1_rdqcw"]
+[ext_resource type="Texture2D" uid="uid://b03x6v2wjge4q" path="res://assets/cats/cat_2/IMG_4578.PNG" id="2_sjupa"]
+[ext_resource type="Texture2D" uid="uid://co4mbh6vhapam" path="res://assets/cats/cat_2/IMG_4581.PNG" id="3_up5ib"]
+[ext_resource type="Texture2D" uid="uid://dvkve2f84uft2" path="res://assets/cats/cat_2/IMG_4580.PNG" id="4_u7gb6"]
+[ext_resource type="Texture2D" uid="uid://mjne7tws4wvn" path="res://assets/cats/cat_2/IMG_4579.PNG" id="5_lmi4r"]
+
+[node name="Cat1" instance=ExtResource("1_rdqcw")]
+
+[node name="Loaf" parent="." index="0"]
+texture = ExtResource("2_sjupa")
+
+[node name="Picked" parent="." index="1"]
+texture = ExtResource("3_up5ib")
+
+[node name="Angry" parent="." index="2"]
+texture = ExtResource("4_u7gb6")
+
+[node name="Sit" parent="." index="3"]
+texture = ExtResource("5_lmi4r")

@@ -4,7 +4,8 @@ extends Node2D
 @onready var loaf: Sprite2D = $Loaf
 @onready var picked: Sprite2D = $Picked
 @onready var landing_point: Marker2D = $LandingPoint
-
+@onready var angry: Sprite2D = $Angry
+@onready var sit: Sprite2D = $Sit
 
 var dragging = false
 var drag_offset = Vector2.ZERO
@@ -16,6 +17,8 @@ func _ready():
 	if !tilemap:
 		# Try to find TileMapLayer in parent or scene
 		tilemap = get_parent().get_parent().get_node("CatSpots")
+
+var inside_tilemap = false
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -43,6 +46,17 @@ func _process(delta):
 	if dragging:
 		# Update position while dragging
 		global_position = get_global_mouse_position() + drag_offset
+		
+		if is_inside_tilemap():
+			if !inside_tilemap:
+				inside_tilemap = true
+				print("Entered tilemap area")
+				sprite_to_sit()
+		else:
+			if inside_tilemap:
+				inside_tilemap = false
+				print("Exited tilemap area")
+				sprite_to_picked()
 
 func is_mouse_over_cat() -> bool:
 	var mouse_pos = get_global_mouse_position()
@@ -85,6 +99,18 @@ func snap_to_tile():
 		move_to_position(previous_position)
 		return
 	
+	if target_tile in GlobalState.occupied_tiles and GlobalState.occupied_tiles[target_tile] != self:
+		print(name, " - Tile already occupied! Reverting...")
+		move_to_position(previous_position)
+		return
+	
+	for key in GlobalState.occupied_tiles.keys():
+		if GlobalState.occupied_tiles[key] == self:
+			GlobalState.occupied_tiles.erase(key)
+			break
+	
+	GlobalState.occupied_tiles[target_tile] = self
+	
 	# Snap to tile center
 	var tile_center = tilemap.to_global(tilemap.map_to_local(target_tile))
 	global_position = tile_center
@@ -95,11 +121,32 @@ func move_to_position(target_pos: Vector2):
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "global_position", target_pos, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
+func is_inside_tilemap() -> bool:
+	if not tilemap:
+		return false
+	
+	var mouse_tile = tilemap.local_to_map(tilemap.to_local(global_position))
+	var source_id = tilemap.get_cell_source_id(mouse_tile)
+	return source_id != -1
 
 func sprite_to_picked():
-	loaf.visible = false
-	picked.visible = true
+	hide_all_sprite()
+	picked.show()
 
 func sprite_to_loaf():
-	loaf.visible = true
-	picked.visible = false
+	hide_all_sprite()
+	loaf.show()
+	
+func sprite_to_angry():
+	hide_all_sprite()
+	angry.show()
+	
+func sprite_to_sit():
+	hide_all_sprite()
+	sit.show()
+	
+func hide_all_sprite():
+	loaf.hide()
+	picked.hide()
+	angry.hide()
+	sit.hide()
