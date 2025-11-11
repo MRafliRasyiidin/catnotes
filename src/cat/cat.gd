@@ -40,7 +40,6 @@ func _input(event):
 				snap_to_tile()
 				# Reset z_index
 				z_index = 0
-				sprite_to_loaf()
 
 func _process(delta):
 	if dragging:
@@ -86,7 +85,7 @@ func snap_to_tile():
 	# Check if either tile is valid (source_id != -1 means there’s a tile)
 	var mouse_valid = tilemap.get_cell_source_id(mouse_tile) != -1
 	var landing_valid = tilemap.get_cell_source_id(landing_tile) != -1
-	
+
 	# Choose which tile to snap to (cursor first, else landing_point)
 	var target_tile: Vector2i
 	if landing_valid:
@@ -97,11 +96,13 @@ func snap_to_tile():
 		# No valid tile → revert smoothly
 		print(name, " - No valid tile under cat, reverting smoothly to previous position")
 		move_to_position(previous_position)
+		sprite_to_loaf()
 		return
 	
 	if target_tile in GlobalState.occupied_tiles and GlobalState.occupied_tiles[target_tile] != self:
 		print(name, " - Tile already occupied! Reverting...")
 		move_to_position(previous_position)
+		sprite_to_loaf()
 		return
 	
 	for key in GlobalState.occupied_tiles.keys():
@@ -110,6 +111,11 @@ func snap_to_tile():
 			break
 	
 	GlobalState.occupied_tiles[target_tile] = self
+	
+	if GlobalState.placement_rules.can_place_cat(target_tile, self):
+		sprite_to_loaf()
+	else:
+		sprite_to_angry()
 	
 	# Snap to tile center
 	var tile_center = tilemap.to_global(tilemap.map_to_local(target_tile))
