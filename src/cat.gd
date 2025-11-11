@@ -15,7 +15,7 @@ func _ready():
 	# Get tilemap reference
 	if !tilemap:
 		# Try to find TileMapLayer in parent or scene
-		tilemap = get_parent().get_node("CatSpots")
+		tilemap = get_parent().get_parent().get_node("CatSpots")
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
