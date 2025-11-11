@@ -1,7 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfl0uyblwqhx"]
+[gd_scene load_steps=11 format=3 uid="uid://dfl0uyblwqhx"]
 
 [ext_resource type="Texture2D" uid="uid://dlxtdjpsiybe1" path="res://assets/ui/notes.png" id="1_bu4na"]
 [ext_resource type="Script" uid="uid://c7kohjtgmrr1w" path="res://src/notes.gd" id="1_sh7gc"]
+[ext_resource type="FontFile" uid="uid://88g5u5nhvmv0" path="res://assets/fonts/variable.ttf" id="2_6crdd"]
+[ext_resource type="FontFile" uid="uid://due2vapjee7gm" path="res://assets/fonts/regular.otf" id="4_k02u4"]
+[ext_resource type="FontFile" uid="uid://b5v20ed87aryq" path="res://assets/fonts/bold.otf" id="5_wn0ix"]
+
+[sub_resource type="FontVariation" id="FontVariation_6crdd"]
+base_font = ExtResource("2_6crdd")
+spacing_top = -7
+spacing_bottom = -4
+
+[sub_resource type="LabelSettings" id="LabelSettings_6crdd"]
+line_spacing = -20.0
+font = SubResource("FontVariation_6crdd")
+font_size = 48
+font_color = Color(0.176471, 0.133333, 0.266667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k02u4"]
+font = SubResource("FontVariation_6crdd")
+font_size = 32
+font_color = Color(0.176471, 0.133333, 0.266667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wn0ix"]
+font = SubResource("FontVariation_6crdd")
+font_size = 21
+font_color = Color(0.768627, 0.572549, 0.443137, 1)
+
+[sub_resource type="Theme" id="Theme_6l13p"]
 
 [node name="Notes" type="Control"]
 clip_contents = true
@@ -43,4 +69,41 @@ dragger_visibility = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect/MarginContainer/VSplitContainer"]
 layout_mode = 2
-theme_override_constants/separation = 1
+theme_override_constants/separation = 7
+
+[node name="CatNotes" type="Label" parent="TextureRect/MarginContainer/VSplitContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Cat Notes"
+label_settings = SubResource("LabelSettings_6crdd")
+
+[node name="Month" type="Label" parent="TextureRect/MarginContainer/VSplitContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Month"
+label_settings = SubResource("LabelSettings_k02u4")
+
+[node name="Month2" type="Label" parent="TextureRect/MarginContainer/VSplitContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Click to expand"
+label_settings = SubResource("LabelSettings_wn0ix")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/VSplitContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Note" type="RichTextLabel" parent="TextureRect/MarginContainer/VSplitContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = SubResource("Theme_6l13p")
+theme_override_fonts/normal_font = ExtResource("4_k02u4")
+theme_override_fonts/bold_font = ExtResource("5_wn0ix")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+fit_content = true
