@@ -17,7 +17,7 @@ func _ready() -> void:
 	var rules_path = "res://src/rules/stage_%d_rule.gd" % GlobalState.stage_counter
 	var rules = load(rules_path)
 	GlobalState.placement_rules = rules.new()
-	notes.make_children("[color=#d44d13][b]Lala[/b][/color] wants to sit near the window")
+	notes.make_children(GlobalState.placement_rules.rules_text)
 	set_cat_init_position()
 	set_cat_name()
 	set_tile_in_room()
@@ -97,5 +97,6 @@ func _input(event):
 
 
 func _on_continue_pressed() -> void:
+	SfxManager.play(SfxManager.click)
 	GlobalState.stage_counter += 1
 	get_tree().change_scene_to_file("res://src/transition.tscn")

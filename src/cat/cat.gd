@@ -12,9 +12,11 @@ extends Node2D
 var dragging = false
 var drag_offset = Vector2.ZERO
 var previous_position = Vector2.ZERO
+var hissed: bool = false
+var has_been_placed: bool = false  # NEW FLAG
 
 func _ready():
-	sprite_to_loaf()
+	sprite_to_sit()  # start sitting
 	# Get tilemap reference
 	if !tilemap:
 		# Try to find TileMapLayer in parent or scene
@@ -22,7 +24,6 @@ func _ready():
 	hover_area.connect("mouse_entered", Callable(self, "_on_mouse_entered"))
 	hover_area.connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 
-var inside_tilemap = false
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -37,6 +38,7 @@ func _input(event):
 				drag_offset = Vector2.ZERO
 				# Bring to front while dragging
 				z_index = 100
+				SfxManager.play_random_meow()
 		else:
 			if dragging:
 				# Stop dragging and snap to tile
@@ -45,11 +47,12 @@ func _input(event):
 				# Reset z_index
 				z_index = 0
 
+
 func _process(delta):
 	if dragging:
 		# Update position while dragging
 		global_position = get_global_mouse_position() + drag_offset
-		
+		'''
 		if is_inside_tilemap():
 			if !inside_tilemap:
 				inside_tilemap = true
@@ -60,8 +63,14 @@ func _process(delta):
 				inside_tilemap = false
 				print("Exited tilemap area")
 				sprite_to_picked()
+		'''
 	else:
-		change_sprite(GlobalState.cat_locations[self.get_meta("cat_name")])
+		# Only update sprite if cat has been placed
+		if has_been_placed:
+			var cat_name = self.get_meta("cat_name")
+			if cat_name in GlobalState.cat_locations:
+				change_sprite(GlobalState.cat_locations[cat_name])
+
 
 func is_mouse_over_cat() -> bool:
 	var mouse_pos = get_global_mouse_position()
@@ -76,6 +85,7 @@ func is_mouse_over_cat() -> bool:
 	# Fallback: distance check
 	var distance = global_position.distance_to(mouse_pos)
 	return distance < 50
+
 
 func snap_to_tile():
 	if not tilemap:
@@ -102,48 +112,44 @@ func snap_to_tile():
 		# No valid tile → revert smoothly
 		print(name, " - No valid tile under cat, reverting smoothly to previous position")
 		move_to_position(previous_position)
-		#sprite_to_loaf()
-		change_sprite(tilemap.local_to_map(previous_position))
 		return
 	
 	if target_tile in GlobalState.occupied_tiles and GlobalState.occupied_tiles[target_tile] != self:
 		print(name, " - Tile already occupied! Reverting...")
 		move_to_position(previous_position)
-		change_sprite(tilemap.local_to_map(previous_position))
-		#sprite_to_loaf()
 		return
 	
+	# clear old tile reference
 	for key in GlobalState.occupied_tiles.keys():
 		if GlobalState.occupied_tiles[key] == self:
 			GlobalState.occupied_tiles.erase(key)
 			break
 	
+	# assign new tile
 	GlobalState.occupied_tiles[target_tile] = self
+	GlobalState.cat_locations[self.get_meta("cat_name")] = target_tile
+	has_been_placed = true  # ✅ now the cat can change sprites afterward
+
 	change_sprite(target_tile)
 	
 	# Snap to tile center
+	SfxManager.play(SfxManager.get_random_sfx(SfxManager.pillows))
 	var tile_center = tilemap.to_global(tilemap.map_to_local(target_tile))
 	global_position = tile_center
-	GlobalState.cat_locations[self.get_meta("cat_name")] = target_tile
 	print(name, " snapped to tile: ", target_tile)
+
 
 func change_sprite(target_tile):
 	if GlobalState.placement_rules.can_place_cat(target_tile, self):
 		sprite_to_loaf()
 	else:
 		sprite_to_angry()
-	
+
+
 func move_to_position(target_pos: Vector2):
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "global_position", target_pos, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
-func is_inside_tilemap() -> bool:
-	if not tilemap:
-		return false
-	
-	var mouse_tile = tilemap.local_to_map(tilemap.to_local(global_position))
-	var source_id = tilemap.get_cell_source_id(mouse_tile)
-	return source_id != -1
 
 func is_angry() -> bool:
 	return angry.visible == true
@@ -158,8 +164,10 @@ func sprite_to_picked():
 	var pos = cat_name.position
 	pos.y = -100
 	cat_name.position = pos
+	hissed = false
 	hide_all_sprite()
 	picked.show()
+
 
 func sprite_to_loaf():
 	var pos = cat_name.position
@@ -168,13 +176,18 @@ func sprite_to_loaf():
 	hide_all_sprite()
 	loaf.show()
 	
+
 func sprite_to_angry():
 	var pos = cat_name.position
 	pos.y = -185
 	cat_name.position = pos
+	if !hissed:
+		hissed = true
+		SfxManager.play(SfxManager.hiss)
 	hide_all_sprite()
 	angry.show()
 	
+
 func sprite_to_sit():
 	var pos = cat_name.position
 	pos.y = -220
@@ -182,6 +195,7 @@ func sprite_to_sit():
 	hide_all_sprite()
 	sit.show()
 	
+
 func hide_all_sprite():
 	loaf.hide()
 	picked.hide()

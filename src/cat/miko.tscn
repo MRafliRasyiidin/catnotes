@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b7j1e07uiqe78" path="res://assets/cats/miko/IMG_4603.PNG" id="4_wbhq8"]
 [ext_resource type="Texture2D" uid="uid://c0p3an8dh7qfj" path="res://assets/cats/miko/IMG_4602.PNG" id="5_pu6c6"]
 
-[node name="Cat1" instance=ExtResource("1_ga1nc")]
+[node name="Miko" instance=ExtResource("1_ga1nc")]
 
 [node name="Name" parent="." index="0"]
 text = "Miko"
