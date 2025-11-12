@@ -10,6 +10,7 @@
 script = ExtResource("1_ej4tf")
 
 [node name="Loaf" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_sjupa")
 offset = Vector2(0, -145)
@@ -28,7 +29,6 @@ texture = ExtResource("4_u7gb6")
 offset = Vector2(0, -145)
 
 [node name="Sit" type="Sprite2D" parent="."]
-visible = false
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_lmi4r")
 offset = Vector2(0, -145)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bcr0j1my6itkn"]
+[gd_scene load_steps=33 format=4 uid="uid://bcr0j1my6itkn"]
 
 [ext_resource type="Script" uid="uid://b6qrls8qs32y3" path="res://src/stage.gd" id="1_8jare"]
 [ext_resource type="Texture2D" uid="uid://bxklivgrtcvj4" path="res://assets/rooms/bedroom.PNG" id="2_aqkiv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dr2wngq57xchy" path="res://assets/rooms/living_room.PNG" id="4_n5t40"]
 [ext_resource type="Texture2D" uid="uid://g8hppg27p11u" path="res://assets/rooms/kitchen.png" id="5_3jhu1"]
 [ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="6_nygk3"]
+[ext_resource type="Texture2D" uid="uid://be60pqfdaouj0" path="res://assets/objects/paws.png" id="7_ghh6k"]
 [ext_resource type="Texture2D" uid="uid://b1ed5bvx36hpo" path="res://assets/objects/debug_tile.png" id="7_tuj6d"]
 [ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="8_lbqjn"]
 [ext_resource type="PackedScene" uid="uid://hau70s5rachk" path="res://src/cat/tissue.tscn" id="9_jgjmt"]
@@ -18,6 +19,17 @@
 [ext_resource type="Texture2D" uid="uid://ccm1wyea5ouey" path="res://assets/ui/Button monyong kanan.PNG" id="15_50b1g"]
 [ext_resource type="Texture2D" uid="uid://1d6xd2rekxc0" path="res://assets/ui/Button monyong kanan hover.PNG" id="16_mn14n"]
 [ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="17_mn14n"]
+[ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="19_5ytyl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2nlq"]
+texture = ExtResource("7_ghh6k")
+texture_region_size = Vector2i(120, 70)
+0:0/animation_columns = 3
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/0 = 0
+0:0/0/modulate = Color(1, 1, 1, 0.345098)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykrsh"]
 texture = ExtResource("7_tuj6d")
@@ -31,6 +43,7 @@ tile_size = Vector2i(120, 70)
 custom_data_layer_0/name = "room"
 custom_data_layer_0/type = 4
 sources/2 = SubResource("TileSetAtlasSource_ykrsh")
+sources/0 = SubResource("TileSetAtlasSource_y2nlq")
 
 [sub_resource type="Curve" id="Curve_24vjx"]
 _data = [Vector2(0, 0.303851), 0.0, 0.173067, 0, 0, Vector2(1, 0), -0.0264584, 0.0, 0, 0]
@@ -129,7 +142,7 @@ texture = ExtResource("6_nygk3")
 
 [node name="CatSpots" type="TileMapLayer" parent="."]
 modulate = Color(92.076, 58.196, 100, 1)
-tile_map_data = PackedByteArray("AAD1/yMAAgAAAAAAAADt/x8AAgAAAAAAAAACAB8AAgAAAAAAAAD6/ygAAgAAAAAAAADw/z4AAgAAAAAAAAAAABsAAgAAAAAAAAD1/xwAAgAAAAAAAAD6/zEAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD1/yMAAAAAAAAAAADt/x8AAAAAAAAAAAACAB8AAAAAAAAAAAD6/ygAAAAAAAAAAADw/z4AAAAAAAAAAAAAABsAAAAAAAAAAAD1/xwAAAAAAAAAAAD9/zIAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_mf4mk")
 
 [node name="DebugGrid" type="TileMapLayer" parent="."]
@@ -214,5 +227,11 @@ theme_override_font_sizes/font_size = 70
 text = "Continue"
 
 [node name="Notes" parent="GUI" instance=ExtResource("11_w6q0l")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="Background" parent="CanvasLayer" instance=ExtResource("19_5ytyl")]
+mouse_filter = 2
 
 [connection signal="pressed" from="GUI/Continue" to="." method="_on_continue_pressed"]
