@@ -24,7 +24,6 @@ func _ready():
 	hover_area.connect("mouse_entered", Callable(self, "_on_mouse_entered"))
 	hover_area.connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 
-
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
@@ -46,7 +45,6 @@ func _input(event):
 				snap_to_tile()
 				# Reset z_index
 				z_index = 0
-
 
 func _process(delta):
 	if dragging:
@@ -71,7 +69,6 @@ func _process(delta):
 			if cat_name in GlobalState.cat_locations:
 				change_sprite(GlobalState.cat_locations[cat_name])
 
-
 func is_mouse_over_cat() -> bool:
 	var mouse_pos = get_global_mouse_position()
 	
@@ -85,7 +82,6 @@ func is_mouse_over_cat() -> bool:
 	# Fallback: distance check
 	var distance = global_position.distance_to(mouse_pos)
 	return distance < 50
-
 
 func snap_to_tile():
 	if not tilemap:
@@ -116,6 +112,7 @@ func snap_to_tile():
 	
 	if target_tile in GlobalState.occupied_tiles and GlobalState.occupied_tiles[target_tile] != self:
 		print(name, " - Tile already occupied! Reverting...")
+		
 		move_to_position(previous_position)
 		return
 	
@@ -140,16 +137,17 @@ func snap_to_tile():
 
 
 func change_sprite(target_tile):
+	print('popopp')
 	if GlobalState.placement_rules.can_place_cat(target_tile, self):
 		sprite_to_loaf()
 	else:
 		sprite_to_angry()
 
-
 func move_to_position(target_pos: Vector2):
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "global_position", target_pos, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-
+	if GlobalState.cat_locations[self.get_meta('cat_name')] == Vector2i(0,0):
+		sprite_to_sit()
 
 func is_angry() -> bool:
 	return angry.visible == true
