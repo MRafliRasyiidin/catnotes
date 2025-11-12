@@ -4,20 +4,12 @@ extends Node2D
 @onready var choco: Node2D = $Cats/Choco
 @onready var tissue: Node2D = $Cats/Tissue
 @onready var chris: Node2D = $Cats/Chris
+@onready var boom: Node2D = $Cats/Boom
 @onready var cat_spots: TileMapLayer = $CatSpots
 
-# Arrays for each room
-#var living_room_tiless: Array[Vector2i] = []
-#var bedroom_tiles: Array[Vector2i] = []
-
-# Optional dictionary if you ever want to look up by room name
-#var room_tiles := {
-	#"living_room": living_room_tiles,
-	#"bedroom": bedroom_tiles
-#}
-
 func _ready() -> void:
-	var rules = load('res://src/rules/stage_1_rule.gd')
+	var rules_path = "res://src/rules/stage_%d_rule.gd" % GlobalState.stage_counter
+	var rules = load(rules_path)
 	GlobalState.placement_rules = rules.new()
 	notes.make_children("[color=#d44d13][b]Lala[/b][/color] wants to sit near the window")
 	set_cat_name()
@@ -28,6 +20,8 @@ func set_cat_name():
 	choco.set_meta('cat_name', 'Choco')
 	tissue.set_meta('cat_name', 'Tissue')
 	chris.set_meta('cat_name', 'Chris')
+	boom.set_meta('cat_name', 'Boom')
+	
 
 func set_tile_in_room():
 	# Living room tiles
@@ -67,5 +61,3 @@ func _input(event):
 			else:
 				print("Tile ", tile_coords, " is not part of any room")
 		else: print("Unavailable tile at ", tile_coords)
-
-	

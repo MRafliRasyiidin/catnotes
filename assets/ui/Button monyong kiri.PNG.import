@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://roywriojyw81"
-path="res://.godot/imported/chill_car.PNG-fd103ad3dd6e4bfb1818d36417f6f972.ctex"
+uid="uid://di8dd225girdl"
+path="res://.godot/imported/Button monyong kiri.PNG-a5c8b6b79c067daef10ddb8955be32cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chill_car.PNG"
-dest_files=["res://.godot/imported/chill_car.PNG-fd103ad3dd6e4bfb1818d36417f6f972.ctex"]
+source_file="res://assets/ui/Button monyong kiri.PNG"
+dest_files=["res://.godot/imported/Button monyong kiri.PNG-a5c8b6b79c067daef10ddb8955be32cf.ctex"]
 
 [params]
 

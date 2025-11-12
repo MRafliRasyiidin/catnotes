@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bcr0j1my6itkn"]
+[gd_scene load_steps=25 format=4 uid="uid://bcr0j1my6itkn"]
 
 [ext_resource type="Script" uid="uid://b6qrls8qs32y3" path="res://src/stage.gd" id="1_8jare"]
 [ext_resource type="Texture2D" uid="uid://bxklivgrtcvj4" path="res://assets/rooms/bedroom.PNG" id="2_aqkiv"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cikw1idqash3a" path="res://src/cat/tissue.tscn" id="9_jgjmt"]
 [ext_resource type="PackedScene" uid="uid://c55jr5w8w6e5j" path="res://src/cat/chris.tscn" id="10_j3tsr"]
 [ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="10_mknuf"]
+[ext_resource type="PackedScene" uid="uid://dvegrdwc5tbh7" path="res://src/cat/boom.tscn" id="11_8pn4f"]
 [ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="11_w6q0l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykrsh"]
@@ -142,6 +143,9 @@ position = Vector2(314, 1227)
 
 [node name="Chris" parent="Cats" instance=ExtResource("10_j3tsr")]
 position = Vector2(-100, 1250)
+
+[node name="Boom" parent="Cats" instance=ExtResource("11_8pn4f")]
+position = Vector2(0, 1050)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2180, 1653)
