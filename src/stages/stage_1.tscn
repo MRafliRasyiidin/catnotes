@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://g8hppg27p11u" path="res://assets/rooms/kitchen.png" id="5_3jhu1"]
 [ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="6_nygk3"]
 [ext_resource type="Texture2D" uid="uid://b1ed5bvx36hpo" path="res://assets/objects/debug_tile.png" id="7_tuj6d"]
-[ext_resource type="PackedScene" uid="uid://dxmci80euw36f" path="res://src/cat/choco.tscn" id="8_lbqjn"]
-[ext_resource type="PackedScene" uid="uid://cikw1idqash3a" path="res://src/cat/tissue.tscn" id="9_jgjmt"]
+[ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="8_lbqjn"]
+[ext_resource type="PackedScene" uid="uid://hau70s5rachk" path="res://src/cat/tissue.tscn" id="9_jgjmt"]
 [ext_resource type="PackedScene" uid="uid://c55jr5w8w6e5j" path="res://src/cat/chris.tscn" id="10_j3tsr"]
 [ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="10_mknuf"]
 [ext_resource type="PackedScene" uid="uid://dvegrdwc5tbh7" path="res://src/cat/boom.tscn" id="11_8pn4f"]
@@ -76,7 +76,7 @@ scale_max = 5.0
 scale_curve = SubResource("CurveXYZTexture_2qygu")
 alpha_curve = SubResource("CurveTexture_uj25x")
 
-[node name="March" type="Node2D"]
+[node name="March2" type="Node2D"]
 script = ExtResource("1_8jare")
 
 [node name="Rooms" type="Node2D" parent="."]

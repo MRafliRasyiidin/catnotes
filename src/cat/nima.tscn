@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1wwxgrr8mtgj"]
 
-[ext_resource type="PackedScene" uid="uid://dxmci80euw36f" path="res://src/cat/choco.tscn" id="1_w7hod"]
+[ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="1_w7hod"]
 
 [node name="Cat1" instance=ExtResource("1_w7hod")]

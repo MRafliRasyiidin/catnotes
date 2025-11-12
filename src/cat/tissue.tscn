@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cikw1idqash3a"]
+[gd_scene load_steps=6 format=3 uid="uid://hau70s5rachk"]
 
 [ext_resource type="Script" uid="uid://b2rfoaefnpvq8" path="res://src/cat/cat.gd" id="1_ej4tf"]
 [ext_resource type="Texture2D" uid="uid://b03x6v2wjge4q" path="res://assets/cats/tissue/IMG_4578.PNG" id="2_sjupa"]
