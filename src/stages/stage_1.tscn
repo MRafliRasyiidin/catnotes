@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ccm1wyea5ouey" path="res://assets/ui/Button monyong kanan.PNG" id="15_50b1g"]
 [ext_resource type="Texture2D" uid="uid://1d6xd2rekxc0" path="res://assets/ui/Button monyong kanan hover.PNG" id="16_mn14n"]
 [ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="17_mn14n"]
-[ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="19_5ytyl"]
+[ext_resource type="PackedScene" path="res://src/background.tscn" id="19_5ytyl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2nlq"]
 texture = ExtResource("7_ghh6k")

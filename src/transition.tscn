@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c66wkpgy3iom1"]
+[gd_scene load_steps=12 format=3 uid="uid://dveegoixktqwc"]
 
 [ext_resource type="Script" uid="uid://bb6ctur33ts7y" path="res://src/transition.gd" id="1_ylto7"]
 [ext_resource type="Texture2D" uid="uid://cbv1can8mn6gj" path="res://assets/calender/header.png" id="1_yqffd"]
 [ext_resource type="Texture2D" uid="uid://c8wlcx4k6q6ji" path="res://assets/calender/bottom.png" id="2_b5q2i"]
 [ext_resource type="FontFile" uid="uid://88g5u5nhvmv0" path="res://assets/fonts/variable.ttf" id="3_0ffih"]
 [ext_resource type="Texture2D" uid="uid://0d2wrcgdky2k" path="res://assets/calender/top.png" id="3_ia6ep"]
-[ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="6_3lt44"]
+[ext_resource type="PackedScene" path="res://src/background.tscn" id="6_3lt44"]
 
 [sub_resource type="FontVariation" id="FontVariation_6crdd"]
 base_font = ExtResource("3_0ffih")

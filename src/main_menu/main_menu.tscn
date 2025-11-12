@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cv56e3un2j5db" path="res://assets/rooms/work_room.png" id="9_bk001"]
 [ext_resource type="Texture2D" uid="uid://bhrw65rfkh0ua" path="res://assets/ui/title_sheet_cat.png" id="9_iy15y"]
 [ext_resource type="Texture2D" uid="uid://dl7gij3407wwf" path="res://assets/ui/title_sheet_notes.png" id="10_uk432"]
-[ext_resource type="Script" uid="uid://kyuoayk3qxwi" path="res://src/main_menu/camera.gd" id="15_iy15y"]
+[ext_resource type="Script" path="res://src/main_menu/camera.gd" id="15_iy15y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_plxga"]
 shader = ExtResource("6_abxxg")
