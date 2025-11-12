@@ -10,9 +10,10 @@ extends Node2D
 var dragging = false
 var drag_offset = Vector2.ZERO
 var previous_position = Vector2.ZERO
+var hissed: bool = false
 
 func _ready():
-	sprite_to_loaf()
+	sprite_to_sit()
 	# Get tilemap reference
 	if !tilemap:
 		# Try to find TileMapLayer in parent or scene
@@ -33,6 +34,8 @@ func _input(event):
 				drag_offset = Vector2.ZERO
 				# Bring to front while dragging
 				z_index = 100
+				SfxManager.play_random_meow()
+				
 		else:
 			if dragging:
 				# Stop dragging and snap to tile
@@ -118,6 +121,7 @@ func snap_to_tile():
 	change_sprite(target_tile)
 	
 	# Snap to tile center
+	SfxManager.play(SfxManager.get_random_sfx(SfxManager.pillows))
 	var tile_center = tilemap.to_global(tilemap.map_to_local(target_tile))
 	global_position = tile_center
 	GlobalState.cat_locations[self.get_meta("cat_name")] = target_tile
@@ -145,6 +149,7 @@ func is_angry() -> bool:
 	return angry.visible == true
 
 func sprite_to_picked():
+	hissed = false
 	hide_all_sprite()
 	picked.show()
 
@@ -153,6 +158,9 @@ func sprite_to_loaf():
 	loaf.show()
 	
 func sprite_to_angry():
+	if !hissed:
+		hissed = true
+		SfxManager.play(SfxManager.hiss)
 	hide_all_sprite()
 	angry.show()
 	

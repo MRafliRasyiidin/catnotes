@@ -97,5 +97,6 @@ func _input(event):
 
 
 func _on_continue_pressed() -> void:
+	SfxManager.play(SfxManager.click)
 	GlobalState.stage_counter += 1
 	get_tree().change_scene_to_file("res://src/transition.tscn")

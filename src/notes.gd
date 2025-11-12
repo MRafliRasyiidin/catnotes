@@ -28,6 +28,7 @@ func make_children(text: String):
 func _on_texture_rect_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_toggle_texture_rect_position()
+		SfxManager.play(SfxManager.paper)
 
 func _toggle_texture_rect_position() -> void:
 	if tween and tween.is_running():
@@ -37,9 +38,11 @@ func _toggle_texture_rect_position() -> void:
 	if is_moved_up:
 		target_y = texture_rect.position.y + 520
 		expand.text = "Click to expand"
+		
 	else:
 		target_y = texture_rect.position.y - 520
 		expand.text = "Click to collapse"
+		
 
 	is_moved_up = !is_moved_up
 

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://br21tfmksn58s" path="res://assets/cats/boom/IMG_0012.PNG" id="4_xqqo8"]
 [ext_resource type="Texture2D" uid="uid://cm56h1f3t5yw6" path="res://assets/cats/boom/IMG_0013.PNG" id="5_62kkp"]
 
-[node name="Cat1" instance=ExtResource("1_q4njt")]
+[node name="Boom" instance=ExtResource("1_q4njt")]
 
 [node name="Loaf" parent="." index="0"]
 visible = true

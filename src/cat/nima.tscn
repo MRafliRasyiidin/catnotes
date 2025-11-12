@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bdpcfhh2dtllb" path="res://assets/cats/nima/IMG_0019.PNG" id="4_jnwoi"]
 [ext_resource type="Texture2D" uid="uid://dst0rqygr7uq7" path="res://assets/cats/nima/IMG_0016.PNG" id="5_27tka"]
 
-[node name="Cat1" instance=ExtResource("1_w7hod")]
+[node name="Cat2" instance=ExtResource("1_w7hod")]
 
 [node name="Loaf" parent="." index="0"]
 texture = ExtResource("2_7rqi5")

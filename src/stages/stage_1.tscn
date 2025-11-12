@@ -81,7 +81,7 @@ scale_max = 5.0
 scale_curve = SubResource("CurveXYZTexture_2qygu")
 alpha_curve = SubResource("CurveTexture_uj25x")
 
-[node name="March2" type="Node2D"]
+[node name="Stage" type="Node2D"]
 script = ExtResource("1_8jare")
 
 [node name="Rooms" type="Node2D" parent="."]

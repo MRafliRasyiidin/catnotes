@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 GlobalState="*res://src/global_state.gd"
+SfxManager="*res://src/sfx_manager.gd"
 
 [display]
 

@@ -8,7 +8,9 @@ func _ready() -> void:
 	notes.play("default")
 
 func _on_start_pressed() -> void:
+	SfxManager.play(SfxManager.click)
 	get_tree().change_scene_to_file("res://src/stages/stage_1.tscn")
 
 func _on_exit_pressed() -> void:
+	SfxManager.play(SfxManager.click)
 	get_tree().quit()
