@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://cu44e0n46fqwi"]
 
-[ext_resource type="Script" uid="uid://b6qrls8qs32y3" path="res://src/test.gd" id="1_w01xx"]
+[ext_resource type="Script" uid="uid://b6qrls8qs32y3" path="res://src/stage.gd" id="1_w01xx"]
 [ext_resource type="Texture2D" path="res://assets/rooms/room_test.PNG" id="2_qeqgd"]
 [ext_resource type="Texture2D" path="res://assets/debug_tile.png" id="4_7p3l7"]
 [ext_resource type="Texture2D" uid="uid://yiuc5ci3jc26" path="res://assets/car_no_kasur.PNG" id="4_qeqgd"]

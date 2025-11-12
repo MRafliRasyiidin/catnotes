@@ -1,25 +1,28 @@
-[gd_scene load_steps=23 format=4 uid="uid://cu44e0n46fqwi"]
+[gd_scene load_steps=23 format=4 uid="uid://bcr0j1my6itkn"]
 
-[ext_resource type="Script" path="res://src/stage.gd" id="1_8uh7m"]
-[ext_resource type="Texture2D" uid="uid://bxklivgrtcvj4" path="res://assets/rooms/bedroom.PNG" id="2_jm2xb"]
-[ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="3_3njka"]
-[ext_resource type="Texture2D" uid="uid://cv56e3un2j5db" path="res://assets/rooms/work_room.png" id="3_kp6gn"]
-[ext_resource type="Texture2D" uid="uid://b1ed5bvx36hpo" path="res://assets/objects/debug_tile.png" id="3_ppyta"]
-[ext_resource type="Texture2D" uid="uid://dr2wngq57xchy" path="res://assets/rooms/living_room.PNG" id="4_g8r04"]
-[ext_resource type="Texture2D" uid="uid://g8hppg27p11u" path="res://assets/rooms/kitchen.png" id="5_tchgg"]
-[ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="7_b7fi5"]
-[ext_resource type="PackedScene" uid="uid://dxmci80euw36f" path="res://src/cat/cat_1.tscn" id="9_ybvmb"]
-[ext_resource type="PackedScene" uid="uid://cikw1idqash3a" path="res://src/cat/cat_2.tscn" id="10_6rl0o"]
-[ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="10_if8kf"]
+[ext_resource type="Script" path="res://src/stage.gd" id="1_8jare"]
+[ext_resource type="Texture2D" uid="uid://bxklivgrtcvj4" path="res://assets/rooms/bedroom.PNG" id="2_aqkiv"]
+[ext_resource type="Texture2D" uid="uid://cv56e3un2j5db" path="res://assets/rooms/work_room.png" id="3_lxvjb"]
+[ext_resource type="Texture2D" uid="uid://dr2wngq57xchy" path="res://assets/rooms/living_room.PNG" id="4_n5t40"]
+[ext_resource type="Texture2D" uid="uid://g8hppg27p11u" path="res://assets/rooms/kitchen.png" id="5_3jhu1"]
+[ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="6_nygk3"]
+[ext_resource type="Texture2D" uid="uid://b1ed5bvx36hpo" path="res://assets/objects/debug_tile.png" id="7_tuj6d"]
+[ext_resource type="PackedScene" uid="uid://dxmci80euw36f" path="res://src/cat/cat_1.tscn" id="8_lbqjn"]
+[ext_resource type="PackedScene" uid="uid://cikw1idqash3a" path="res://src/cat/cat_2.tscn" id="9_jgjmt"]
+[ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="10_mknuf"]
+[ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="11_w6q0l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykrsh"]
-texture = ExtResource("3_ppyta")
+texture = ExtResource("7_tuj6d")
 texture_region_size = Vector2i(120, 70)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_mf4mk"]
 tile_shape = 1
+tile_layout = 4
 tile_size = Vector2i(120, 70)
+custom_data_layer_0/name = "room"
+custom_data_layer_0/type = 4
 sources/2 = SubResource("TileSetAtlasSource_ykrsh")
 
 [sub_resource type="Curve" id="Curve_24vjx"]
@@ -71,55 +74,55 @@ scale_max = 5.0
 scale_curve = SubResource("CurveXYZTexture_2qygu")
 alpha_curve = SubResource("CurveTexture_uj25x")
 
-[node name="Test" type="Node2D"]
-script = ExtResource("1_8uh7m")
+[node name="March" type="Node2D"]
+script = ExtResource("1_8jare")
 
 [node name="Rooms" type="Node2D" parent="."]
 
 [node name="Bedroom" type="Sprite2D" parent="Rooms"]
 position = Vector2(1849.5, 1007)
-texture = ExtResource("2_jm2xb")
+texture = ExtResource("2_aqkiv")
 
 [node name="Office" type="Sprite2D" parent="Rooms"]
 position = Vector2(2598.5, 1440)
-texture = ExtResource("3_kp6gn")
+texture = ExtResource("3_lxvjb")
 
 [node name="LivingRoom" type="Sprite2D" parent="Rooms"]
 position = Vector2(1475.5, 1669)
-texture = ExtResource("4_g8r04")
+texture = ExtResource("4_n5t40")
 
 [node name="Kitchen" type="Sprite2D" parent="Rooms"]
 position = Vector2(2961.5, 2015)
-texture = ExtResource("5_tchgg")
+texture = ExtResource("5_3jhu1")
 
 [node name="CatBeds" type="Node2D" parent="."]
 position = Vector2(1282, 662)
 
 [node name="CatBed" type="Sprite2D" parent="CatBeds"]
 position = Vector2(758, 394)
-texture = ExtResource("3_3njka")
+texture = ExtResource("6_nygk3")
 
 [node name="CatBed2" type="Sprite2D" parent="CatBeds"]
 position = Vector2(816, 983)
-texture = ExtResource("3_3njka")
+texture = ExtResource("6_nygk3")
 
 [node name="CatBed3" type="Sprite2D" parent="CatBeds"]
 position = Vector2(219, 983)
-texture = ExtResource("3_3njka")
+texture = ExtResource("6_nygk3")
 flip_h = true
 
 [node name="CatBed4" type="Sprite2D" parent="CatBeds"]
 position = Vector2(-501, 1123)
-texture = ExtResource("3_3njka")
+texture = ExtResource("6_nygk3")
 flip_h = true
 
 [node name="CatBed5" type="Sprite2D" parent="CatBeds"]
 position = Vector2(1536, 2103)
-texture = ExtResource("3_3njka")
+texture = ExtResource("6_nygk3")
 
 [node name="CatSpots" type="TileMapLayer" parent="."]
 modulate = Color(92.076, 58.196, 100, 1)
-tile_map_data = PackedByteArray("AAAMAC4AAgAAAAAAAAAGADIAAgAAAAAAAAAQAB0AAgAAAAAAAAARAC4AAgAAAAAAAAAXAE4AAgAAAAAAAAANABsAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD1/yMAAgAAAAAAAADt/x8AAgAAAAAAAAACAB8AAgAAAAAAAAD6/ygAAgAAAAAAAADw/z4AAgAAAAAAAAAAABsAAgAAAAAAAAD1/xwAAgAAAAAAAAD6/zEAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_mf4mk")
 
 [node name="DebugGrid" type="TileMapLayer" parent="."]
@@ -130,10 +133,10 @@ tile_set = SubResource("TileSet_mf4mk")
 [node name="Cats" type="Node2D" parent="."]
 position = Vector2(1285, 663)
 
-[node name="Cat1" parent="Cats" instance=ExtResource("9_ybvmb")]
+[node name="Cat1" parent="Cats" instance=ExtResource("8_lbqjn")]
 position = Vector2(145, 1332)
 
-[node name="Cat2" parent="Cats" instance=ExtResource("10_6rl0o")]
+[node name="Cat2" parent="Cats" instance=ExtResource("9_jgjmt")]
 position = Vector2(314, 1227)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -143,7 +146,7 @@ limit_left = -953
 limit_top = -443
 limit_smoothed = true
 position_smoothing_enabled = true
-script = ExtResource("7_b7fi5")
+script = ExtResource("10_mknuf")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(-753, 1047)
@@ -159,4 +162,4 @@ process_material = SubResource("ParticleProcessMaterial_g8r04")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="Notes" parent="GUI" instance=ExtResource("10_if8kf")]
+[node name="Notes" parent="GUI" instance=ExtResource("11_w6q0l")]
