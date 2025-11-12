@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bcr0j1my6itkn"]
+[gd_scene load_steps=29 format=4 uid="uid://bcr0j1my6itkn"]
 
 [ext_resource type="Script" uid="uid://b6qrls8qs32y3" path="res://src/stage.gd" id="1_8jare"]
 [ext_resource type="Texture2D" uid="uid://bxklivgrtcvj4" path="res://assets/rooms/bedroom.PNG" id="2_aqkiv"]
@@ -13,6 +13,10 @@
 [ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="10_mknuf"]
 [ext_resource type="PackedScene" uid="uid://dvegrdwc5tbh7" path="res://src/cat/boom.tscn" id="11_8pn4f"]
 [ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="11_w6q0l"]
+[ext_resource type="PackedScene" uid="uid://b1wwxgrr8mtgj" path="res://src/cat/nima.tscn" id="12_saltv"]
+[ext_resource type="Texture2D" uid="uid://ccm1wyea5ouey" path="res://assets/ui/Button monyong kanan.PNG" id="15_50b1g"]
+[ext_resource type="Texture2D" uid="uid://1d6xd2rekxc0" path="res://assets/ui/Button monyong kanan hover.PNG" id="16_mn14n"]
+[ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="17_mn14n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykrsh"]
 texture = ExtResource("7_tuj6d")
@@ -147,6 +151,9 @@ position = Vector2(-100, 1250)
 [node name="Boom" parent="Cats" instance=ExtResource("11_8pn4f")]
 position = Vector2(0, 1050)
 
+[node name="Nima" parent="Cats" instance=ExtResource("12_saltv")]
+position = Vector2(500, 1200)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2180, 1653)
 zoom = Vector2(0.7, 0.7)
@@ -170,4 +177,38 @@ process_material = SubResource("ParticleProcessMaterial_g8r04")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
+[node name="Continue" type="TextureButton" parent="GUI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 906.0
+offset_right = 417.0
+offset_bottom = 1052.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("15_50b1g")
+texture_hover = ExtResource("16_mn14n")
+
+[node name="ContinueText" type="Label" parent="GUI/Continue"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1100.5
+offset_top = -585.0
+offset_right = -826.5
+offset_bottom = -496.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_mn14n")
+theme_override_font_sizes/font_size = 70
+text = "Continue"
+
 [node name="Notes" parent="GUI" instance=ExtResource("11_w6q0l")]
+
+[connection signal="pressed" from="GUI/Continue" to="." method="_on_continue_pressed"]

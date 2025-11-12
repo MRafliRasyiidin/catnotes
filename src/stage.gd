@@ -5,15 +5,46 @@ extends Node2D
 @onready var tissue: Node2D = $Cats/Tissue
 @onready var chris: Node2D = $Cats/Chris
 @onready var boom: Node2D = $Cats/Boom
+@onready var nima: Node2D = $Cats/Nima
 @onready var cat_spots: TileMapLayer = $CatSpots
+@onready var cats: Node2D = $Cats
+@onready var continue_button: TextureButton = $GUI/Continue
+
+var is_complete: bool = false
 
 func _ready() -> void:
 	var rules_path = "res://src/rules/stage_%d_rule.gd" % GlobalState.stage_counter
 	var rules = load(rules_path)
 	GlobalState.placement_rules = rules.new()
 	notes.make_children("[color=#d44d13][b]Lala[/b][/color] wants to sit near the window")
+	set_cat_init_position()
 	set_cat_name()
 	set_tile_in_room()
+
+func _process(delta):
+	is_complete = true 
+	var cat_list = cats.get_children()
+	for cat in cat_list:
+		if cat.is_angry():
+			is_complete = false
+			break
+	#print(GlobalState.cat_locations)
+	#print(GlobalState.cat_locations.values().has(Vector2i(0,0)))
+	if is_complete && not GlobalState.cat_locations.values().has(Vector2i(0,0)):
+		continue_button.show()
+	else:
+		continue_button.hide()
+
+func set_cat_init_position():
+	GlobalState.cat_locations = {
+		"Choco": Vector2i(0,0),
+		"Tissue": Vector2i(0,0),
+		"Boom": Vector2i(0,0),
+		"Chris": Vector2i(0,0),
+		#"Miko": Vector2i(0,0),
+		"Nima": Vector2i(0,0),
+	}
+	GlobalState.occupied_tiles = {}
 
 func set_cat_name():
 	print(choco, tissue, chris)
@@ -21,8 +52,8 @@ func set_cat_name():
 	tissue.set_meta('cat_name', 'Tissue')
 	chris.set_meta('cat_name', 'Chris')
 	boom.set_meta('cat_name', 'Boom')
+	nima.set_meta('cat_name', 'Nima')
 	
-
 func set_tile_in_room():
 	# Living room tiles
 	GlobalState.room_tiles = {
@@ -61,3 +92,8 @@ func _input(event):
 			else:
 				print("Tile ", tile_coords, " is not part of any room")
 		else: print("Unavailable tile at ", tile_coords)
+
+
+func _on_continue_pressed() -> void:
+	GlobalState.stage_counter += 1
+	get_tree().change_scene_to_file("res://src/transition.tscn")

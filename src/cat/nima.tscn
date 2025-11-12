@@ -1,5 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1wwxgrr8mtgj"]
+[gd_scene load_steps=6 format=3 uid="uid://b1wwxgrr8mtgj"]
 
 [ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="1_w7hod"]
+[ext_resource type="Texture2D" uid="uid://dtj0yv4wnxmqs" path="res://assets/cats/nima/IMG_0017.PNG" id="2_7rqi5"]
+[ext_resource type="Texture2D" uid="uid://bka8detoxm8xu" path="res://assets/cats/nima/IMG_0018.PNG" id="3_jnwoi"]
+[ext_resource type="Texture2D" uid="uid://bdpcfhh2dtllb" path="res://assets/cats/nima/IMG_0019.PNG" id="4_jnwoi"]
+[ext_resource type="Texture2D" uid="uid://dst0rqygr7uq7" path="res://assets/cats/nima/IMG_0016.PNG" id="5_27tka"]
 
 [node name="Cat1" instance=ExtResource("1_w7hod")]
+
+[node name="Loaf" parent="." index="0"]
+texture = ExtResource("2_7rqi5")
+
+[node name="Picked" parent="." index="1"]
+texture = ExtResource("3_jnwoi")
+
+[node name="Angry" parent="." index="2"]
+texture = ExtResource("4_jnwoi")
+
+[node name="Sit" parent="." index="3"]
+texture = ExtResource("5_27tka")

@@ -141,6 +141,9 @@ func is_inside_tilemap() -> bool:
 	var source_id = tilemap.get_cell_source_id(mouse_tile)
 	return source_id != -1
 
+func is_angry() -> bool:
+	return angry.visible == true
+
 func sprite_to_picked():
 	hide_all_sprite()
 	picked.show()
