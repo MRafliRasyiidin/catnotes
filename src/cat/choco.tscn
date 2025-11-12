@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxmci80euw36f"]
+
+[ext_resource type="Script" uid="uid://b2rfoaefnpvq8" path="res://src/cat/cat.gd" id="1_ej4tf"]
+[ext_resource type="Texture2D" uid="uid://ki1m2c5fiq71" path="res://assets/cats/choco/IMG_4560.PNG" id="2_mlu7n"]
+[ext_resource type="Texture2D" uid="uid://df43kt0u78n4t" path="res://assets/cats/choco/IMG_4559.PNG" id="3_o67mf"]
+[ext_resource type="Texture2D" uid="uid://wvylbjeqsoha" path="res://assets/cats/choco/IMG_4558.PNG" id="4_mlu7n"]
+[ext_resource type="Texture2D" uid="uid://bv8xwgbd2rub3" path="res://assets/cats/choco/IMG_4557.PNG" id="5_o67mf"]
+
+[node name="Choco" type="Node2D"]
+script = ExtResource("1_ej4tf")
+
+[node name="Loaf" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mlu7n")
+offset = Vector2(0, -145)
+
+[node name="Picked" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_o67mf")
+offset = Vector2(100, 260)
+
+[node name="Angry" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_mlu7n")
+offset = Vector2(0, -145)
+
+[node name="Sit" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_o67mf")
+offset = Vector2(175, -330)
+
+[node name="LandingPoint" type="Marker2D" parent="."]
+position = Vector2(0, 116)

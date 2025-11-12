@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1ed5bvx36hpo"
-path="res://.godot/imported/debug_tile.png-bf5b9f84e0e2fc79287c4e5f84db56ad.ctex"
+uid="uid://yiuc5ci3jc26"
+path="res://.godot/imported/car_no_kasur.PNG-71590da69ae65310dc1489c88c7ae337.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/debug_tile.png"
-dest_files=["res://.godot/imported/debug_tile.png-bf5b9f84e0e2fc79287c4e5f84db56ad.ctex"]
+source_file="res://assets/car_no_kasur.PNG"
+dest_files=["res://.godot/imported/car_no_kasur.PNG-71590da69ae65310dc1489c88c7ae337.ctex"]
 
 [params]
 
