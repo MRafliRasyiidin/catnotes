@@ -1,5 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bql2im40ga5vh"]
+[gd_scene load_steps=6 format=3 uid="uid://bql2im40ga5vh"]
 
 [ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="1_ga1nc"]
+[ext_resource type="Texture2D" uid="uid://lt5l8whlc8a1" path="res://assets/cats/miko/IMG_4599.PNG" id="2_pttbn"]
+[ext_resource type="Texture2D" uid="uid://ctqvv1sja42ro" path="res://assets/cats/miko/IMG_4604.PNG" id="3_6vei3"]
+[ext_resource type="Texture2D" uid="uid://b7j1e07uiqe78" path="res://assets/cats/miko/IMG_4603.PNG" id="4_wbhq8"]
+[ext_resource type="Texture2D" uid="uid://c0p3an8dh7qfj" path="res://assets/cats/miko/IMG_4602.PNG" id="5_pu6c6"]
 
 [node name="Cat1" instance=ExtResource("1_ga1nc")]
+
+[node name="Loaf" parent="." index="0"]
+texture = ExtResource("2_pttbn")
+
+[node name="Picked" parent="." index="1"]
+texture = ExtResource("3_6vei3")
+
+[node name="Angry" parent="." index="2"]
+texture = ExtResource("4_wbhq8")
+
+[node name="Sit" parent="." index="3"]
+texture = ExtResource("5_pu6c6")

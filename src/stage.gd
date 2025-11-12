@@ -6,6 +6,7 @@ extends Node2D
 @onready var chris: Node2D = $Cats/Chris
 @onready var boom: Node2D = $Cats/Boom
 @onready var nima: Node2D = $Cats/Nima
+@onready var miko: Node2D = $Cats/Miko
 @onready var cat_spots: TileMapLayer = $CatSpots
 @onready var cats: Node2D = $Cats
 @onready var continue_button: TextureButton = $GUI/Continue
@@ -41,7 +42,7 @@ func set_cat_init_position():
 		"Tissue": Vector2i(0,0),
 		"Boom": Vector2i(0,0),
 		"Chris": Vector2i(0,0),
-		#"Miko": Vector2i(0,0),
+		"Miko": Vector2i(0,0),
 		"Nima": Vector2i(0,0),
 	}
 	GlobalState.occupied_tiles = {}
@@ -53,6 +54,7 @@ func set_cat_name():
 	chris.set_meta('cat_name', 'Chris')
 	boom.set_meta('cat_name', 'Boom')
 	nima.set_meta('cat_name', 'Nima')
+	miko.set_meta('cat_name', 'Miko')
 	
 func set_tile_in_room():
 	# Living room tiles
