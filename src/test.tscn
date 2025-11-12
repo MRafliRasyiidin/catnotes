@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://g8hppg27p11u" path="res://assets/rooms/kitchen.png" id="5_tchgg"]
 [ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="7_b7fi5"]
 [ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="9_ybvmb"]
-[ext_resource type="PackedScene" uid="uid://hau70s5rachk" path="res://src/cat/tissue.tscn" id="10_6rl0o"]
+[ext_resource type="PackedScene" uid="uid://ck1wf4gtsqeb7" path="res://src/cat/tissue.tscn" id="10_6rl0o"]
 [ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="10_if8kf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykrsh"]

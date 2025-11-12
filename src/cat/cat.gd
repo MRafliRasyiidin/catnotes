@@ -6,6 +6,8 @@ extends Node2D
 @onready var landing_point: Marker2D = $LandingPoint
 @onready var angry: Sprite2D = $Angry
 @onready var sit: Sprite2D = $Sit
+@onready var cat_name: Label = $Name
+@onready var hover_area: Area2D = $Area2D 
 
 var dragging = false
 var drag_offset = Vector2.ZERO
@@ -17,6 +19,8 @@ func _ready():
 	if !tilemap:
 		# Try to find TileMapLayer in parent or scene
 		tilemap = get_parent().get_parent().get_node("CatSpots")
+	hover_area.connect("mouse_entered", Callable(self, "_on_mouse_entered"))
+	hover_area.connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 
 var inside_tilemap = false
 
@@ -144,19 +148,37 @@ func is_inside_tilemap() -> bool:
 func is_angry() -> bool:
 	return angry.visible == true
 
+func _on_mouse_entered() -> void:
+	cat_name.show()
+
+func _on_mouse_exited() -> void:
+	cat_name.hide()
+
 func sprite_to_picked():
+	var pos = cat_name.position
+	pos.y = -100
+	cat_name.position = pos
 	hide_all_sprite()
 	picked.show()
 
 func sprite_to_loaf():
+	var pos = cat_name.position
+	pos.y = -185
+	cat_name.position = pos
 	hide_all_sprite()
 	loaf.show()
 	
 func sprite_to_angry():
+	var pos = cat_name.position
+	pos.y = -185
+	cat_name.position = pos
 	hide_all_sprite()
 	angry.show()
 	
 func sprite_to_sit():
+	var pos = cat_name.position
+	pos.y = -220
+	cat_name.position = pos
 	hide_all_sprite()
 	sit.show()
 	
