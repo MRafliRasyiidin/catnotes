@@ -56,6 +56,8 @@ func _process(delta):
 				inside_tilemap = false
 				print("Exited tilemap area")
 				sprite_to_picked()
+	else:
+		change_sprite(GlobalState.cat_locations[self.get_meta("cat_name")])
 
 func is_mouse_over_cat() -> bool:
 	var mouse_pos = get_global_mouse_position()
@@ -96,13 +98,15 @@ func snap_to_tile():
 		# No valid tile → revert smoothly
 		print(name, " - No valid tile under cat, reverting smoothly to previous position")
 		move_to_position(previous_position)
-		sprite_to_loaf()
+		#sprite_to_loaf()
+		change_sprite(tilemap.local_to_map(previous_position))
 		return
 	
 	if target_tile in GlobalState.occupied_tiles and GlobalState.occupied_tiles[target_tile] != self:
 		print(name, " - Tile already occupied! Reverting...")
 		move_to_position(previous_position)
-		sprite_to_loaf()
+		change_sprite(tilemap.local_to_map(previous_position))
+		#sprite_to_loaf()
 		return
 	
 	for key in GlobalState.occupied_tiles.keys():
@@ -111,18 +115,20 @@ func snap_to_tile():
 			break
 	
 	GlobalState.occupied_tiles[target_tile] = self
+	change_sprite(target_tile)
 	
+	# Snap to tile center
+	var tile_center = tilemap.to_global(tilemap.map_to_local(target_tile))
+	global_position = tile_center
+	GlobalState.cat_locations[self.get_meta("cat_name")] = target_tile
+	print(name, " snapped to tile: ", target_tile)
+
+func change_sprite(target_tile):
 	if GlobalState.placement_rules.can_place_cat(target_tile, self):
 		sprite_to_loaf()
 	else:
 		sprite_to_angry()
 	
-	# Snap to tile center
-	var tile_center = tilemap.to_global(tilemap.map_to_local(target_tile))
-	global_position = tile_center
-	
-	print(name, " snapped to tile: ", target_tile)
-
 func move_to_position(target_pos: Vector2):
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "global_position", target_pos, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

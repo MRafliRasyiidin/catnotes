@@ -1,14 +1,15 @@
-[gd_scene load_steps=23 format=4 uid="uid://bcr0j1my6itkn"]
+[gd_scene load_steps=24 format=4 uid="uid://bcr0j1my6itkn"]
 
-[ext_resource type="Script" path="res://src/stage.gd" id="1_8jare"]
+[ext_resource type="Script" uid="uid://b6qrls8qs32y3" path="res://src/stage.gd" id="1_8jare"]
 [ext_resource type="Texture2D" uid="uid://bxklivgrtcvj4" path="res://assets/rooms/bedroom.PNG" id="2_aqkiv"]
 [ext_resource type="Texture2D" uid="uid://cv56e3un2j5db" path="res://assets/rooms/work_room.png" id="3_lxvjb"]
 [ext_resource type="Texture2D" uid="uid://dr2wngq57xchy" path="res://assets/rooms/living_room.PNG" id="4_n5t40"]
 [ext_resource type="Texture2D" uid="uid://g8hppg27p11u" path="res://assets/rooms/kitchen.png" id="5_3jhu1"]
 [ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="6_nygk3"]
 [ext_resource type="Texture2D" uid="uid://b1ed5bvx36hpo" path="res://assets/objects/debug_tile.png" id="7_tuj6d"]
-[ext_resource type="PackedScene" uid="uid://dxmci80euw36f" path="res://src/cat/cat_1.tscn" id="8_lbqjn"]
-[ext_resource type="PackedScene" uid="uid://cikw1idqash3a" path="res://src/cat/cat_2.tscn" id="9_jgjmt"]
+[ext_resource type="PackedScene" uid="uid://dxmci80euw36f" path="res://src/cat/choco.tscn" id="8_lbqjn"]
+[ext_resource type="PackedScene" uid="uid://cikw1idqash3a" path="res://src/cat/tissue.tscn" id="9_jgjmt"]
+[ext_resource type="PackedScene" uid="uid://c55jr5w8w6e5j" path="res://src/cat/chris.tscn" id="10_j3tsr"]
 [ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="10_mknuf"]
 [ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="11_w6q0l"]
 
@@ -133,11 +134,14 @@ tile_set = SubResource("TileSet_mf4mk")
 [node name="Cats" type="Node2D" parent="."]
 position = Vector2(1285, 663)
 
-[node name="Cat1" parent="Cats" instance=ExtResource("8_lbqjn")]
+[node name="Choco" parent="Cats" instance=ExtResource("8_lbqjn")]
 position = Vector2(145, 1332)
 
-[node name="Cat2" parent="Cats" instance=ExtResource("9_jgjmt")]
+[node name="Tissue" parent="Cats" instance=ExtResource("9_jgjmt")]
 position = Vector2(314, 1227)
+
+[node name="Chris" parent="Cats" instance=ExtResource("10_j3tsr")]
+position = Vector2(-100, 1250)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2180, 1653)
