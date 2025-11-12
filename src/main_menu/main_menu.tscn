@@ -1,50 +1,238 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmltxnihbpwlh"]
+[gd_scene load_steps=34 format=3 uid="uid://dmltxnihbpwlh"]
 
 [ext_resource type="Script" uid="uid://dvqgnlgc8r5yi" path="res://src/main_menu/main_menu.gd" id="1_b2bbe"]
-[ext_resource type="Texture2D" uid="uid://cmcombdjnglwt" path="res://assets/ui/title.PNG" id="1_tlnm8"]
 [ext_resource type="Texture2D" uid="uid://di8dd225girdl" path="res://assets/ui/Button monyong kiri.PNG" id="2_amn4d"]
+[ext_resource type="Texture2D" uid="uid://bxklivgrtcvj4" path="res://assets/rooms/bedroom.PNG" id="2_vccap"]
+[ext_resource type="Texture2D" uid="uid://vf2wy6g05qrc" path="res://assets/ui/main_menu_background.png" id="3_bk001"]
 [ext_resource type="Texture2D" uid="uid://xgba6olr5sgp" path="res://assets/ui/Button monyong kiri hover.PNG" id="3_pwul8"]
+[ext_resource type="Texture2D" uid="uid://dr2wngq57xchy" path="res://assets/rooms/living_room.PNG" id="4_abxxg"]
 [ext_resource type="Texture2D" uid="uid://ccm1wyea5ouey" path="res://assets/ui/Button monyong kanan.PNG" id="4_no1ax"]
 [ext_resource type="FontFile" uid="uid://b5v20ed87aryq" path="res://assets/fonts/bold.otf" id="4_wrmdx"]
+[ext_resource type="Texture2D" uid="uid://g8hppg27p11u" path="res://assets/rooms/kitchen.png" id="5_plxga"]
 [ext_resource type="Texture2D" uid="uid://1d6xd2rekxc0" path="res://assets/ui/Button monyong kanan hover.PNG" id="5_wrmdx"]
+[ext_resource type="Shader" uid="uid://chnwk2mfy371l" path="res://src/shaders/main_menu.gdshader" id="6_abxxg"]
+[ext_resource type="Texture2D" uid="uid://cv56e3un2j5db" path="res://assets/rooms/work_room.png" id="9_bk001"]
+[ext_resource type="Texture2D" uid="uid://bhrw65rfkh0ua" path="res://assets/ui/title_sheet_cat.png" id="9_iy15y"]
+[ext_resource type="Texture2D" uid="uid://dl7gij3407wwf" path="res://assets/ui/title_sheet_notes.png" id="10_uk432"]
+[ext_resource type="Script" uid="uid://kyuoayk3qxwi" path="res://src/main_menu/camera.gd" id="15_iy15y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_plxga"]
+shader = ExtResource("6_abxxg")
+shader_parameter/blur_radius = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtgn3"]
+atlas = ExtResource("9_iy15y")
+region = Rect2(0, 0, 784, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxocj"]
+atlas = ExtResource("9_iy15y")
+region = Rect2(784, 0, 784, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mcak"]
+atlas = ExtResource("9_iy15y")
+region = Rect2(1568, 0, 784, 352)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_prrv1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtgn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtgn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtgn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxocj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mcak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxocj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtgn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtgn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtgn3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy15y"]
+atlas = ExtResource("10_uk432")
+region = Rect2(784, 0, 784, 283)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk432"]
+atlas = ExtResource("10_uk432")
+region = Rect2(1568, 0, 784, 283)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prrv1"]
+atlas = ExtResource("10_uk432")
+region = Rect2(0, 0, 784, 283)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n0ljs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy15y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk432")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy15y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prrv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prrv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prrv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prrv1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Curve" id="Curve_abxxg"]
+_data = [Vector2(0, 0.303851), 0.0, 0.173067, 0, 0, Vector2(1, 0), -0.0264584, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_uj25x"]
+curve = SubResource("Curve_abxxg")
+
+[sub_resource type="Curve" id="Curve_plxga"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.464104), 0.0, 0.0, 0, 0, Vector2(1, 0.91238), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ao0vk"]
+curve_y = SubResource("Curve_plxga")
+
+[sub_resource type="Curve" id="Curve_iy15y"]
+_data = [Vector2(0.013245, 1), 0.0, 0.0, 0, 0, Vector2(0.463576, 0.680328), -1.38092, -1.38092, 0, 0, Vector2(0.963576, 0.254098), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_uk432"]
+_data = [Vector2(0.013245, 1), 0.0, -1.13379, 0, 0, Vector2(1, 0.309214), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_gtgn3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_2qygu"]
+curve_x = SubResource("Curve_iy15y")
+curve_y = SubResource("Curve_uk432")
+curve_z = SubResource("Curve_gtgn3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jxocj"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(20, 10, 1)
+emission_shape = 3
+emission_box_extents = Vector3(50, 50, 1)
+angle_min = -72.8
+angle_max = 105.2
+directional_velocity_min = -50.0
+directional_velocity_max = -1.60933e-05
+directional_velocity_curve = SubResource("CurveXYZTexture_ao0vk")
+gravity = Vector3(0, -20, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+scale_min = 4.5
+scale_max = 5.0
+scale_curve = SubResource("CurveXYZTexture_2qygu")
+alpha_curve = SubResource("CurveTexture_uj25x")
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_b2bbe")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Rooms" type="Node2D" parent="."]
+position = Vector2(-927, -902)
+
+[node name="Bedroom" type="Sprite2D" parent="Rooms"]
+position = Vector2(1849.5, 1007)
+texture = ExtResource("2_vccap")
+
+[node name="Office" type="Sprite2D" parent="Rooms"]
+position = Vector2(2598.5, 1440)
+texture = ExtResource("9_bk001")
+
+[node name="LivingRoom" type="Sprite2D" parent="Rooms"]
+position = Vector2(1475.5, 1669)
+texture = ExtResource("4_abxxg")
+
+[node name="Kitchen" type="Sprite2D" parent="Rooms"]
+position = Vector2(2961.5, 2015)
+texture = ExtResource("5_plxga")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Blur" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_plxga")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 705.0
-offset_top = 80.0
-offset_right = 3841.0
-offset_bottom = 2425.0
+offset_right = 3840.0
+offset_bottom = 2160.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.2, 0.2)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("1_tlnm8")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_bk001")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 825.0
-offset_top = 604.0
-offset_right = 1196.0
-offset_bottom = 900.0
+[node name="Title" type="Node2D" parent="CanvasLayer"]
 
-[node name="Start" type="TextureButton" parent="VBoxContainer"]
+[node name="Cat" type="AnimatedSprite2D" parent="CanvasLayer/Title"]
+position = Vector2(959, 267)
+sprite_frames = SubResource("SpriteFrames_prrv1")
+frame_progress = 0.339187
+
+[node name="Notes" type="AnimatedSprite2D" parent="CanvasLayer/Title"]
+position = Vector2(960, 535)
+sprite_frames = SubResource("SpriteFrames_n0ljs")
+frame_progress = 0.33251
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = 169.0
+offset_right = 186.0
+offset_bottom = 465.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_amn4d")
 texture_hover = ExtResource("3_pwul8")
 
-[node name="StartText" type="Label" parent="VBoxContainer/Start"]
+[node name="StartText" type="Label" parent="CanvasLayer/VBoxContainer/Start"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -57,17 +245,17 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.240932, 0.247231, 0.237826, 1)
+theme_override_colors/font_color = Color(0.137255, 0.0901961, 0.219608, 1)
 theme_override_fonts/font = ExtResource("4_wrmdx")
 theme_override_font_sizes/font_size = 100
 text = "Start"
 
-[node name="Exit" type="TextureButton" parent="VBoxContainer"]
+[node name="Exit" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_no1ax")
 texture_hover = ExtResource("5_wrmdx")
 
-[node name="ExitText" type="Label" parent="VBoxContainer/Exit"]
+[node name="ExitText" type="Label" parent="CanvasLayer/VBoxContainer/Exit"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,10 +268,23 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.240932, 0.247231, 0.237826, 1)
+theme_override_colors/font_color = Color(0.137255, 0.0901961, 0.219608, 1)
 theme_override_fonts/font = ExtResource("4_wrmdx")
 theme_override_font_sizes/font_size = 100
 text = "Exit"
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[node name="Particles" type="Node2D" parent="CanvasLayer"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/Particles"]
+position = Vector2(982, 622)
+amount = 150
+lifetime = 10.0
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_jxocj")
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+anchor_mode = 0
+script = ExtResource("15_iy15y")
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
