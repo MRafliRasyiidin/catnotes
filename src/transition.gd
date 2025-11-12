@@ -13,7 +13,6 @@ func _ready() -> void:
 	
 func set_month():
 	var stage = GlobalState.stage_counter
-	var months = ["March","April","May","June","July"]
 	
-	current_month.text = months[stage-1]
-	next_month.text = months[stage]
+	current_month.text = GlobalState.months[stage-2]
+	next_month.text = GlobalState.months[stage-1]

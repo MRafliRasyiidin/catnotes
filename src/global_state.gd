@@ -8,7 +8,7 @@ static var cat_locations = {
 	"Tissue": Vector2i(0,0),
 	"Boom": Vector2i(0,0),
 	"Chris": Vector2i(0,0),
-	#"Miko": Vector2i(0,0),
+	"Miko": Vector2i(0,0),
 	"Nima": Vector2i(0,0),
 }
 static var room_tiles: Dictionary = {
@@ -17,3 +17,4 @@ static var room_tiles: Dictionary = {
 	"kitchen": [],
 	"office": []
 }
+static var months = ["March","April","May","June","July"]
