@@ -46,6 +46,8 @@ func set_cat_init_position():
 		"Nima": Vector2i(0,0),
 	}
 	GlobalState.occupied_tiles = {}
+	if GlobalState.stage_counter >= 4:
+		GlobalState.cat_locations["Tissue"] = Vector2i(-1,0)
 
 func set_cat_name():
 	print(choco, tissue, chris)

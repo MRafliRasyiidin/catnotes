@@ -17,7 +17,7 @@ var rule: Dictionary = {
 		"cat": []
 	},
 	"Chris": {
-		"coor": [Vector2i(-5, 35),Vector2i(0, 27),Vector2i(-3, 45),Vector2i(-16, 62)],
+		"coor": [Vector2i(0, 27),Vector2i(-3, 45),Vector2i(-16, 62)],
 		"cat": []
 	},
 	"Boom": {
