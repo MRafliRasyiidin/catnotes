@@ -4,6 +4,7 @@ extends Node2D
 @onready var notes: AnimatedSprite2D = $CanvasLayer/Title/Notes
 
 func _ready() -> void:
+	GlobalState.stage_counter = 1
 	MusicManager.play_music(MusicManager.bgm)
 	cat.play("default")
 	notes.play("default")

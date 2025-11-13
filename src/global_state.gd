@@ -17,4 +17,4 @@ static var room_tiles: Dictionary = {
 	"kitchen": [],
 	"office": []
 }
-static var months = ["March","April","May","June","July"]
+static var months = ["March","April","May","June","July","August"]
