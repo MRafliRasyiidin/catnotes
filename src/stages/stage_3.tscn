@@ -1,5 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://bii8ckeo1abcu"]
+[gd_scene load_steps=2 format=4 uid="uid://bebag8uauvwtx"]
 
-[ext_resource type="PackedScene" uid="uid://bcr0j1my6itkn" path="res://src/stages/stage_1.tscn" id="1_0w3pj"]
+[ext_resource type="PackedScene" uid="uid://dsvasai1gucls" path="res://src/stages/stage_2.tscn" id="1_0w3pj"]
 
-[node name="March2" instance=ExtResource("1_0w3pj")]
+[node name="Stage" instance=ExtResource("1_0w3pj")]
+
+[node name="CatBed" parent="CatBeds" index="0"]
+position = Vector2(754, 532)
+
+[node name="CatBed2" parent="CatBeds" index="1"]
+position = Vector2(-379, 1131)
+
+[node name="CatBed3" parent="CatBeds" index="2"]
+position = Vector2(101, 1341)
+
+[node name="CatBed4" parent="CatBeds" index="3"]
+position = Vector2(216, 992)
+
+[node name="CatBed5" parent="CatBeds" index="4"]
+position = Vector2(1651, 1970)
+
+[node name="CatSpots" parent="." index="2"]
+tile_map_data = PackedByteArray("AAD1/yMAAAAAAAAAAAD1/xwAAAAAAAAAAAAAABsAAAAAAAAAAADz/z0AAAAAAAAAAADv/ycAAAAAAAAAAAAAACEAAAAAAAAAAADu/yAAAAAAAAAAAAA=")

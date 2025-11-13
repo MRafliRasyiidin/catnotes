@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ccm1wyea5ouey" path="res://assets/ui/Button monyong kanan.PNG" id="15_50b1g"]
 [ext_resource type="Texture2D" uid="uid://1d6xd2rekxc0" path="res://assets/ui/Button monyong kanan hover.PNG" id="16_mn14n"]
 [ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="17_mn14n"]
-[ext_resource type="PackedScene" path="res://src/background.tscn" id="19_5ytyl"]
+[ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="19_5ytyl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2nlq"]
 texture = ExtResource("7_ghh6k")
@@ -100,11 +100,11 @@ script = ExtResource("1_8jare")
 [node name="Rooms" type="Node2D" parent="."]
 
 [node name="Bedroom" type="Sprite2D" parent="Rooms"]
-position = Vector2(1849.5, 1007)
+position = Vector2(1846.5, 1010)
 texture = ExtResource("2_aqkiv")
 
 [node name="Office" type="Sprite2D" parent="Rooms"]
-position = Vector2(2598.5, 1440)
+position = Vector2(2596.5, 1442)
 texture = ExtResource("3_lxvjb")
 
 [node name="LivingRoom" type="Sprite2D" parent="Rooms"]
@@ -142,7 +142,7 @@ texture = ExtResource("6_nygk3")
 
 [node name="CatSpots" type="TileMapLayer" parent="."]
 modulate = Color(92.076, 58.196, 100, 1)
-tile_map_data = PackedByteArray("AAD1/yMAAAAAAAAAAADt/x8AAAAAAAAAAAACAB8AAAAAAAAAAAD6/ygAAAAAAAAAAADw/z4AAAAAAAAAAAAAABsAAAAAAAAAAAD1/xwAAAAAAAAAAAD9/zIAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD1/yMAAAAAAAAAAADt/x8AAAAAAAAAAAACAB8AAAAAAAAAAAD6/ygAAAAAAAAAAADw/z4AAAAAAAAAAAD1/xwAAAAAAAAAAAD9/zIAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_mf4mk")
 
 [node name="DebugGrid" type="TileMapLayer" parent="."]
@@ -154,22 +154,22 @@ tile_set = SubResource("TileSet_mf4mk")
 position = Vector2(1285, 663)
 
 [node name="Choco" parent="Cats" instance=ExtResource("8_lbqjn")]
-position = Vector2(145, 1332)
+position = Vector2(1806, 1678)
 
 [node name="Tissue" parent="Cats" instance=ExtResource("9_jgjmt")]
-position = Vector2(314, 1227)
+position = Vector2(873, 1481)
 
 [node name="Chris" parent="Cats" instance=ExtResource("10_j3tsr")]
-position = Vector2(-100, 1250)
+position = Vector2(-215, 1286)
 
 [node name="Boom" parent="Cats" instance=ExtResource("11_8pn4f")]
-position = Vector2(0, 1050)
+position = Vector2(1797, 1057)
 
 [node name="Nima" parent="Cats" instance=ExtResource("12_saltv")]
 position = Vector2(500, 1200)
 
 [node name="Miko" parent="Cats" instance=ExtResource("13_lffbk")]
-position = Vector2(300, 1500)
+position = Vector2(1221, 1113)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2180, 1653)

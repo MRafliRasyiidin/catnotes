@@ -19,6 +19,8 @@ func _ready() -> void:
 	
 	# Connect the click signal
 	texture_rect.gui_input.connect(_on_texture_rect_gui_input)
+	
+	_toggle_texture_rect_position()
 
 func make_children(list: Array[String]):
 	for rule in list:

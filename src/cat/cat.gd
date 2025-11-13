@@ -137,7 +137,7 @@ func snap_to_tile():
 
 
 func change_sprite(target_tile):
-	print('popopp')
+	#print('popopp')
 	if GlobalState.placement_rules.can_place_cat(target_tile, self):
 		sprite_to_loaf()
 	else:

@@ -50,13 +50,15 @@ func set_cat_init_position():
 func set_cat_name():
 	print(choco, tissue, chris)
 	choco.set_meta('cat_name', 'Choco')
-	tissue.set_meta('cat_name', 'Tissue')
+	if GlobalState.stage_counter < 4:
+		tissue.set_meta('cat_name', 'Tissue')
 	chris.set_meta('cat_name', 'Chris')
 	boom.set_meta('cat_name', 'Boom')
 	nima.set_meta('cat_name', 'Nima')
 	miko.set_meta('cat_name', 'Miko')
 	
 func set_tile_in_room():
+	var all_rooms = []
 	# Living room tiles
 	GlobalState.room_tiles = {
 		"living_room": [],
@@ -70,16 +72,38 @@ func set_tile_in_room():
 			var tile_id = cat_spots.get_cell_source_id(coords)
 			if tile_id != -1:
 				GlobalState.room_tiles['living_room'].append(coords)
-				print("Tile ", coords, " is part of the living room")
+				print("Tile Vector2i", coords, " is part of the living room")
+				all_rooms.append(coords)
 
 	# Bedroom tiles
-	for x in range(-8, 3):
-		for y in range(27, 37):
+	for x in range(-8, 4):
+		for y in range(27, 38):
 			var coords = Vector2i(x, y)
 			var tile_id = cat_spots.get_cell_source_id(coords)
 			if tile_id != -1:
 				GlobalState.room_tiles['bedroom'].append(coords)
-				print("Tile ", coords, " is part of the bedroom")
+				print("Tile Vector2i", coords, " is part of the bedroom")
+				all_rooms.append(coords)
+				
+	for x in range(-8, 4):
+		for y in range(40, 49):
+			var coords = Vector2i(x, y)
+			var tile_id = cat_spots.get_cell_source_id(coords)
+			if tile_id != -1:
+				GlobalState.room_tiles['office'].append(coords)
+				print("Tile Vector2i", coords, " is part of the office")
+				all_rooms.append(coords)
+				
+	for x in range(-18, -1):
+		for y in range(52, 64):
+			var coords = Vector2i(x, y)
+			var tile_id = cat_spots.get_cell_source_id(coords)
+			if tile_id != -1:
+				GlobalState.room_tiles['kitchen'].append(coords)
+				print("Tile Vector2i", coords, " is part of the kitchen")
+				all_rooms.append(coords)
+	for coords in all_rooms:
+		print("Vector2i", coords,",")
 				
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -91,6 +115,10 @@ func _input(event):
 				print("Tile ", tile_coords, " is part of the living room")
 			elif tile_coords in GlobalState.room_tiles['bedroom']:
 				print("Tile ", tile_coords, " is part of the bedroom")
+			elif tile_coords in GlobalState.room_tiles['kitchen']:
+				print("Tile ", tile_coords, " is part of the kitchen")
+			elif tile_coords in GlobalState.room_tiles['office']:
+				print("Tile ", tile_coords, " is part of the office")
 			else:
 				print("Tile ", tile_coords, " is not part of any room")
 		else: print("Unavailable tile at ", tile_coords)
@@ -99,4 +127,6 @@ func _input(event):
 func _on_continue_pressed() -> void:
 	SfxManager.play(SfxManager.click)
 	GlobalState.stage_counter += 1
+	if GlobalState.stage_counter > 5:
+		get_tree().change_scene_to_file("res://src/main_menu/main_menu.tscn")
 	get_tree().change_scene_to_file("res://src/transition.tscn")
