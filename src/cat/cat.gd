@@ -8,6 +8,8 @@ extends Node2D
 @onready var sit: Sprite2D = $Sit
 @onready var cat_name: Label = $Name
 @onready var hover_area: Area2D = $Area2D 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 var dragging = false
 var drag_offset = Vector2.ZERO
@@ -16,6 +18,7 @@ var hissed: bool = false
 var has_been_placed: bool = false  # NEW FLAG
 
 func _ready():
+	animation_player.play("idle")
 	sprite_to_sit()  # start sitting
 	# Get tilemap reference
 	if !tilemap:

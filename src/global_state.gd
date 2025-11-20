@@ -2,7 +2,7 @@ extends Node
 
 static var occupied_tiles = {}
 static var placement_rules: StageRule = null
-static var stage_counter = 1
+static var stage_counter = 2
 static var cat_locations = {
 	"Choco": Vector2i(0,0),
 	"Tissue": Vector2i(0,0),

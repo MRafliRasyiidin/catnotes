@@ -17,11 +17,11 @@ var rule: Dictionary = {
 		"cat": []
 	},
 	"Chris": {
-		"coor": [Vector2i(0, 27),Vector2i(-3, 45),Vector2i(-16, 62)],
+		"coor": [Vector2i(-12, 40),Vector2i(-11, 28),Vector2i(-16, 35)],
 		"cat": []
 	},
 	"Boom": {
-		"coor": [Vector2i(-16, 35),Vector2i(-12, 40),Vector2i(-11, 28),Vector2i(-5, 35),Vector2i(-3, 45),Vector2i(-16, 62)],
+		"coor": [Vector2i(-16, 35),Vector2i(-12, 40),Vector2i(-11, 28),Vector2i(-16, 62),Vector2i(-3,45)],
 		"cat": []
 	},
 	"Nima": {

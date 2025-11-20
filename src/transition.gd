@@ -7,9 +7,12 @@ extends Node2D
 func _ready() -> void:
 	set_month()
 	anim.play("new_month")
-	await get_tree().create_timer(3).timeout
+	await anim.animation_finished
 	var stage_path = "res://src/stages/stage_%d.tscn" % GlobalState.stage_counter
-	get_tree().change_scene_to_file(stage_path)
+	if GlobalState.stage_counter > 5:
+		get_tree().change_scene_to_file("res://src/main_menu/main_menu.tscn")
+	else:
+		get_tree().change_scene_to_file(stage_path)
 	
 func set_month():
 	var stage = GlobalState.stage_counter
