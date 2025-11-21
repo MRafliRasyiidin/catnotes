@@ -46,11 +46,16 @@ mouse_filter = 2
 script = ExtResource("1_sh7gc")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 1285.0
-offset_top = 848.0
-offset_right = 1903.0
-offset_bottom = 1585.0
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -618.0
+offset_top = 824.0
+offset_bottom = 824.0
+grow_horizontal = 0
+grow_vertical = 2
 texture = ExtResource("1_bu4na")
 stretch_mode = 2
 

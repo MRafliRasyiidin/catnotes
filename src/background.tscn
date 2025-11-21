@@ -21,13 +21,20 @@ shader_parameter/rotation = Transform2D(1, -1, 1, 1, 0, 0)
 
 [node name="Background" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 color = Color(0.0596185, 0.0528283, 0.160567, 1)
 
@@ -35,6 +42,9 @@ color = Color(0.0596185, 0.0528283, 0.160567, 1)
 material = SubResource("ShaderMaterial_bqqt6")
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2

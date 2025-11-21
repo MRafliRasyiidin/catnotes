@@ -7,23 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://0d2wrcgdky2k" path="res://assets/calender/top.png" id="3_ia6ep"]
 [ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="6_3lt44"]
 
-[sub_resource type="FontVariation" id="FontVariation_6crdd"]
-base_font = ExtResource("3_0ffih")
-spacing_top = -7
-spacing_bottom = -4
-
-[sub_resource type="LabelSettings" id="LabelSettings_ylto7"]
-line_spacing = -20.0
-font = SubResource("FontVariation_6crdd")
-font_size = 100
-font_color = Color(0.176471, 0.133333, 0.266667, 1)
-
 [sub_resource type="Animation" id="Animation_ylto7"]
 length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Top:position:x")
+tracks/0/path = NodePath("Calander/Top:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -34,7 +23,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Top:position:y")
+tracks/1/path = NodePath("Calander/Top:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -45,7 +34,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Top:rotation")
+tracks/2/path = NodePath("Calander/Top:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -59,8 +48,8 @@ resource_name = "new_month"
 length = 4.5
 tracks/0/type = "bezier"
 tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Top:position:x")
+tracks/0/enabled = false
+tracks/0/path = NodePath("Calander/Top:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -71,7 +60,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Top:position:y")
+tracks/1/path = NodePath("Calander/Top:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -82,7 +71,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Top:rotation")
+tracks/2/path = NodePath("Calander/Top:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -97,14 +86,60 @@ _data = {
 &"new_month": SubResource("Animation_0ffih")
 }
 
-[node name="Transition" type="Node2D"]
+[sub_resource type="FontVariation" id="FontVariation_6crdd"]
+base_font = ExtResource("3_0ffih")
+spacing_top = -7
+spacing_bottom = -4
+
+[sub_resource type="LabelSettings" id="LabelSettings_ylto7"]
+line_spacing = -20.0
+font = SubResource("FontVariation_6crdd")
+font_size = 100
+font_color = Color(0.176471, 0.133333, 0.266667, 1)
+
+[node name="Transition" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ylto7")
 
-[node name="Bottom" type="Sprite2D" parent="."]
-texture = ExtResource("2_b5q2i")
-centered = false
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
 
-[node name="NextMonth" type="Label" parent="Bottom"]
+[node name="Background" parent="CanvasLayer" instance=ExtResource("6_3lt44")]
+mouse_filter = 2
+
+[node name="Calander" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Calander"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_3lt44")
+}
+speed_scale = 0.6
+
+[node name="Bottom" type="TextureRect" parent="Calander"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_right = 960.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+texture = ExtResource("2_b5q2i")
+
+[node name="NextMonth" type="Label" parent="Calander/Bottom"]
+layout_mode = 0
 offset_left = 748.0
 offset_top = 196.0
 offset_right = 1188.0
@@ -115,11 +150,20 @@ text = "New Month"
 label_settings = SubResource("LabelSettings_ylto7")
 horizontal_alignment = 1
 
-[node name="Top" type="Sprite2D" parent="."]
+[node name="Top" type="TextureRect" parent="Calander"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_top = 1300.0
+offset_right = 960.0
+offset_bottom = 2380.0
+grow_horizontal = 2
 texture = ExtResource("3_ia6ep")
-centered = false
 
-[node name="CurrentMonth" type="Label" parent="Top"]
+[node name="CurrentMonth" type="Label" parent="Calander/Top"]
+layout_mode = 0
 offset_left = 748.0
 offset_top = 188.0
 offset_right = 1188.0
@@ -130,18 +174,13 @@ text = "Old Month"
 label_settings = SubResource("LabelSettings_ylto7")
 horizontal_alignment = 1
 
-[node name="Header" type="Sprite2D" parent="."]
+[node name="Header" type="TextureRect" parent="Calander"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_right = 960.0
+offset_bottom = 1080.0
+grow_horizontal = 2
 texture = ExtResource("1_yqffd")
-centered = false
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_3lt44")
-}
-speed_scale = 0.6
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -2
-
-[node name="Background" parent="CanvasLayer" instance=ExtResource("6_3lt44")]
-mouse_filter = 2

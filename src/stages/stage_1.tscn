@@ -256,8 +256,6 @@ texture = ExtResource("15_g8xog")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2180, 1653)
 zoom = Vector2(0.45, 0.45)
-limit_left = -953
-limit_top = -443
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("10_mknuf")
@@ -277,16 +275,12 @@ process_material = SubResource("ParticleProcessMaterial_g8r04")
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="Continue" type="TextureButton" parent="GUI"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 46.0
-offset_top = 906.0
-offset_right = 417.0
-offset_bottom = 1052.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_top = -146.0
+offset_right = 371.0
+grow_vertical = 0
 texture_normal = ExtResource("15_50b1g")
 texture_hover = ExtResource("16_mn14n")
 
@@ -297,10 +291,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1100.5
-offset_top = -585.0
-offset_right = -826.5
-offset_bottom = -496.0
+offset_left = -137.0
+offset_top = -44.5
+offset_right = 137.0
+offset_bottom = 44.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)

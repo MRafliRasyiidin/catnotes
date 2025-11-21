@@ -1,8 +1,8 @@
-extends Node2D
+extends Control
 
-@onready var anim: AnimationPlayer = $AnimationPlayer
-@onready var current_month: Label = $Top/CurrentMonth
-@onready var next_month: Label = $Bottom/NextMonth
+@onready var anim: AnimationPlayer = $Calander/AnimationPlayer
+@onready var current_month: Label = $Calander/Top/CurrentMonth
+@onready var next_month: Label = $Calander/Bottom/NextMonth
 
 func _ready() -> void:
 	set_month()
