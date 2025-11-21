@@ -1,5 +1,3 @@
-extends StageRule
-
 var rules_text: Array[String] = [
 	#"[color=#d44d13][b]Lala[/b][/color] wants to sit near the window"
 	"The office ceiling leaks when it rains. I need to move the beds.",

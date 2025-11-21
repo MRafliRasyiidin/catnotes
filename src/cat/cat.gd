@@ -99,10 +99,12 @@ func snap_to_tile():
 	# Check if either tile is valid (source_id != -1 means there’s a tile)
 	var mouse_valid = tilemap.get_cell_source_id(mouse_tile) != -1
 	var landing_valid = tilemap.get_cell_source_id(landing_tile) != -1
-
+	var neighbor_tile_valid = is_valid_tile(mouse_tile, landing_tile)
 	# Choose which tile to snap to (cursor first, else landing_point)
 	var target_tile: Vector2i
-	if landing_valid:
+	if neighbor_tile_valid["valid"]:
+		target_tile = neighbor_tile_valid["tile"]
+	elif landing_valid:
 		target_tile = landing_tile
 	elif mouse_valid:
 		target_tile = mouse_tile
@@ -137,6 +139,15 @@ func snap_to_tile():
 	global_position = tile_center
 	print(name, " snapped to tile: ", target_tile)
 
+func is_valid_tile(mouse: Vector2i, landing: Vector2i):
+	var tiles = GlobalState.room_tiles
+	for room_name in tiles.keys():
+		var room = tiles[room_name]
+		for key in room:
+			var neighbor = tiles[room_name][key]
+			if mouse in neighbor or landing in neighbor:
+				return {"valid": true, "tile": key}
+	return {"valid": false, "tile": null}
 
 func change_sprite(target_tile):
 	#print('popopp')

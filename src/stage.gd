@@ -33,7 +33,7 @@ func _process(delta):
 		for cat in cat_list:
 			if not cat.is_loaf():
 				is_complete = false
-				break		
+				break
 	if is_complete && not GlobalState.cat_locations.values().has(Vector2i(0,0)):
 		continue_button.show()
 	else:
@@ -66,17 +66,18 @@ func set_tile_in_room():
 	var all_rooms = []
 	# Living room tiles
 	GlobalState.room_tiles = {
-		"living_room": [],
-		"bedroom": [],
-		"kitchen": [],
-		"office": []
+		"living_room": {},
+		"bedroom": {},
+		"kitchen": {},
+		"office": {}
 	}
+	
 	for x in range(-21, -9):
 		for y in range(27, 52):
 			var coords = Vector2i(x, y)
 			var tile_id = cat_spots.get_cell_source_id(coords)
 			if tile_id != -1:
-				GlobalState.room_tiles['living_room'].append(coords)
+				GlobalState.room_tiles['living_room'][coords] = get_neighbor_tiles(coords)
 				print("Tile Vector2i", coords, " is part of the living room")
 				all_rooms.append(coords)
 
@@ -86,7 +87,7 @@ func set_tile_in_room():
 			var coords = Vector2i(x, y)
 			var tile_id = cat_spots.get_cell_source_id(coords)
 			if tile_id != -1:
-				GlobalState.room_tiles['bedroom'].append(coords)
+				GlobalState.room_tiles['bedroom'][coords] = get_neighbor_tiles(coords)
 				print("Tile Vector2i", coords, " is part of the bedroom")
 				all_rooms.append(coords)
 				
@@ -95,7 +96,7 @@ func set_tile_in_room():
 			var coords = Vector2i(x, y)
 			var tile_id = cat_spots.get_cell_source_id(coords)
 			if tile_id != -1:
-				GlobalState.room_tiles['office'].append(coords)
+				GlobalState.room_tiles['office'][coords] = get_neighbor_tiles(coords)
 				print("Tile Vector2i", coords, " is part of the office")
 				all_rooms.append(coords)
 				
@@ -104,7 +105,7 @@ func set_tile_in_room():
 			var coords = Vector2i(x, y)
 			var tile_id = cat_spots.get_cell_source_id(coords)
 			if tile_id != -1:
-				GlobalState.room_tiles['kitchen'].append(coords)
+				GlobalState.room_tiles['kitchen'][coords] = get_neighbor_tiles(coords)
 				print("Tile Vector2i", coords, " is part of the kitchen")
 				all_rooms.append(coords)
 	for coords in all_rooms:
@@ -135,3 +136,23 @@ func _on_continue_pressed() -> void:
 	if GlobalState.stage_counter > 5:
 		get_tree().change_scene_to_file("res://src/main_menu/main_menu.tscn")
 	get_tree().change_scene_to_file("res://src/transition.tscn")
+
+func get_neighbor_tiles(tile: Vector2i) -> Array:
+	var offsets = [
+		Vector2i(0, -1),  # TOP
+		Vector2i(1, -1),  # TOP-RIGHT
+		Vector2i(1, 0),   # RIGHT
+		Vector2i(1, 1),   # BOTTOM-RIGHT
+		Vector2i(0, 1),   # BOTTOM
+		Vector2i(-1, 1),  # BOTTOM-LEFT
+		Vector2i(-1, 0),  # LEFT
+		Vector2i(-1, -1)  # TOP-LEFT
+	]
+
+	var neighbors: Array = []
+
+	for offset in offsets:
+		var pos = tile + offset
+		neighbors.append(pos)
+
+	return neighbors
