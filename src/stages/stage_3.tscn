@@ -4,6 +4,9 @@
 
 [node name="Stage" instance=ExtResource("1_0w3pj")]
 
+[node name="LivingRoom" parent="Rooms" index="2"]
+position = Vector2(1475.5, 1669)
+
 [node name="CatBed" parent="CatBeds" index="0"]
 position = Vector2(754, 532)
 
@@ -19,5 +22,5 @@ position = Vector2(216, 992)
 [node name="CatBed5" parent="CatBeds" index="4"]
 position = Vector2(1651, 1970)
 
-[node name="CatSpots" parent="." index="2"]
+[node name="CatSpots" parent="." index="3"]
 tile_map_data = PackedByteArray("AAD1/yMAAAAAAAAAAAD1/xwAAAAAAAAAAAAAABsAAAAAAAAAAADz/z0AAAAAAAAAAADv/ycAAAAAAAAAAAAAACEAAAAAAAAAAADu/yAAAAAAAAAAAAA=")

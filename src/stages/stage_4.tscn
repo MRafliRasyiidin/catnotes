@@ -1,11 +1,13 @@
-[gd_scene load_steps=32 format=4 uid="uid://dbqhstk8rdpn1"]
+[gd_scene load_steps=38 format=4 uid="uid://dipnsxk8n5swa"]
 
 [ext_resource type="Script" uid="uid://b6qrls8qs32y3" path="res://src/stage.gd" id="1_4p0iq"]
 [ext_resource type="Texture2D" uid="uid://bxklivgrtcvj4" path="res://assets/rooms/bedroom.PNG" id="2_koe6o"]
 [ext_resource type="Texture2D" uid="uid://cv56e3un2j5db" path="res://assets/rooms/work_room.png" id="3_b8hgy"]
 [ext_resource type="Texture2D" uid="uid://dr2wngq57xchy" path="res://assets/rooms/living_room.PNG" id="4_4oadt"]
 [ext_resource type="Texture2D" uid="uid://g8hppg27p11u" path="res://assets/rooms/kitchen.png" id="5_oc7tl"]
+[ext_resource type="Script" uid="uid://cs165wups6322" path="res://src/tv.gd" id="6_4oadt"]
 [ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="6_i6jap"]
+[ext_resource type="Texture2D" uid="uid://ylihr5juv5q3" path="res://assets/objects/tv.png" id="7_oc7tl"]
 [ext_resource type="Texture2D" uid="uid://be60pqfdaouj0" path="res://assets/objects/paws.png" id="7_sifj1"]
 [ext_resource type="Texture2D" uid="uid://b1ed5bvx36hpo" path="res://assets/objects/debug_tile.png" id="8_xs5sn"]
 [ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="9_upnby"]
@@ -16,9 +18,68 @@
 [ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="15_f7e63"]
 [ext_resource type="Texture2D" uid="uid://ccm1wyea5ouey" path="res://assets/ui/Button monyong kanan.PNG" id="16_b6xey"]
 [ext_resource type="Texture2D" uid="uid://1d6xd2rekxc0" path="res://assets/ui/Button monyong kanan hover.PNG" id="17_i7rkc"]
+[ext_resource type="Texture2D" uid="uid://b0yhjip0hldoe" path="res://assets/objects/plant.PNG" id="17_sifj1"]
 [ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="18_l5nk7"]
 [ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="19_g1xpg"]
 [ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="20_edg2l"]
+
+[sub_resource type="Animation" id="Animation_ny263"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_k8rew"]
+resource_name = "turn_on"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.1, 0.433333, 0.8)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.95, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.333333, 0.7)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ny263"]
+_data = {
+&"RESET": SubResource("Animation_ny263"),
+&"turn_on": SubResource("Animation_k8rew")
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2nlq"]
 texture = ExtResource("7_sifj1")
@@ -107,12 +168,28 @@ position = Vector2(2596.5, 1442)
 texture = ExtResource("3_b8hgy")
 
 [node name="LivingRoom" type="Sprite2D" parent="Rooms"]
-position = Vector2(1475.5, 1669)
+position = Vector2(1466.5, 1658)
 texture = ExtResource("4_4oadt")
 
 [node name="Kitchen" type="Sprite2D" parent="Rooms"]
 position = Vector2(2961.5, 2015)
 texture = ExtResource("5_oc7tl")
+
+[node name="TV" type="Node2D" parent="."]
+position = Vector2(610, 1342)
+script = ExtResource("6_4oadt")
+
+[node name="Sprite2D" type="Sprite2D" parent="TV"]
+position = Vector2(12, 148)
+texture = ExtResource("7_oc7tl")
+offset = Vector2(-12, -148)
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TV"]
+libraries = {
+&"": SubResource("AnimationLibrary_ny263")
+}
+speed_scale = 1.5
 
 [node name="CatBeds" type="Node2D" parent="."]
 position = Vector2(1282, 662)
@@ -166,6 +243,10 @@ position = Vector2(500, 1200)
 
 [node name="Miko" parent="Cats" instance=ExtResource("14_v7fqm")]
 position = Vector2(1221, 1113)
+
+[node name="Plant" type="Sprite2D" parent="."]
+position = Vector2(1880, 2204)
+texture = ExtResource("17_sifj1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2180, 1653)
