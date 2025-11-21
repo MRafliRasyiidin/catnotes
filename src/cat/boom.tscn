@@ -1,23 +1,24 @@
 [gd_scene load_steps=6 format=3 uid="uid://dvegrdwc5tbh7"]
 
-[ext_resource type="PackedScene" uid="uid://dxmci80euw36f" path="res://src/cat/choco.tscn" id="1_q4njt"]
+[ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="1_q4njt"]
 [ext_resource type="Texture2D" uid="uid://b5vx5oiy50xab" path="res://assets/cats/boom/IMG_0011.PNG" id="2_ss8a7"]
 [ext_resource type="Texture2D" uid="uid://bbanyb6wm5cvr" path="res://assets/cats/boom/IMG_0010.PNG" id="3_e8ftr"]
 [ext_resource type="Texture2D" uid="uid://br21tfmksn58s" path="res://assets/cats/boom/IMG_0012.PNG" id="4_xqqo8"]
 [ext_resource type="Texture2D" uid="uid://cm56h1f3t5yw6" path="res://assets/cats/boom/IMG_0013.PNG" id="5_62kkp"]
 
-[node name="Cat1" instance=ExtResource("1_q4njt")]
+[node name="Boom" instance=ExtResource("1_q4njt")]
 
-[node name="Loaf" parent="." index="0"]
-visible = true
+[node name="Name" parent="." index="0"]
+text = "Boom"
+
+[node name="Loaf" parent="." index="1"]
 texture = ExtResource("2_ss8a7")
 
-[node name="Picked" parent="." index="1"]
+[node name="Picked" parent="." index="2"]
 texture = ExtResource("3_e8ftr")
 
-[node name="Angry" parent="." index="2"]
+[node name="Angry" parent="." index="3"]
 texture = ExtResource("4_xqqo8")
 
-[node name="Sit" parent="." index="3"]
-visible = false
+[node name="Sit" parent="." index="4"]
 texture = ExtResource("5_62kkp")

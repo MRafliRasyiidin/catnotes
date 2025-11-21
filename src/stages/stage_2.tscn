@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=4 uid="uid://dsvasai1gucls"]
+
+[ext_resource type="PackedScene" uid="uid://bcr0j1my6itkn" path="res://src/stages/stage_1.tscn" id="1_a007p"]
+
+[node name="Stage" instance=ExtResource("1_a007p")]
+
+[node name="TV" parent="." index="1"]
+togglable = false
+
+[node name="CatBed" parent="CatBeds" index="0"]
+position = Vector2(574, 776)
+
+[node name="CatBed2" parent="CatBeds" index="1"]
+position = Vector2(1299, 1056)
+
+[node name="CatBed3" parent="CatBeds" index="2"]
+position = Vector2(463, 1198)
+
+[node name="CatBed4" parent="CatBeds" index="3"]
+position = Vector2(-81, 1163)
+
+[node name="CatSpots" parent="." index="3"]
+tile_map_data = PackedByteArray("AADw/z4AAAAAAAAAAAD1/xwAAAAAAAAAAADw/yMAAAAAAAAAAAD0/ygAAAAAAAAAAAD9/y0AAAAAAAAAAAAAABsAAAAAAAAAAAD7/yMAAAAAAAAAAAA=")
+
+[node name="Choco" parent="Cats" index="0"]
+position = Vector2(990, 705)
+
+[node name="Tissue" parent="Cats" index="1"]
+position = Vector2(157, 1559)
+
+[node name="Chris" parent="Cats" index="2"]
+position = Vector2(-535, 807)
+
+[node name="Boom" parent="Cats" index="3"]
+position = Vector2(1761, 1721)
+
+[node name="Nima" parent="Cats" index="4"]
+position = Vector2(880, 1486)
+
+[node name="Miko" parent="Cats" index="5"]
+position = Vector2(69, 548)

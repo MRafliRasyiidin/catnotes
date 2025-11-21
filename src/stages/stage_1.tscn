@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bcr0j1my6itkn"]
+[gd_scene load_steps=39 format=4 uid="uid://bcr0j1my6itkn"]
 
 [ext_resource type="Script" uid="uid://b6qrls8qs32y3" path="res://src/stage.gd" id="1_8jare"]
 [ext_resource type="Texture2D" uid="uid://bxklivgrtcvj4" path="res://assets/rooms/bedroom.PNG" id="2_aqkiv"]
@@ -6,13 +6,91 @@
 [ext_resource type="Texture2D" uid="uid://dr2wngq57xchy" path="res://assets/rooms/living_room.PNG" id="4_n5t40"]
 [ext_resource type="Texture2D" uid="uid://g8hppg27p11u" path="res://assets/rooms/kitchen.png" id="5_3jhu1"]
 [ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="6_nygk3"]
+[ext_resource type="Texture2D" uid="uid://be60pqfdaouj0" path="res://assets/objects/paws.png" id="7_ghh6k"]
 [ext_resource type="Texture2D" uid="uid://b1ed5bvx36hpo" path="res://assets/objects/debug_tile.png" id="7_tuj6d"]
-[ext_resource type="PackedScene" uid="uid://dxmci80euw36f" path="res://src/cat/choco.tscn" id="8_lbqjn"]
-[ext_resource type="PackedScene" uid="uid://cikw1idqash3a" path="res://src/cat/tissue.tscn" id="9_jgjmt"]
+[ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="8_lbqjn"]
+[ext_resource type="PackedScene" uid="uid://ck1wf4gtsqeb7" path="res://src/cat/tissue.tscn" id="9_jgjmt"]
 [ext_resource type="PackedScene" uid="uid://c55jr5w8w6e5j" path="res://src/cat/chris.tscn" id="10_j3tsr"]
 [ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="10_mknuf"]
 [ext_resource type="PackedScene" uid="uid://dvegrdwc5tbh7" path="res://src/cat/boom.tscn" id="11_8pn4f"]
 [ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="11_w6q0l"]
+[ext_resource type="PackedScene" uid="uid://b1wwxgrr8mtgj" path="res://src/cat/nima.tscn" id="12_saltv"]
+[ext_resource type="PackedScene" uid="uid://bql2im40ga5vh" path="res://src/cat/miko.tscn" id="13_lffbk"]
+[ext_resource type="Texture2D" uid="uid://ccm1wyea5ouey" path="res://assets/ui/Button monyong kanan.PNG" id="15_50b1g"]
+[ext_resource type="Texture2D" uid="uid://b0yhjip0hldoe" path="res://assets/objects/plant.PNG" id="15_g8xog"]
+[ext_resource type="Texture2D" uid="uid://ylihr5juv5q3" path="res://assets/objects/tv.png" id="16_k8rew"]
+[ext_resource type="Texture2D" uid="uid://1d6xd2rekxc0" path="res://assets/ui/Button monyong kanan hover.PNG" id="16_mn14n"]
+[ext_resource type="Script" uid="uid://cs165wups6322" path="res://src/tv.gd" id="16_ny263"]
+[ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="17_mn14n"]
+[ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="19_5ytyl"]
+
+[sub_resource type="Animation" id="Animation_ny263"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_k8rew"]
+resource_name = "turn_on"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.1, 0.433333, 0.8)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.95, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.333333, 0.7)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ny263"]
+_data = {
+&"RESET": SubResource("Animation_ny263"),
+&"turn_on": SubResource("Animation_k8rew")
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2nlq"]
+texture = ExtResource("7_ghh6k")
+texture_region_size = Vector2i(120, 70)
+0:0/animation_columns = 3
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/0 = 0
+0:0/0/modulate = Color(1, 1, 1, 0.345098)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykrsh"]
 texture = ExtResource("7_tuj6d")
@@ -26,6 +104,7 @@ tile_size = Vector2i(120, 70)
 custom_data_layer_0/name = "room"
 custom_data_layer_0/type = 4
 sources/2 = SubResource("TileSetAtlasSource_ykrsh")
+sources/0 = SubResource("TileSetAtlasSource_y2nlq")
 
 [sub_resource type="Curve" id="Curve_24vjx"]
 _data = [Vector2(0, 0.303851), 0.0, 0.173067, 0, 0, Vector2(1, 0), -0.0264584, 0.0, 0, 0]
@@ -76,26 +155,43 @@ scale_max = 5.0
 scale_curve = SubResource("CurveXYZTexture_2qygu")
 alpha_curve = SubResource("CurveTexture_uj25x")
 
-[node name="March" type="Node2D"]
+[node name="Stage" type="Node2D"]
 script = ExtResource("1_8jare")
 
 [node name="Rooms" type="Node2D" parent="."]
 
 [node name="Bedroom" type="Sprite2D" parent="Rooms"]
-position = Vector2(1849.5, 1007)
+position = Vector2(1846.5, 1010)
 texture = ExtResource("2_aqkiv")
 
 [node name="Office" type="Sprite2D" parent="Rooms"]
-position = Vector2(2598.5, 1440)
+position = Vector2(2596.5, 1442)
 texture = ExtResource("3_lxvjb")
 
 [node name="LivingRoom" type="Sprite2D" parent="Rooms"]
-position = Vector2(1475.5, 1669)
+position = Vector2(1466.5, 1658)
 texture = ExtResource("4_n5t40")
 
 [node name="Kitchen" type="Sprite2D" parent="Rooms"]
 position = Vector2(2961.5, 2015)
 texture = ExtResource("5_3jhu1")
+
+[node name="TV" type="Node2D" parent="."]
+position = Vector2(610, 1342)
+script = ExtResource("16_ny263")
+togglable = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TV"]
+position = Vector2(12, 148)
+texture = ExtResource("16_k8rew")
+offset = Vector2(-12, -148)
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TV"]
+libraries = {
+&"": SubResource("AnimationLibrary_ny263")
+}
+speed_scale = 1.5
 
 [node name="CatBeds" type="Node2D" parent="."]
 position = Vector2(1282, 662)
@@ -124,7 +220,7 @@ texture = ExtResource("6_nygk3")
 
 [node name="CatSpots" type="TileMapLayer" parent="."]
 modulate = Color(92.076, 58.196, 100, 1)
-tile_map_data = PackedByteArray("AAD1/yMAAgAAAAAAAADt/x8AAgAAAAAAAAACAB8AAgAAAAAAAAD6/ygAAgAAAAAAAADw/z4AAgAAAAAAAAAAABsAAgAAAAAAAAD1/xwAAgAAAAAAAAD6/zEAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD1/yMAAAAAAAAAAADt/x8AAAAAAAAAAAACAB8AAAAAAAAAAAD6/ygAAAAAAAAAAADw/z4AAAAAAAAAAAD1/xwAAAAAAAAAAAD9/zIAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_mf4mk")
 
 [node name="DebugGrid" type="TileMapLayer" parent="."]
@@ -136,20 +232,30 @@ tile_set = SubResource("TileSet_mf4mk")
 position = Vector2(1285, 663)
 
 [node name="Choco" parent="Cats" instance=ExtResource("8_lbqjn")]
-position = Vector2(145, 1332)
+position = Vector2(1806, 1678)
 
 [node name="Tissue" parent="Cats" instance=ExtResource("9_jgjmt")]
-position = Vector2(314, 1227)
+position = Vector2(873, 1481)
 
 [node name="Chris" parent="Cats" instance=ExtResource("10_j3tsr")]
-position = Vector2(-100, 1250)
+position = Vector2(-215, 1286)
 
 [node name="Boom" parent="Cats" instance=ExtResource("11_8pn4f")]
-position = Vector2(0, 1050)
+position = Vector2(1797, 1057)
+
+[node name="Nima" parent="Cats" instance=ExtResource("12_saltv")]
+position = Vector2(500, 1200)
+
+[node name="Miko" parent="Cats" instance=ExtResource("13_lffbk")]
+position = Vector2(1221, 1113)
+
+[node name="Plant" type="Sprite2D" parent="."]
+position = Vector2(1880, 2204)
+texture = ExtResource("15_g8xog")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2180, 1653)
-zoom = Vector2(0.7, 0.7)
+zoom = Vector2(0.45, 0.45)
 limit_left = -953
 limit_top = -443
 limit_smoothed = true
@@ -170,4 +276,44 @@ process_material = SubResource("ParticleProcessMaterial_g8r04")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
+[node name="Continue" type="TextureButton" parent="GUI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 906.0
+offset_right = 417.0
+offset_bottom = 1052.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("15_50b1g")
+texture_hover = ExtResource("16_mn14n")
+
+[node name="ContinueText" type="Label" parent="GUI/Continue"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1100.5
+offset_top = -585.0
+offset_right = -826.5
+offset_bottom = -496.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_mn14n")
+theme_override_font_sizes/font_size = 70
+text = "Continue"
+
 [node name="Notes" parent="GUI" instance=ExtResource("11_w6q0l")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="Background" parent="CanvasLayer" instance=ExtResource("19_5ytyl")]
+mouse_filter = 2
+
+[connection signal="pressed" from="GUI/Continue" to="." method="_on_continue_pressed"]

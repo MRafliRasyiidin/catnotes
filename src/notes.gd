@@ -19,15 +19,19 @@ func _ready() -> void:
 	
 	# Connect the click signal
 	texture_rect.gui_input.connect(_on_texture_rect_gui_input)
+	
+	_toggle_texture_rect_position()
 
-func make_children(text: String):
-	var new_note = note.duplicate()
-	new_note.text = "[color=#2d2244]" + text + "[/color]"
-	v_box_container.add_child(new_note)
+func make_children(list: Array[String]):
+	for rule in list:
+		var new_note = note.duplicate()
+		new_note.text = "[color=#2d2244]" + rule + "[/color]"
+		v_box_container.add_child(new_note)
 
 func _on_texture_rect_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_toggle_texture_rect_position()
+		SfxManager.play(SfxManager.paper)
 
 func _toggle_texture_rect_position() -> void:
 	if tween and tween.is_running():
@@ -37,9 +41,11 @@ func _toggle_texture_rect_position() -> void:
 	if is_moved_up:
 		target_y = texture_rect.position.y + 520
 		expand.text = "Click to expand"
+		
 	else:
 		target_y = texture_rect.position.y - 520
 		expand.text = "Click to collapse"
+		
 
 	is_moved_up = !is_moved_up
 
@@ -48,8 +54,7 @@ func _toggle_texture_rect_position() -> void:
 	tween.tween_property(texture_rect, "position:y", target_y, 0.4).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 
 func set_month() -> void:
-	var scene_root = get_tree().get_current_scene()
-	if scene_root:
-		month.text = scene_root.name
+	if GlobalState.months && GlobalState.stage_counter < 6:
+		month.text = GlobalState.months[GlobalState.stage_counter-1]
 	else:
 		month.text = "Unknown Scene"

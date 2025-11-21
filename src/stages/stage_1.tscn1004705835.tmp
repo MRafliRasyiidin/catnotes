@@ -1,0 +1,218 @@
+[gd_scene load_steps=30 format=4 uid="uid://bcr0j1my6itkn"]
+
+[ext_resource type="Script" uid="uid://b6qrls8qs32y3" path="res://src/stage.gd" id="1_8jare"]
+[ext_resource type="Texture2D" uid="uid://bxklivgrtcvj4" path="res://assets/rooms/bedroom.PNG" id="2_aqkiv"]
+[ext_resource type="Texture2D" uid="uid://cv56e3un2j5db" path="res://assets/rooms/work_room.png" id="3_lxvjb"]
+[ext_resource type="Texture2D" uid="uid://dr2wngq57xchy" path="res://assets/rooms/living_room.PNG" id="4_n5t40"]
+[ext_resource type="Texture2D" uid="uid://g8hppg27p11u" path="res://assets/rooms/kitchen.png" id="5_3jhu1"]
+[ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="6_nygk3"]
+[ext_resource type="Texture2D" uid="uid://b1ed5bvx36hpo" path="res://assets/objects/debug_tile.png" id="7_tuj6d"]
+[ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="8_lbqjn"]
+[ext_resource type="PackedScene" uid="uid://hau70s5rachk" path="res://src/cat/tissue.tscn" id="9_jgjmt"]
+[ext_resource type="PackedScene" uid="uid://c55jr5w8w6e5j" path="res://src/cat/chris.tscn" id="10_j3tsr"]
+[ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="10_mknuf"]
+[ext_resource type="PackedScene" uid="uid://dvegrdwc5tbh7" path="res://src/cat/boom.tscn" id="11_8pn4f"]
+[ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="11_w6q0l"]
+[ext_resource type="PackedScene" uid="uid://b1wwxgrr8mtgj" path="res://src/cat/nima.tscn" id="12_saltv"]
+[ext_resource type="PackedScene" uid="uid://bql2im40ga5vh" path="res://src/cat/miko.tscn" id="13_lffbk"]
+[ext_resource type="Texture2D" uid="uid://ccm1wyea5ouey" path="res://assets/ui/Button monyong kanan.PNG" id="15_50b1g"]
+[ext_resource type="Texture2D" uid="uid://1d6xd2rekxc0" path="res://assets/ui/Button monyong kanan hover.PNG" id="16_mn14n"]
+[ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="17_mn14n"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykrsh"]
+texture = ExtResource("7_tuj6d")
+texture_region_size = Vector2i(120, 70)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mf4mk"]
+tile_shape = 1
+tile_layout = 4
+tile_size = Vector2i(120, 70)
+custom_data_layer_0/name = "room"
+custom_data_layer_0/type = 4
+sources/2 = SubResource("TileSetAtlasSource_ykrsh")
+
+[sub_resource type="Curve" id="Curve_24vjx"]
+_data = [Vector2(0, 0.303851), 0.0, 0.173067, 0, 0, Vector2(1, 0), -0.0264584, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_uj25x"]
+curve = SubResource("Curve_24vjx")
+
+[sub_resource type="Curve" id="Curve_g45xt"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.464104), 0.0, 0.0, 0, 0, Vector2(1, 0.91238), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ao0vk"]
+curve_y = SubResource("Curve_g45xt")
+
+[sub_resource type="Curve" id="Curve_7facu"]
+_data = [Vector2(0.013245, 1), 0.0, 0.0, 0, 0, Vector2(0.463576, 0.680328), -1.38092, -1.38092, 0, 0, Vector2(0.963576, 0.254098), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_4kqtc"]
+_data = [Vector2(0.013245, 1), 0.0, -1.13379, 0, 0, Vector2(1, 0.309214), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_f131x"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_2qygu"]
+curve_x = SubResource("Curve_7facu")
+curve_y = SubResource("Curve_4kqtc")
+curve_z = SubResource("Curve_f131x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g8r04"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(50, 50, 1)
+emission_shape = 3
+emission_box_extents = Vector3(50, 50, 1)
+angle_min = -72.8
+angle_max = 105.2
+directional_velocity_min = -257.88
+directional_velocity_max = 1.4988e-14
+directional_velocity_curve = SubResource("CurveXYZTexture_ao0vk")
+gravity = Vector3(0, 80, 0)
+linear_accel_max = 1.0
+scale_min = 4.5
+scale_max = 5.0
+scale_curve = SubResource("CurveXYZTexture_2qygu")
+alpha_curve = SubResource("CurveTexture_uj25x")
+
+[node name="March2" type="Node2D"]
+script = ExtResource("1_8jare")
+
+[node name="Rooms" type="Node2D" parent="."]
+
+[node name="Bedroom" type="Sprite2D" parent="Rooms"]
+position = Vector2(1849.5, 1007)
+texture = ExtResource("2_aqkiv")
+
+[node name="Office" type="Sprite2D" parent="Rooms"]
+position = Vector2(2598.5, 1440)
+texture = ExtResource("3_lxvjb")
+
+[node name="LivingRoom" type="Sprite2D" parent="Rooms"]
+position = Vector2(1475.5, 1669)
+texture = ExtResource("4_n5t40")
+
+[node name="Kitchen" type="Sprite2D" parent="Rooms"]
+position = Vector2(2961.5, 2015)
+texture = ExtResource("5_3jhu1")
+
+[node name="CatBeds" type="Node2D" parent="."]
+position = Vector2(1282, 662)
+
+[node name="CatBed" type="Sprite2D" parent="CatBeds"]
+position = Vector2(758, 394)
+texture = ExtResource("6_nygk3")
+
+[node name="CatBed2" type="Sprite2D" parent="CatBeds"]
+position = Vector2(816, 983)
+texture = ExtResource("6_nygk3")
+
+[node name="CatBed3" type="Sprite2D" parent="CatBeds"]
+position = Vector2(219, 983)
+texture = ExtResource("6_nygk3")
+flip_h = true
+
+[node name="CatBed4" type="Sprite2D" parent="CatBeds"]
+position = Vector2(-501, 1123)
+texture = ExtResource("6_nygk3")
+flip_h = true
+
+[node name="CatBed5" type="Sprite2D" parent="CatBeds"]
+position = Vector2(1536, 2103)
+texture = ExtResource("6_nygk3")
+
+[node name="CatSpots" type="TileMapLayer" parent="."]
+modulate = Color(92.076, 58.196, 100, 1)
+tile_map_data = PackedByteArray("AAD1/yMAAgAAAAAAAADt/x8AAgAAAAAAAAACAB8AAgAAAAAAAAD6/ygAAgAAAAAAAADw/z4AAgAAAAAAAAAAABsAAgAAAAAAAAD1/xwAAgAAAAAAAAD6/zEAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_mf4mk")
+
+[node name="DebugGrid" type="TileMapLayer" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.489)
+tile_set = SubResource("TileSet_mf4mk")
+
+[node name="Cats" type="Node2D" parent="."]
+position = Vector2(1285, 663)
+
+[node name="Choco" parent="Cats" instance=ExtResource("8_lbqjn")]
+position = Vector2(145, 1332)
+
+[node name="Tissue" parent="Cats" instance=ExtResource("9_jgjmt")]
+position = Vector2(314, 1227)
+
+[node name="Chris" parent="Cats" instance=ExtResource("10_j3tsr")]
+position = Vector2(-100, 1250)
+
+[node name="Boom" parent="Cats" instance=ExtResource("11_8pn4f")]
+position = Vector2(0, 1050)
+
+[node name="Nima" parent="Cats" instance=ExtResource("12_saltv")]
+position = Vector2(500, 1200)
+
+[node name="Miko" parent="Cats" instance=ExtResource("13_lffbk")]
+position = Vector2(300, 1500)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2180, 1653)
+zoom = Vector2(0.7, 0.7)
+limit_left = -953
+limit_top = -443
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("10_mknuf")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-753, 1047)
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Particles"]
+position = Vector2(1156, 1176)
+amount = 700
+lifetime = 2.0
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_g8r04")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Continue" type="TextureButton" parent="GUI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 906.0
+offset_right = 417.0
+offset_bottom = 1052.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("15_50b1g")
+texture_hover = ExtResource("16_mn14n")
+
+[node name="ContinueText" type="Label" parent="GUI/Continue"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1100.5
+offset_top = -585.0
+offset_right = -826.5
+offset_bottom = -496.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_mn14n")
+theme_override_font_sizes/font_size = 70
+text = "Continue"
+
+[node name="Notes" parent="GUI" instance=ExtResource("11_w6q0l")]
+
+[connection signal="pressed" from="GUI/Continue" to="." method="_on_continue_pressed"]

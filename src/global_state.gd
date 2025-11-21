@@ -1,7 +1,7 @@
 extends Node
 
 static var occupied_tiles = {}
-static var placement_rules: StageRule = null
+static var placement_rules = null
 static var stage_counter = 1
 static var cat_locations = {
 	"Choco": Vector2i(0,0),
@@ -12,8 +12,9 @@ static var cat_locations = {
 	"Nima": Vector2i(0,0),
 }
 static var room_tiles: Dictionary = {
-	"living_room": [],
-	"bedroom": [],
-	"kitchen": [],
-	"office": []
+	"living_room": {},
+	"bedroom": {},
+	"kitchen": {},
+	"office": {}
 }
+static var months = ["March","April","May","June","July","August"]

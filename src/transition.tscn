@@ -1,0 +1,147 @@
+[gd_scene load_steps=12 format=3 uid="uid://c66wkpgy3iom1"]
+
+[ext_resource type="Script" uid="uid://bb6ctur33ts7y" path="res://src/transition.gd" id="1_ylto7"]
+[ext_resource type="Texture2D" uid="uid://cbv1can8mn6gj" path="res://assets/calender/header.png" id="1_yqffd"]
+[ext_resource type="Texture2D" uid="uid://c8wlcx4k6q6ji" path="res://assets/calender/bottom.png" id="2_b5q2i"]
+[ext_resource type="FontFile" uid="uid://88g5u5nhvmv0" path="res://assets/fonts/variable.ttf" id="3_0ffih"]
+[ext_resource type="Texture2D" uid="uid://0d2wrcgdky2k" path="res://assets/calender/top.png" id="3_ia6ep"]
+[ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="6_3lt44"]
+
+[sub_resource type="FontVariation" id="FontVariation_6crdd"]
+base_font = ExtResource("3_0ffih")
+spacing_top = -7
+spacing_bottom = -4
+
+[sub_resource type="LabelSettings" id="LabelSettings_ylto7"]
+line_spacing = -20.0
+font = SubResource("FontVariation_6crdd")
+font_size = 100
+font_color = Color(0.176471, 0.133333, 0.266667, 1)
+
+[sub_resource type="Animation" id="Animation_ylto7"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Top:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Top:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_0ffih"]
+resource_name = "new_month"
+length = 4.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -103, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.63333, 3.03333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Top:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1300, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.43333, 3.03333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Top:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0.09, -0.25, 0, 0.25, 0, -0.178024, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.33333, 2.03333, 3.03333)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3lt44"]
+_data = {
+&"RESET": SubResource("Animation_ylto7"),
+&"new_month": SubResource("Animation_0ffih")
+}
+
+[node name="Transition" type="Node2D"]
+script = ExtResource("1_ylto7")
+
+[node name="Bottom" type="Sprite2D" parent="."]
+texture = ExtResource("2_b5q2i")
+centered = false
+
+[node name="NextMonth" type="Label" parent="Bottom"]
+offset_left = 748.0
+offset_top = 196.0
+offset_right = 1188.0
+offset_bottom = 311.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "New Month"
+label_settings = SubResource("LabelSettings_ylto7")
+horizontal_alignment = 1
+
+[node name="Top" type="Sprite2D" parent="."]
+texture = ExtResource("3_ia6ep")
+centered = false
+
+[node name="CurrentMonth" type="Label" parent="Top"]
+offset_left = 748.0
+offset_top = 188.0
+offset_right = 1188.0
+offset_bottom = 303.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Old Month"
+label_settings = SubResource("LabelSettings_ylto7")
+horizontal_alignment = 1
+
+[node name="Header" type="Sprite2D" parent="."]
+texture = ExtResource("1_yqffd")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3lt44")
+}
+speed_scale = 0.6
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="Background" parent="CanvasLayer" instance=ExtResource("6_3lt44")]
+mouse_filter = 2

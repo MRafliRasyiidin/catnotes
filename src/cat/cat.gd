@@ -6,19 +6,25 @@ extends Node2D
 @onready var landing_point: Marker2D = $LandingPoint
 @onready var angry: Sprite2D = $Angry
 @onready var sit: Sprite2D = $Sit
+@onready var cat_name: Label = $Name
+@onready var hover_area: Area2D = $Area2D 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var dragging = false
 var drag_offset = Vector2.ZERO
 var previous_position = Vector2.ZERO
+var hissed: bool = false
+var has_been_placed: bool = false  # NEW FLAG
 
 func _ready():
-	sprite_to_loaf()
+	animation_player.play("idle")
+	sprite_to_sit()  # start sitting
 	# Get tilemap reference
 	if !tilemap:
 		# Try to find TileMapLayer in parent or scene
 		tilemap = get_parent().get_parent().get_node("CatSpots")
-
-var inside_tilemap = false
+	hover_area.connect("mouse_entered", Callable(self, "_on_mouse_entered"))
+	hover_area.connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -33,6 +39,7 @@ func _input(event):
 				drag_offset = Vector2.ZERO
 				# Bring to front while dragging
 				z_index = 100
+				SfxManager.play_random_meow()
 		else:
 			if dragging:
 				# Stop dragging and snap to tile
@@ -45,7 +52,7 @@ func _process(delta):
 	if dragging:
 		# Update position while dragging
 		global_position = get_global_mouse_position() + drag_offset
-		
+		'''
 		if is_inside_tilemap():
 			if !inside_tilemap:
 				inside_tilemap = true
@@ -56,8 +63,13 @@ func _process(delta):
 				inside_tilemap = false
 				print("Exited tilemap area")
 				sprite_to_picked()
+		'''
 	else:
-		change_sprite(GlobalState.cat_locations[self.get_meta("cat_name")])
+		# Only update sprite if cat has been placed
+		if has_been_placed:
+			var cat_name = self.get_meta("cat_name")
+			if cat_name in GlobalState.cat_locations:
+				change_sprite(GlobalState.cat_locations[cat_name])
 
 func is_mouse_over_cat() -> bool:
 	var mouse_pos = get_global_mouse_position()
@@ -87,10 +99,12 @@ func snap_to_tile():
 	# Check if either tile is valid (source_id != -1 means there’s a tile)
 	var mouse_valid = tilemap.get_cell_source_id(mouse_tile) != -1
 	var landing_valid = tilemap.get_cell_source_id(landing_tile) != -1
-
+	var neighbor_tile_valid = is_valid_tile(mouse_tile, landing_tile)
 	# Choose which tile to snap to (cursor first, else landing_point)
 	var target_tile: Vector2i
-	if landing_valid:
+	if neighbor_tile_valid["valid"]:
+		target_tile = neighbor_tile_valid["tile"]
+	elif landing_valid:
 		target_tile = landing_tile
 	elif mouse_valid:
 		target_tile = mouse_tile
@@ -98,65 +112,104 @@ func snap_to_tile():
 		# No valid tile → revert smoothly
 		print(name, " - No valid tile under cat, reverting smoothly to previous position")
 		move_to_position(previous_position)
-		#sprite_to_loaf()
-		change_sprite(tilemap.local_to_map(previous_position))
 		return
 	
 	if target_tile in GlobalState.occupied_tiles and GlobalState.occupied_tiles[target_tile] != self:
 		print(name, " - Tile already occupied! Reverting...")
+		
 		move_to_position(previous_position)
-		change_sprite(tilemap.local_to_map(previous_position))
-		#sprite_to_loaf()
 		return
 	
+	# clear old tile reference
 	for key in GlobalState.occupied_tiles.keys():
 		if GlobalState.occupied_tiles[key] == self:
 			GlobalState.occupied_tiles.erase(key)
 			break
 	
+	# assign new tile
 	GlobalState.occupied_tiles[target_tile] = self
+	GlobalState.cat_locations[self.get_meta("cat_name")] = target_tile
+	has_been_placed = true  # ✅ now the cat can change sprites afterward
+
 	change_sprite(target_tile)
 	
 	# Snap to tile center
+	SfxManager.play(SfxManager.get_random_sfx(SfxManager.pillows))
 	var tile_center = tilemap.to_global(tilemap.map_to_local(target_tile))
 	global_position = tile_center
-	GlobalState.cat_locations[self.get_meta("cat_name")] = target_tile
 	print(name, " snapped to tile: ", target_tile)
 
+func is_valid_tile(mouse: Vector2i, landing: Vector2i):
+	var tiles = GlobalState.room_tiles
+	for room_name in tiles.keys():
+		var room = tiles[room_name]
+		for key in room:
+			var neighbor = tiles[room_name][key]
+			if mouse in neighbor or landing in neighbor:
+				return {"valid": true, "tile": key}
+	return {"valid": false, "tile": null}
+
 func change_sprite(target_tile):
+	#print('popopp')
 	if GlobalState.placement_rules.can_place_cat(target_tile, self):
 		sprite_to_loaf()
 	else:
 		sprite_to_angry()
-	
+
 func move_to_position(target_pos: Vector2):
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "global_position", target_pos, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	if GlobalState.cat_locations[self.get_meta('cat_name')] == Vector2i(0,0):
+		sprite_to_sit()
 
-func is_inside_tilemap() -> bool:
-	if not tilemap:
-		return false
-	
-	var mouse_tile = tilemap.local_to_map(tilemap.to_local(global_position))
-	var source_id = tilemap.get_cell_source_id(mouse_tile)
-	return source_id != -1
+func is_loaf() -> bool:
+	return loaf.visible == true
+
+func is_dragging() -> bool:
+	return dragging
+
+func _on_mouse_entered() -> void:
+	cat_name.show()
+
+func _on_mouse_exited() -> void:
+	cat_name.hide()
 
 func sprite_to_picked():
+	var pos = cat_name.position
+	pos.y = -100
+	cat_name.position = pos
+	hissed = false
 	hide_all_sprite()
 	picked.show()
 
+
 func sprite_to_loaf():
+	var pos = cat_name.position
+	pos.y = -185
+	cat_name.position = pos
 	hide_all_sprite()
 	loaf.show()
 	
+
 func sprite_to_angry():
+	var pos = cat_name.position
+	pos.y = -185
+	cat_name.position = pos
+	if !hissed:
+		hissed = true
+		SfxManager.play(SfxManager.hiss)
 	hide_all_sprite()
 	angry.show()
 	
+
 func sprite_to_sit():
+	var pos = cat_name.position
+	pos.y = -220
+	cat_name.position = pos
 	hide_all_sprite()
 	sit.show()
 	
+
 func hide_all_sprite():
 	loaf.hide()
 	picked.hide()

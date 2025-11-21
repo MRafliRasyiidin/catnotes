@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdcr37n6cn2ee"]
+
+[ext_resource type="Shader" uid="uid://c4n81vft3ho4q" path="res://src/shaders/background.gdshader" id="1_bkp1e"]
+
+[sub_resource type="Gradient" id="Gradient_ekxnf"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ya4ey"]
+gradient = SubResource("Gradient_ekxnf")
+fill = 1
+fill_from = Vector2(0.497, 0.3)
+fill_to = Vector2(0, 1.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqqt6"]
+shader = ExtResource("1_bkp1e")
+shader_parameter/gradient = SubResource("GradientTexture2D_ya4ey")
+shader_parameter/circle_color = Color(0.155978, 0.0292181, 0.316706, 1)
+shader_parameter/circle_multiplier = 30.0
+shader_parameter/speed = 1.0
+shader_parameter/direction = Vector2(1, 1)
+shader_parameter/rotation = Transform2D(1, -1, 1, 1, 0, 0)
+
+[node name="Background" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.0596185, 0.0528283, 0.160567, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_bqqt6")
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
