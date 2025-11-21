@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c66wkpgy3iom1"]
+[gd_scene load_steps=18 format=3 uid="uid://c66wkpgy3iom1"]
 
 [ext_resource type="Script" uid="uid://bb6ctur33ts7y" path="res://src/transition.gd" id="1_ylto7"]
 [ext_resource type="Texture2D" uid="uid://cbv1can8mn6gj" path="res://assets/calender/header.png" id="1_yqffd"]
@@ -6,12 +6,14 @@
 [ext_resource type="FontFile" uid="uid://88g5u5nhvmv0" path="res://assets/fonts/variable.ttf" id="3_0ffih"]
 [ext_resource type="Texture2D" uid="uid://0d2wrcgdky2k" path="res://assets/calender/top.png" id="3_ia6ep"]
 [ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="6_3lt44"]
+[ext_resource type="Shader" uid="uid://0wmnxt2qmxow" path="res://src/shaders/transition.gdshader" id="7_haxiq"]
+[ext_resource type="Texture2D" uid="uid://cryc13uv58jcw" path="res://assets/ui/transition_mask_cat.png" id="8_gsnos"]
 
 [sub_resource type="Animation" id="Animation_ylto7"]
 length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Calander/Top:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -97,6 +99,64 @@ font = SubResource("FontVariation_6crdd")
 font_size = 100
 font_color = Color(0.176471, 0.133333, 0.266667, 1)
 
+[sub_resource type="Animation" id="Animation_2114x"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_tm8es"]
+resource_name = "fade"
+length = 1.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pjvct"]
+_data = {
+&"RESET": SubResource("Animation_2114x"),
+&"fade": SubResource("Animation_tm8es")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7dwyd"]
+shader = ExtResource("7_haxiq")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 1
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = false
+shader_parameter/grid_size = Vector2(1, 1)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/mask_texture = ExtResource("8_gsnos")
+shader_parameter/use_mask_size = true
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 6
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(0, 0)
+
 [node name="Transition" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -156,9 +216,8 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -960.0
-offset_top = 1300.0
 offset_right = 960.0
-offset_bottom = 2380.0
+offset_bottom = 1080.0
 grow_horizontal = 2
 texture = ExtResource("3_ia6ep")
 
@@ -184,3 +243,22 @@ offset_right = 960.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 texture = ExtResource("1_yqffd")
+
+[node name="Transition" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_pjvct")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+material = SubResource("ShaderMaterial_7dwyd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

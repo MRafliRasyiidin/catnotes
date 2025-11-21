@@ -10,6 +10,8 @@ extends Node2D
 @onready var cat_spots: TileMapLayer = $CatSpots
 @onready var cats: Node2D = $Cats
 @onready var continue_button: TextureButton = $GUI/Continue
+@onready var transition_anim: AnimationPlayer = $Transition/AnimationPlayer
+
 
 var is_complete: bool = false
 
@@ -21,6 +23,9 @@ func _ready() -> void:
 	set_cat_init_position()
 	set_cat_name()
 	set_tile_in_room()
+	
+	transition_anim.play_backwards("fade")
+	await transition_anim.animation_finished
 
 func _process(delta):
 	is_complete = true
@@ -132,10 +137,14 @@ func _input(event):
 
 func _on_continue_pressed() -> void:
 	SfxManager.play(SfxManager.click)
+	continue_button.disabled = true
 	GlobalState.stage_counter += 1
+	transition_anim.play("fade")
+	await transition_anim.animation_finished
 	if GlobalState.stage_counter > 5:
 		get_tree().change_scene_to_file("res://src/main_menu/main_menu.tscn")
 	get_tree().change_scene_to_file("res://src/transition.tscn")
+	
 
 func get_neighbor_tiles(tile: Vector2i) -> Array:
 	var offsets = [

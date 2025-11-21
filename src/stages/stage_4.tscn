@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dipnsxk8n5swa"]
+[gd_scene load_steps=46 format=4 uid="uid://boowxysroxwth"]
 
 [ext_resource type="Script" uid="uid://b6qrls8qs32y3" path="res://src/stage.gd" id="1_4p0iq"]
 [ext_resource type="Texture2D" uid="uid://bxklivgrtcvj4" path="res://assets/rooms/bedroom.PNG" id="2_koe6o"]
@@ -19,9 +19,12 @@
 [ext_resource type="Texture2D" uid="uid://ccm1wyea5ouey" path="res://assets/ui/Button monyong kanan.PNG" id="16_b6xey"]
 [ext_resource type="Texture2D" uid="uid://1d6xd2rekxc0" path="res://assets/ui/Button monyong kanan hover.PNG" id="17_i7rkc"]
 [ext_resource type="Texture2D" uid="uid://b0yhjip0hldoe" path="res://assets/objects/plant.PNG" id="17_sifj1"]
+[ext_resource type="Shader" uid="uid://k38machql6ou" path="res://src/shaders/plant.gdshader" id="17_xs5sn"]
 [ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="18_l5nk7"]
 [ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="19_g1xpg"]
 [ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="20_edg2l"]
+[ext_resource type="Shader" uid="uid://0wmnxt2qmxow" path="res://src/shaders/transition.gdshader" id="25_upnby"]
+[ext_resource type="Texture2D" uid="uid://cryc13uv58jcw" path="res://assets/ui/transition_mask_cat.png" id="26_ctb5m"]
 
 [sub_resource type="Animation" id="Animation_ny263"]
 length = 0.001
@@ -105,6 +108,13 @@ custom_data_layer_0/type = 4
 sources/2 = SubResource("TileSetAtlasSource_ykrsh")
 sources/0 = SubResource("TileSetAtlasSource_y2nlq")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6v5t4"]
+shader = ExtResource("17_xs5sn")
+shader_parameter/amplitude = 8.0
+shader_parameter/speed = 1.8
+shader_parameter/bend_start = 0.9
+shader_parameter/frequency = 3.0
+
 [sub_resource type="Curve" id="Curve_24vjx"]
 _data = [Vector2(0, 0.303851), 0.0, 0.173067, 0, 0, Vector2(1, 0), -0.0264584, 0.0, 0, 0]
 point_count = 2
@@ -154,6 +164,64 @@ scale_max = 5.0
 scale_curve = SubResource("CurveXYZTexture_2qygu")
 alpha_curve = SubResource("CurveTexture_uj25x")
 
+[sub_resource type="Animation" id="Animation_2114x"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_tm8es"]
+resource_name = "fade"
+length = 1.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pjvct"]
+_data = {
+&"RESET": SubResource("Animation_2114x"),
+&"fade": SubResource("Animation_tm8es")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tm8es"]
+shader = ExtResource("25_upnby")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 1
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = false
+shader_parameter/grid_size = Vector2(1, 1)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/mask_texture = ExtResource("26_ctb5m")
+shader_parameter/use_mask_size = true
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 6
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(0, 0)
+
 [node name="Stage" type="Node2D"]
 script = ExtResource("1_4p0iq")
 
@@ -178,6 +246,7 @@ texture = ExtResource("5_oc7tl")
 [node name="TV" type="Node2D" parent="."]
 position = Vector2(610, 1342)
 script = ExtResource("6_4oadt")
+togglable = true
 
 [node name="Sprite2D" type="Sprite2D" parent="TV"]
 position = Vector2(12, 148)
@@ -218,7 +287,7 @@ texture = ExtResource("6_i6jap")
 
 [node name="CatSpots" type="TileMapLayer" parent="."]
 modulate = Color(92.076, 58.196, 100, 1)
-tile_map_data = PackedByteArray("AAD1/yMAAAAAAAAAAADt/x8AAAAAAAAAAAACAB8AAAAAAAAAAAD6/ygAAAAAAAAAAADw/z4AAAAAAAAAAAD1/xwAAAAAAAAAAAD9/zIAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD1/yMAAAAAAAAAAADt/x8AAAAAAAAAAAACAB8AAAAAAAAAAAD6/ygAAAAAAAAAAADw/z4AAAAAAAAAAAD1/xwAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_mf4mk")
 
 [node name="DebugGrid" type="TileMapLayer" parent="."]
@@ -245,14 +314,13 @@ position = Vector2(500, 1200)
 position = Vector2(1221, 1113)
 
 [node name="Plant" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6v5t4")
 position = Vector2(1880, 2204)
 texture = ExtResource("17_sifj1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2180, 1653)
 zoom = Vector2(0.45, 0.45)
-limit_left = -953
-limit_top = -443
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("15_f7e63")
@@ -273,15 +341,12 @@ process_material = SubResource("ParticleProcessMaterial_g8r04")
 
 [node name="Continue" type="TextureButton" parent="GUI"]
 visible = false
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 46.0
-offset_top = 906.0
-offset_right = 417.0
-offset_bottom = 1052.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_top = -146.0
+offset_right = 371.0
+grow_vertical = 0
 texture_normal = ExtResource("16_b6xey")
 texture_hover = ExtResource("17_i7rkc")
 
@@ -292,10 +357,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1100.5
-offset_top = -585.0
-offset_right = -826.5
-offset_bottom = -496.0
+offset_left = -137.0
+offset_top = -44.5
+offset_right = 137.0
+offset_bottom = 44.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -305,10 +370,29 @@ text = "Continue"
 
 [node name="Notes" parent="GUI" instance=ExtResource("19_g1xpg")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Background" type="CanvasLayer" parent="."]
 layer = -2
 
-[node name="Background" parent="CanvasLayer" instance=ExtResource("20_edg2l")]
+[node name="Background" parent="Background" instance=ExtResource("20_edg2l")]
 mouse_filter = 2
+
+[node name="Transition" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_pjvct")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+material = SubResource("ShaderMaterial_tm8es")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="GUI/Continue" to="." method="_on_continue_pressed"]

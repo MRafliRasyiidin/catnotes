@@ -1,11 +1,9 @@
-[gd_scene load_steps=2 format=4 uid="uid://bebag8uauvwtx"]
+[gd_scene load_steps=3 format=4 uid="uid://bebag8uauvwtx"]
 
 [ext_resource type="PackedScene" uid="uid://dsvasai1gucls" path="res://src/stages/stage_2.tscn" id="1_0w3pj"]
+[ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="2_axl22"]
 
 [node name="Stage" instance=ExtResource("1_0w3pj")]
-
-[node name="LivingRoom" parent="Rooms" index="2"]
-position = Vector2(1475.5, 1669)
 
 [node name="CatBed" parent="CatBeds" index="0"]
 position = Vector2(754, 532)
@@ -28,23 +26,8 @@ tile_map_data = PackedByteArray("AAD1/yMAAAAAAAAAAAD1/xwAAAAAAAAAAAAAABsAAAAAAAA
 [node name="Plant" parent="." index="6"]
 material = null
 
-[node name="Camera2D" parent="." index="7"]
-limit_left = -953
-limit_top = -443
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="11"]
+layer = -2
 
-[node name="Continue" parent="GUI" index="0"]
-anchors_preset = 15
-anchor_top = 0.0
-anchor_right = 1.0
-offset_left = 46.0
-offset_top = 906.0
-offset_right = 417.0
-offset_bottom = 1052.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ContinueText" parent="GUI/Continue" index="0"]
-offset_left = -1100.5
-offset_top = -585.0
-offset_right = -826.5
-offset_bottom = -496.0
+[node name="Background" parent="CanvasLayer" index="0" instance=ExtResource("2_axl22")]
+mouse_filter = 2
