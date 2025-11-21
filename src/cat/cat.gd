@@ -10,7 +10,6 @@ extends Node2D
 @onready var hover_area: Area2D = $Area2D 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-
 var dragging = false
 var drag_offset = Vector2.ZERO
 var previous_position = Vector2.ZERO
@@ -152,8 +151,11 @@ func move_to_position(target_pos: Vector2):
 	if GlobalState.cat_locations[self.get_meta('cat_name')] == Vector2i(0,0):
 		sprite_to_sit()
 
-func is_angry() -> bool:
-	return angry.visible == true
+func is_loaf() -> bool:
+	return loaf.visible == true
+
+func is_dragging() -> bool:
+	return dragging
 
 func _on_mouse_entered() -> void:
 	cat_name.show()

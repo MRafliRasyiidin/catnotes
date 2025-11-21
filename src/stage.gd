@@ -23,14 +23,17 @@ func _ready() -> void:
 	set_tile_in_room()
 
 func _process(delta):
-	is_complete = true 
+	is_complete = true
 	var cat_list = cats.get_children()
 	for cat in cat_list:
-		if cat.is_angry():
+		if cat.is_dragging():
 			is_complete = false
 			break
-	#print(GlobalState.cat_locations)
-	#print(GlobalState.cat_locations.values().has(Vector2i(0,0)))
+	if is_complete:
+		for cat in cat_list:
+			if not cat.is_loaf():
+				is_complete = false
+				break		
 	if is_complete && not GlobalState.cat_locations.values().has(Vector2i(0,0)):
 		continue_button.show()
 	else:
