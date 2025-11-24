@@ -18,6 +18,7 @@ static var room_tiles: Dictionary = {
 	"office": {}
 }
 static var months = ["March","April","May","June","July","August"]
+static var max_stage = 5
 
 func _ready() -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

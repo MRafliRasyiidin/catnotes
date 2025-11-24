@@ -135,18 +135,16 @@ func _input(event):
 				print("Tile ", tile_coords, " is not part of any room")
 		else: print("Unavailable tile at ", tile_coords)
 
-
 func _on_continue_pressed() -> void:
 	SfxManager.play(SfxManager.click)
 	continue_button.disabled = true
 	GlobalState.stage_counter += 1
 	transition_anim.play("fade")
 	await transition_anim.animation_finished
-	if GlobalState.stage_counter > 5:
+	if GlobalState.stage_counter > GlobalState.max_stage:
 		get_tree().change_scene_to_file("res://src/main_menu/main_menu.tscn")
 	else:
 		get_tree().change_scene_to_file("res://src/transition.tscn")
-	
 
 func get_neighbor_tiles(tile: Vector2i) -> Array:
 	var offsets = [

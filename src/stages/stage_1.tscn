@@ -400,7 +400,6 @@ mouse_filter = 2
 
 [node name="Transition" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
 root_node = NodePath("../..")
