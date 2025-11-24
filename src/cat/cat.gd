@@ -150,8 +150,7 @@ func is_valid_tile(mouse: Vector2i, landing: Vector2i):
 	return {"valid": false, "tile": null}
 
 func change_sprite(target_tile):
-	#print('popopp')
-	if GlobalState.placement_rules.can_place_cat(target_tile, self):
+	if GameManager.can_place_cat(target_tile, self):
 		sprite_to_loaf()
 	else:
 		sprite_to_angry()
