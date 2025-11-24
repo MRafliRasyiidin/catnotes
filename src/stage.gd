@@ -20,7 +20,7 @@ func _ready() -> void:
 	var rules_path = "res://src/rules/stage_%d_rule.gd" % GlobalState.stage_counter
 	var rules = load(rules_path)
 	GlobalState.placement_rules = rules.new()
-	notes.make_children(GlobalState.placement_rules.rules_text)
+	notes.setup_page(GlobalState.placement_rules.rules_text)
 	set_cat_init_position()
 	set_cat_name()
 	set_tile_in_room()
@@ -35,11 +35,15 @@ func _process(delta):
 		if cat.is_dragging():
 			is_complete = false
 			break
+
+	await get_tree().create_timer(0.2).timeout
+	
 	if is_complete:
 		for cat in cat_list:
 			if not cat.is_loaf():
 				is_complete = false
 				break
+				
 	if is_complete && not GlobalState.cat_locations.values().has(Vector2i(0,0)):
 		continue_button.show()
 	else:

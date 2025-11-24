@@ -1,10 +1,12 @@
-var rules_text: Array[String] = [
+var rules_text: Array[Array] = [
 	#"[color=#d44d13][b]Lala[/b][/color] wants to sit near the window"
-	"The office ceiling leaks when it rains. I need to move the beds.",
-	"[color=#d44d13][b]Tissue[/b][/color]’s been sleeping more lately. She doesn’t eat as much.",
-	"[color=#d44d13][b]Choco[/b][/color] seems restless. Maybe he misses going outside.",
-	"[color=#d44d13][b]Nima[/b][/color] scratched the sofa again. I shouldn't put her near it.",
-	"[color=#d44d13][b]Miko[/b][/color] hissed at [color=#d44d13][b]Chris[/b][/color] again."
+	[
+		"The office ceiling leaks when it rains. I need to move the beds.",
+		"[color=#d44d13][b]Tissue[/b][/color]’s been sleeping more lately. She doesn’t eat as much.",
+		"[color=#d44d13][b]Choco[/b][/color] seems restless. Maybe he misses going outside.",
+		"[color=#d44d13][b]Nima[/b][/color] scratched the sofa again. I shouldn't put her near it.",
+		"[color=#d44d13][b]Miko[/b][/color] hissed at [color=#d44d13][b]Chris[/b][/color] again."
+	],
 ]
 
 var rule: Dictionary = {

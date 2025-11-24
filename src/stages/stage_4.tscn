@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cv56e3un2j5db" path="res://assets/rooms/work_room.png" id="3_b8hgy"]
 [ext_resource type="Texture2D" uid="uid://dr2wngq57xchy" path="res://assets/rooms/living_room.PNG" id="4_4oadt"]
 [ext_resource type="Texture2D" uid="uid://g8hppg27p11u" path="res://assets/rooms/kitchen.png" id="5_oc7tl"]
-[ext_resource type="Script" path="res://src/tv.gd" id="6_4oadt"]
+[ext_resource type="Script" uid="uid://cs165wups6322" path="res://src/tv.gd" id="6_4oadt"]
 [ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="6_i6jap"]
 [ext_resource type="Texture2D" uid="uid://ylihr5juv5q3" path="res://assets/objects/tv.png" id="7_oc7tl"]
 [ext_resource type="Texture2D" uid="uid://be60pqfdaouj0" path="res://assets/objects/paws.png" id="7_sifj1"]

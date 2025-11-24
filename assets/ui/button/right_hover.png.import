@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwc5f78ixnrxd"
-path="res://.godot/imported/battleui_pause_active (1).png-87c10c498237196480684a527b4b6409.ctex"
+uid="uid://d320utx1knssc"
+path="res://.godot/imported/right_hover.png-112c17e7974bdee57a9ba819720dd284.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/battleui_pause_active (1).png"
-dest_files=["res://.godot/imported/battleui_pause_active (1).png-87c10c498237196480684a527b4b6409.ctex"]
+source_file="res://assets/ui/button/right_hover.png"
+dest_files=["res://.godot/imported/right_hover.png-112c17e7974bdee57a9ba819720dd284.ctex"]
 
 [params]
 

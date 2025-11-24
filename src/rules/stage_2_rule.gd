@@ -1,8 +1,10 @@
-var rules_text: Array[String] = [
+var rules_text: Array[Array] = [
 	#"[color=#d44d13][b]Lala[/b][/color] wants to sit near the window"
-	"[color=#d44d13][b]Choco[/b][/color] likes to sleep near a window. Perhaps she likes playing outside.",
-	"[color=#d44d13][b]Boom[/b][/color] likes to be close to me recently, usually in the bedroom.",
-	"[color=#d44d13][b]Chris[/b][/color] has been messing around the TV. I don't want to deal with paying for repairs."
+	[
+		"[color=#d44d13][b]Choco[/b][/color] likes to sleep near a window. Perhaps she likes playing outside.",
+		"[color=#d44d13][b]Boom[/b][/color] likes to be close to me recently, usually in the bedroom.",
+		"[color=#d44d13][b]Chris[/b][/color] has been messing around the TV. I don't want to deal with paying for repairs."
+	],
 ]
 
 var rule: Dictionary = {

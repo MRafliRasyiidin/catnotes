@@ -183,6 +183,7 @@ func sprite_to_picked():
 
 
 func sprite_to_loaf():
+	hissed = false
 	var pos = cat_name.position
 	pos.y = -185
 	cat_name.position = pos
@@ -197,6 +198,7 @@ func sprite_to_angry():
 	if !hissed:
 		hissed = true
 		SfxManager.play(SfxManager.hiss)
+		
 	hide_all_sprite()
 	angry.show()
 	

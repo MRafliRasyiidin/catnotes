@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfl0uyblwqhx"]
+[gd_scene load_steps=16 format=3 uid="uid://dfl0uyblwqhx"]
 
 [ext_resource type="Texture2D" uid="uid://dlxtdjpsiybe1" path="res://assets/ui/notes.png" id="1_bu4na"]
 [ext_resource type="Script" uid="uid://c7kohjtgmrr1w" path="res://src/notes.gd" id="1_sh7gc"]
 [ext_resource type="FontFile" uid="uid://88g5u5nhvmv0" path="res://assets/fonts/variable.ttf" id="2_6crdd"]
 [ext_resource type="FontFile" uid="uid://due2vapjee7gm" path="res://assets/fonts/regular.otf" id="4_k02u4"]
 [ext_resource type="FontFile" uid="uid://b5v20ed87aryq" path="res://assets/fonts/bold.otf" id="5_wn0ix"]
+[ext_resource type="Texture2D" uid="uid://d320utx1knssc" path="res://assets/ui/button/right_hover.png" id="6_6l13p"]
+[ext_resource type="Texture2D" uid="uid://doo803ajem357" path="res://assets/ui/button/right.png" id="7_5ic4o"]
+[ext_resource type="Texture2D" uid="uid://bhvdtadmbi4a6" path="res://assets/ui/button/left_hover.png" id="8_rk0ok"]
+[ext_resource type="Texture2D" uid="uid://dxha4tv2vd65f" path="res://assets/ui/button/left.png" id="9_cxqhp"]
 
 [sub_resource type="FontVariation" id="FontVariation_k02u4"]
 base_font = ExtResource("2_6crdd")
@@ -65,7 +69,7 @@ layout_mode = 0
 offset_left = 59.0
 offset_top = 85.0
 offset_right = 562.0
-offset_bottom = 670.0
+offset_bottom = 702.0
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 40
@@ -117,3 +121,24 @@ theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer"]
+custom_minimum_size = Vector2(412, 0)
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="PreviousPage" type="TextureButton" parent="TextureRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+texture_normal = ExtResource("8_rk0ok")
+texture_hover = ExtResource("9_cxqhp")
+
+[node name="NextPage" type="TextureButton" parent="TextureRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("6_6l13p")
+texture_hover = ExtResource("7_5ic4o")
+
+[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/PreviousPage" to="." method="_on_previous_page_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/NextPage" to="." method="_on_next_page_pressed"]
