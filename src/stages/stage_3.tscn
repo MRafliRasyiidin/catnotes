@@ -31,3 +31,6 @@ layer = -2
 
 [node name="Background" parent="CanvasLayer" index="0" instance=ExtResource("2_axl22")]
 mouse_filter = 2
+
+[node name="Transition" parent="." index="13"]
+visible = true

@@ -11,7 +11,8 @@ extends Node2D
 @onready var cats: Node2D = $Cats
 @onready var continue_button: TextureButton = $GUI/Continue
 @onready var transition_anim: AnimationPlayer = $Transition/AnimationPlayer
-
+@onready var pause_button: TextureButton = $GUI/PauseButton
+@onready var pause: Node = $GUI/Pause
 
 var is_complete: bool = false
 
@@ -143,7 +144,8 @@ func _on_continue_pressed() -> void:
 	await transition_anim.animation_finished
 	if GlobalState.stage_counter > 5:
 		get_tree().change_scene_to_file("res://src/main_menu/main_menu.tscn")
-	get_tree().change_scene_to_file("res://src/transition.tscn")
+	else:
+		get_tree().change_scene_to_file("res://src/transition.tscn")
 	
 
 func get_neighbor_tiles(tile: Vector2i) -> Array:
@@ -165,3 +167,6 @@ func get_neighbor_tiles(tile: Vector2i) -> Array:
 		neighbors.append(pos)
 
 	return neighbors
+
+func _on_pause_button_pressed() -> void:
+	pause.pause()
