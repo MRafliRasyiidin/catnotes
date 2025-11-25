@@ -46,7 +46,8 @@ func _input(event):
 				# Bring to front while dragging
 				z_index = 100
 				SfxManager.play_random_meow()
-				Input.set_custom_mouse_cursor(CURSOR_GRAB, Input.CURSOR_ARROW,Vector2(24,27))
+				change_cursor(CURSOR_GRAB)
+				GlobalState.is_grabbing_cat = true
 		else:
 			if dragging:
 				# Stop dragging and snap to tile
@@ -54,7 +55,9 @@ func _input(event):
 				snap_to_tile()
 				# Reset z_index
 				z_index = 0
-				Input.set_custom_mouse_cursor(CURSOR_NORMAL, Input.CURSOR_ARROW,Vector2(16,6))
+				GlobalState.is_grabbing_cat = false
+				change_cursor(CURSOR_NORMAL)
+				
 
 func _process(delta):
 	if dragging:
@@ -177,12 +180,12 @@ func is_dragging() -> bool:
 	return dragging
 
 func _on_mouse_entered() -> void:
-	Input.set_custom_mouse_cursor(CURSOR_HOVER, Input.CURSOR_ARROW,Vector2(16,6))
+	change_cursor(CURSOR_HOVER)
 	#cat_name.show()
 	cat_name.show_cat_name(picked.visible)
 
 func _on_mouse_exited() -> void:
-	Input.set_custom_mouse_cursor(CURSOR_NORMAL, Input.CURSOR_ARROW,Vector2(16,6))
+	change_cursor(CURSOR_NORMAL)
 	#cat_name.hide()
 	cat_name.hide_cat_name(picked.visible)
 
@@ -239,3 +242,11 @@ func reposition_cat_name(offset: float):
 	pos.y = offset
 	cat_name.position.y = pos.y
 	
+func change_cursor(img: CompressedTexture2D):
+	if img == CURSOR_NORMAL and not GlobalState.is_grabbing_cat:
+		Input.set_custom_mouse_cursor(img, Input.CURSOR_ARROW,Vector2(16,6))
+	elif img == CURSOR_HOVER and not GlobalState.is_grabbing_cat:
+		Input.set_custom_mouse_cursor(img, Input.CURSOR_ARROW,Vector2(16,6))
+	elif img == CURSOR_GRAB:
+		Input.set_custom_mouse_cursor(img, Input.CURSOR_ARROW,Vector2(24,27))
+		
