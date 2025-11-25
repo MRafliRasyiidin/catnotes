@@ -12,7 +12,9 @@ extends Node2D
 @onready var nametag_animations: AnimationPlayer = $NametagAnimations
 @onready var particles: GPUParticles2D = $GPUParticles2D
 
-
+const CURSOR_GRAB = preload("res://assets/ui/cursor/cursor_grab.png")
+const CURSOR_HOVER = preload("res://assets/ui/cursor/cursor_hover.png")
+const CURSOR_NORMAL = preload("res://assets/ui/cursor/cursor_normal.png")
 
 var dragging = false
 var drag_offset = Vector2.ZERO
@@ -44,6 +46,7 @@ func _input(event):
 				# Bring to front while dragging
 				z_index = 100
 				SfxManager.play_random_meow()
+				Input.set_custom_mouse_cursor(CURSOR_GRAB, Input.CURSOR_ARROW,Vector2(24,27))
 		else:
 			if dragging:
 				# Stop dragging and snap to tile
@@ -51,6 +54,7 @@ func _input(event):
 				snap_to_tile()
 				# Reset z_index
 				z_index = 0
+				Input.set_custom_mouse_cursor(CURSOR_NORMAL, Input.CURSOR_ARROW,Vector2(16,6))
 
 func _process(delta):
 	if dragging:
@@ -173,10 +177,12 @@ func is_dragging() -> bool:
 	return dragging
 
 func _on_mouse_entered() -> void:
+	Input.set_custom_mouse_cursor(CURSOR_HOVER, Input.CURSOR_ARROW,Vector2(16,6))
 	#cat_name.show()
 	cat_name.show_cat_name(picked.visible)
 
 func _on_mouse_exited() -> void:
+	Input.set_custom_mouse_cursor(CURSOR_NORMAL, Input.CURSOR_ARROW,Vector2(16,6))
 	#cat_name.hide()
 	cat_name.hide_cat_name(picked.visible)
 
@@ -204,7 +210,7 @@ func sprite_to_angry():
 	#var pos = cat_name.position
 	#pos.y = -185
 	#cat_name.position = pos
-	reposition_cat_name(-185)
+	reposition_cat_name(-170)
 	if !hissed:
 		hissed = true
 		SfxManager.play(SfxManager.hiss)
@@ -227,22 +233,9 @@ func hide_all_sprite():
 	picked.hide()
 	angry.hide()
 	sit.hide()
-
-#func hide_cat_name():
-	#if picked.visible: return
-	#nametag_animations.play_backwards("appear")
-	#await nametag_animations.animation_finished
-	#cat_name.hide()
-	#
-#func show_cat_name():
-	#if picked.visible: return
-	#cat_name.show()
-	#nametag_animations.play("appear")
-	#await nametag_animations.animation_finished
 	
 func reposition_cat_name(offset: float):
 	var pos = cat_name.position
 	pos.y = offset
 	cat_name.position.y = pos.y
-	
 	
