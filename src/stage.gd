@@ -15,6 +15,7 @@ extends Node2D
 @onready var pause: Node = $GUI/Pause
 
 var is_complete: bool = false
+var completion_checked: bool = false
 
 func _ready() -> void:
 	var scene_name = get_tree().current_scene.scene_file_path.get_file().get_basename()
@@ -49,6 +50,7 @@ func _process(delta):
 		continue_button.show()
 	else:
 		continue_button.hide()
+		
 
 func set_cat_init_position():
 	GlobalState.cat_locations = {
@@ -143,6 +145,8 @@ func _input(event):
 func _on_continue_pressed() -> void:
 	SfxManager.play(SfxManager.click)
 	continue_button.disabled = true
+	clear_stage()
+	await cats.get_child(-1).heart_animations.animation_changed
 	GlobalState.stage_counter += 1
 	transition_anim.play("fade")
 	await transition_anim.animation_finished
@@ -173,3 +177,12 @@ func get_neighbor_tiles(tile: Vector2i) -> Array:
 
 func _on_pause_button_pressed() -> void:
 	pause.pause()
+	
+func clear_stage():
+	if completion_checked: return
+	completion_checked = true
+	for cat in cats.get_children():
+		cat.heart_animations.play("show")
+		SfxManager.play(SfxManager.pop)
+		print(cat)
+		await cat.heart_animations.animation_changed

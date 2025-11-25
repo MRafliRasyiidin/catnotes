@@ -11,6 +11,8 @@ extends Node2D
 @onready var cat_animations: AnimationPlayer = $CatAnimations
 @onready var nametag_animations: AnimationPlayer = $NametagAnimations
 @onready var particles: GPUParticles2D = $GPUParticles2D
+@onready var heart_animations: AnimationPlayer = $HeartAnimations
+
 
 const CURSOR_GRAB = preload("res://assets/ui/cursor/cursor_grab.png")
 const CURSOR_HOVER = preload("res://assets/ui/cursor/cursor_hover.png")
@@ -249,4 +251,3 @@ func change_cursor(img: CompressedTexture2D):
 		Input.set_custom_mouse_cursor(img, Input.CURSOR_ARROW,Vector2(16,6))
 	elif img == CURSOR_GRAB:
 		Input.set_custom_mouse_cursor(img, Input.CURSOR_ARROW,Vector2(24,27))
-		

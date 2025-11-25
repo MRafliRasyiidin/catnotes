@@ -5,6 +5,7 @@ extends Node
 @onready var paper = preload("res://assets/sfx/paper.mp3")
 @onready var tear = preload("res://assets/sfx/tear.mp3")
 @onready var hiss = preload("res://assets/sfx/hiss.mp3")
+@onready var pop = preload("res://assets/sfx/pop.mp3")
 @onready var pillows = [
 	preload("res://assets/sfx/pillow_1.mp3"),
 	preload("res://assets/sfx/pillow_2.mp3")
