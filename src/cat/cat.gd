@@ -9,7 +9,6 @@ extends Node2D
 @onready var cat_name: Control = $Name
 @onready var hover_area: Area2D = $Area2D 
 @onready var cat_animations: AnimationPlayer = $CatAnimations
-@onready var nametag_animations: AnimationPlayer = $NametagAnimations
 @onready var particles: GPUParticles2D = $GPUParticles2D
 @onready var heart_animations: AnimationPlayer = $HeartAnimations
 

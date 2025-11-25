@@ -30,6 +30,7 @@ func _ready():
 	sfx_slider.value_changed.connect(_on_sfx_volume_changed)
  
 func _on_fullscreen_toggled(pressed):
+	SfxManager.play(SfxManager.click)
 	if pressed:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
@@ -44,6 +45,7 @@ func _on_resolution_selected(index):
 	center_window()
 
 func _on_music_volume_changed(value):
+	SfxManager.play(SfxManager.click)
 	var music_bus_idx = AudioServer.get_bus_index("Music")
 	if music_bus_idx != -1:
 		# If slider is at minimum, mute the audio
@@ -53,6 +55,7 @@ func _on_music_volume_changed(value):
 			AudioServer.set_bus_volume_db(music_bus_idx, value)
 
 func _on_sfx_volume_changed(value):
+	SfxManager.play(SfxManager.click)
 	var sfx_bus_idx = AudioServer.get_bus_index("SFX")
 	if sfx_bus_idx != -1:
 		# If slider is at minimum, mute the audio
@@ -95,5 +98,6 @@ func load_settings():
 
 
 func _on_button_pressed() -> void:
+	SfxManager.play(SfxManager.click)
 	emit_signal("back_options_pressed")
 	self.hide()

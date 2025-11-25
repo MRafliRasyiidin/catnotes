@@ -1,16 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://b46e43lsj0r2p"]
+[gd_scene load_steps=11 format=3 uid="uid://cfc071j6ctgxm"]
 
 [ext_resource type="Script" uid="uid://omvcko3apxsf" path="res://src/stages/pause.gd" id="1_swdrp"]
-[ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="2_6hqwh"]
-[ext_resource type="FontFile" uid="uid://b5v20ed87aryq" path="res://assets/fonts/bold.otf" id="2_176gy"]
-[ext_resource type="PackedScene" uid="uid://csbdk31ddh25l" path="res://src/stages/optionsMenu.tscn" id="4_oj0qc"]
+[ext_resource type="Texture2D" uid="uid://bo2uxhhn8mj1r" path="res://assets/ui/pause_bg.png" id="3_l2oit"]
+[ext_resource type="Texture2D" uid="uid://bpnworjc75koy" path="res://assets/ui/button/resume_normal.png" id="4_kuswq"]
+[ext_resource type="PackedScene" uid="uid://yekira2jno65" path="res://src/stages/optionsMenu.tscn" id="4_oj0qc"]
+[ext_resource type="Texture2D" uid="uid://x566sv7y48hk" path="res://assets/ui/button/resume_pressed.png" id="5_7kv33"]
+[ext_resource type="Texture2D" uid="uid://yk7wf6q40b1c" path="res://assets/ui/button/settings_normal.png" id="6_18k46"]
+[ext_resource type="Texture2D" uid="uid://cpvxc74xlivts" path="res://assets/ui/button/settings_pressed.png" id="7_8avgl"]
+[ext_resource type="Texture2D" uid="uid://djlcnm20k6c7y" path="res://assets/ui/button/exit_normal.png" id="8_5oxy5"]
+[ext_resource type="Texture2D" uid="uid://bm28xrvrniwi1" path="res://assets/ui/button/exit_pressed.png" id="9_i00hc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swdrp"]
-bg_color = Color(0.530813, 0.224137, 0.247841, 0.960784)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l2oit"]
 
 [node name="Pause" type="Control"]
 process_mode = 2
@@ -53,9 +53,14 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="PauseLayer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_l2oit")
+stretch_mode = 3
+
 [node name="Panel" type="Panel" parent="PauseLayer/MarginContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_swdrp")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_l2oit")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseLayer/MarginContainer/Panel"]
 layout_mode = 1
@@ -64,46 +69,42 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -109.5
-offset_top = -146.5
-offset_right = 109.5
-offset_bottom = 146.5
+offset_left = -174.0
+offset_top = -114.0
+offset_right = 181.0
+offset_bottom = 257.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="PauseLayer/MarginContainer/Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_176gy")
-theme_override_font_sizes/font_size = 70
-text = "Paused"
-
-[node name="ResumeButton" type="Button" parent="PauseLayer/MarginContainer/Panel/VBoxContainer"]
+[node name="ResumeButton" type="TextureButton" parent="PauseLayer/MarginContainer/Panel/VBoxContainer"]
 process_mode = 2
 custom_minimum_size = Vector2(200, 64)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_6hqwh")
-theme_override_font_sizes/font_size = 40
-text = "Resume"
+texture_normal = ExtResource("4_kuswq")
+texture_pressed = ExtResource("5_7kv33")
+texture_hover = ExtResource("5_7kv33")
+texture_focused = ExtResource("4_kuswq")
 
-[node name="SettingsButton" type="Button" parent="PauseLayer/MarginContainer/Panel/VBoxContainer"]
+[node name="SettingsButton" type="TextureButton" parent="PauseLayer/MarginContainer/Panel/VBoxContainer"]
 process_mode = 2
 custom_minimum_size = Vector2(200, 64)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_6hqwh")
-theme_override_font_sizes/font_size = 40
-text = "Settings"
+texture_normal = ExtResource("6_18k46")
+texture_pressed = ExtResource("7_8avgl")
+texture_hover = ExtResource("7_8avgl")
+texture_focused = ExtResource("6_18k46")
 
-[node name="ExitButton" type="Button" parent="PauseLayer/MarginContainer/Panel/VBoxContainer"]
+[node name="ExitButton" type="TextureButton" parent="PauseLayer/MarginContainer/Panel/VBoxContainer"]
 process_mode = 2
-custom_minimum_size = Vector2(200, 64)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_6hqwh")
-theme_override_font_sizes/font_size = 40
-text = "Exit"
+texture_normal = ExtResource("8_5oxy5")
+texture_pressed = ExtResource("9_i00hc")
+texture_hover = ExtResource("9_i00hc")
+texture_focused = ExtResource("8_5oxy5")
 
 [connection signal="focus_entered" from="PauseLayer/MarginContainer/Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_focus_entered"]
 [connection signal="pressed" from="PauseLayer/MarginContainer/Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_pressed"]

@@ -1,8 +1,8 @@
 extends Control
 
-@onready var resume_button: Button = $PauseLayer/MarginContainer/Panel/VBoxContainer/ResumeButton
-@onready var settings_button: Button = $PauseLayer/MarginContainer/Panel/VBoxContainer/SettingsButton
-@onready var quit_button: Button = $PauseLayer/MarginContainer/Panel/VBoxContainer/ExitButton
+@onready var resume_button: TextureButton = $PauseLayer/MarginContainer/Panel/VBoxContainer/ResumeButton
+@onready var settings_button: TextureButton = $PauseLayer/MarginContainer/Panel/VBoxContainer/SettingsButton
+@onready var quit_button: TextureButton = $PauseLayer/MarginContainer/Panel/VBoxContainer/ExitButton
 @onready var options_menu: Control = $PauseLayer/PauseOptionsMenu
 @onready var margin_container: MarginContainer = $PauseLayer/MarginContainer
 #@onready var back_options: Button = $PauseLayer/PauseOptionsMenu/MarginContainer/VBoxContainer/Button
@@ -26,17 +26,21 @@ func pause():
 		canvas_layer.show()
 	else:
 		canvas_layer.hide()
+	SfxManager.play(SfxManager.phone)
 
 func _on_resume_pressed():
+	SfxManager.play(SfxManager.click)
 	var tree = get_tree()
 	tree.paused = false
 	canvas_layer.hide()
 
 func _on_settings_button_pressed() -> void:
+	SfxManager.play(SfxManager.click)
 	options_menu.visible = true
 	margin_container.visible = false
 
 func _on_exit_button_pressed() -> void:
+	SfxManager.play(SfxManager.click)
 	get_tree().quit()
 
 func _on_resume_button_focus_entered() -> void:

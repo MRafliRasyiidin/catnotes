@@ -25,7 +25,7 @@
 [ext_resource type="Shader" uid="uid://k38machql6ou" path="res://src/shaders/plant.gdshader" id="17_ny263"]
 [ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="19_5ytyl"]
 [ext_resource type="Texture2D" uid="uid://cxv28514udhw1" path="res://assets/ui/button/battleui_pause.png" id="24_6x52l"]
-[ext_resource type="PackedScene" path="res://src/stages/pause.tscn" id="24_2114x"]
+[ext_resource type="PackedScene" uid="uid://cfc071j6ctgxm" path="res://src/stages/pause.tscn" id="24_2114x"]
 [ext_resource type="Shader" uid="uid://0wmnxt2qmxow" path="res://src/shaders/transition.gdshader" id="25_6v5t4"]
 [ext_resource type="Texture2D" uid="uid://cwc5f78ixnrxd" path="res://assets/ui/button/battleui_pause_active (1).png" id="25_ymu3r"]
 [ext_resource type="Texture2D" uid="uid://cryc13uv58jcw" path="res://assets/ui/transition_mask_cat.png" id="26_tm8es"]
@@ -96,7 +96,7 @@ texture_region_size = Vector2i(120, 70)
 0:0/animation_frame_1/duration = 1.0
 0:0/animation_frame_2/duration = 1.0
 0:0/0 = 0
-0:0/0/modulate = Color(1, 1, 1, 0.345098)
+0:0/0/modulate = Color(1, 1, 1, 0.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ykrsh"]
 texture = ExtResource("7_tuj6d")
@@ -290,7 +290,6 @@ position = Vector2(1536, 2103)
 texture = ExtResource("6_nygk3")
 
 [node name="CatSpots" type="TileMapLayer" parent="."]
-modulate = Color(92.076, 58.196, 100, 1)
 tile_map_data = PackedByteArray("AAD1/yMAAAAAAAAAAADt/x8AAAAAAAAAAAACAB8AAAAAAAAAAAD6/ygAAAAAAAAAAADw/z4AAAAAAAAAAAD1/xwAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_mf4mk")
 
