@@ -1,5 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu7fh1q6t52aq"]
+[gd_scene load_steps=2 format=3 uid="uid://cqv18w5aguhpp"]
 
-[ext_resource type="PackedScene" uid="uid://dbqhstk8rdpn1" path="res://src/stages/stage_4.tscn" id="1_h3xgm"]
+[ext_resource type="PackedScene" uid="uid://boowxysroxwth" path="res://src/stages/stage_4.tscn" id="1_h3xgm"]
 
-[node name="Stage" instance=ExtResource("1_h3xgm")]
+[node name="Stage2" instance=ExtResource("1_h3xgm")]

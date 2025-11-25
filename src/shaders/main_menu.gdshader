@@ -8,9 +8,9 @@ void fragment() {
     vec2 pixel_size = 1.0 / tex_size;
     vec4 color = vec4(0.0);
     float total = 0.0;
-    
+
     float step_size = (blur_radius * 2.0) / float(samples);
-    
+
     for (float x = -blur_radius; x <= blur_radius; x += step_size) {
         for (float y = -blur_radius; y <= blur_radius; y += step_size) {
             float dist = length(vec2(x, y)) / blur_radius;
@@ -19,7 +19,7 @@ void fragment() {
             total += weight;
         }
     }
-    
+
     color /= total;
     COLOR = color;
 }

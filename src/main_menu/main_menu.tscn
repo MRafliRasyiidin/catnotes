@@ -19,8 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://g5ll13m6bend" path="res://assets/ui/title/cat_2.png" id="13_nd4tj"]
 [ext_resource type="Texture2D" uid="uid://0gs8dk0wk2fl" path="res://assets/ui/title/notes_1.png" id="14_yxfv3"]
 [ext_resource type="Texture2D" uid="uid://bgokwonj6tpd" path="res://assets/ui/title/notes_2.png" id="15_ff3dm"]
-[ext_resource type="Script" path="res://src/main_menu/camera.gd" id="15_iy15y"]
-[ext_resource type="Shader" path="res://src/shaders/transition.gdshader" id="22_yxfv3"]
+[ext_resource type="Script" uid="uid://kyuoayk3qxwi" path="res://src/main_menu/camera.gd" id="15_iy15y"]
+[ext_resource type="Shader" uid="uid://0wmnxt2qmxow" path="res://src/shaders/transition.gdshader" id="22_yxfv3"]
 [ext_resource type="Texture2D" uid="uid://cryc13uv58jcw" path="res://assets/ui/transition_mask_cat.png" id="23_ff3dm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_plxga"]

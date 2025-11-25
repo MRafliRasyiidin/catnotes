@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dsvasai1gucls" path="res://src/stages/stage_2.tscn" id="1_0w3pj"]
 [ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="2_axl22"]
 
-[node name="Stage" instance=ExtResource("1_0w3pj")]
+[node name="Stage2" instance=ExtResource("1_0w3pj")]
 
 [node name="CatBed" parent="CatBeds" index="0"]
 position = Vector2(754, 532)

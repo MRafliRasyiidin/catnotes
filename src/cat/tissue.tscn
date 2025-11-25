@@ -8,17 +8,21 @@
 
 [node name="Tissue" instance=ExtResource("1_em2l4")]
 
-[node name="Name" parent="." index="0"]
-text = "Tissue"
-
-[node name="Loaf" parent="." index="1"]
+[node name="Loaf" parent="." index="0"]
 texture = ExtResource("2_sjupa")
 
-[node name="Picked" parent="." index="2"]
+[node name="Picked" parent="." index="1"]
+position = Vector2(-6.77626e-21, 0)
 texture = ExtResource("3_up5ib")
+offset = Vector2(25, 330)
 
-[node name="Angry" parent="." index="3"]
+[node name="Angry" parent="." index="2"]
 texture = ExtResource("4_u7gb6")
 
-[node name="Sit" parent="." index="4"]
+[node name="Sit" parent="." index="3"]
 texture = ExtResource("5_lmi4r")
+
+[node name="Name" parent="." index="8"]
+offset_left = -121.0
+offset_right = -121.0
+cat_name = "Tissue"
