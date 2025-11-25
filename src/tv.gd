@@ -43,7 +43,7 @@ func _toggle_tv():
 	if !togglable: return
 	
 	tv_on = !tv_on
-
+	GlobalState.tv_on = tv_on
 	if tv_on:
 		print("TV turned ON")
 		sprite_2d.frame = 1

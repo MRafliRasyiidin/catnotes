@@ -6,9 +6,13 @@ extends Node2D
 @onready var landing_point: Marker2D = $LandingPoint
 @onready var angry: Sprite2D = $Angry
 @onready var sit: Sprite2D = $Sit
-@onready var cat_name: Label = $Name
+@onready var cat_name: Control = $Name
 @onready var hover_area: Area2D = $Area2D 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var cat_animations: AnimationPlayer = $CatAnimations
+@onready var nametag_animations: AnimationPlayer = $NametagAnimations
+@onready var particles: GPUParticles2D = $GPUParticles2D
+
+
 
 var dragging = false
 var drag_offset = Vector2.ZERO
@@ -17,7 +21,7 @@ var hissed: bool = false
 var has_been_placed: bool = false  # NEW FLAG
 
 func _ready():
-	animation_player.play("idle")
+	cat_animations.play("idle")
 	sprite_to_sit()  # start sitting
 	# Get tilemap reference
 	if !tilemap:
@@ -52,18 +56,18 @@ func _process(delta):
 	if dragging:
 		# Update position while dragging
 		global_position = get_global_mouse_position() + drag_offset
-		'''
-		if is_inside_tilemap():
-			if !inside_tilemap:
-				inside_tilemap = true
-				print("Entered tilemap area")
-				sprite_to_sit()
-		else:
-			if inside_tilemap:
-				inside_tilemap = false
-				print("Exited tilemap area")
-				sprite_to_picked()
-		'''
+		
+		#if is_inside_tilemap():
+			#if !inside_tilemap:
+				#inside_tilemap = true
+				#print("Entered tilemap area")
+				#sprite_to_sit()
+		#else:
+			#if inside_tilemap:
+				#inside_tilemap = false
+				#print("Exited tilemap area")
+				#sprite_to_picked()
+		#
 	else:
 		# Only update sprite if cat has been placed
 		if has_been_placed:
@@ -138,6 +142,7 @@ func snap_to_tile():
 	var tile_center = tilemap.to_global(tilemap.map_to_local(target_tile))
 	global_position = tile_center
 	print(name, " snapped to tile: ", target_tile)
+	particles.emitting = true
 
 func is_valid_tile(mouse: Vector2i, landing: Vector2i):
 	var tiles = GlobalState.room_tiles
@@ -150,8 +155,7 @@ func is_valid_tile(mouse: Vector2i, landing: Vector2i):
 	return {"valid": false, "tile": null}
 
 func change_sprite(target_tile):
-	#print('popopp')
-	if GlobalState.placement_rules.can_place_cat(target_tile, self):
+	if GameManager.can_place_cat(target_tile, self):
 		sprite_to_loaf()
 	else:
 		sprite_to_angry()
@@ -169,43 +173,51 @@ func is_dragging() -> bool:
 	return dragging
 
 func _on_mouse_entered() -> void:
-	cat_name.show()
+	#cat_name.show()
+	cat_name.show_cat_name(picked.visible)
 
 func _on_mouse_exited() -> void:
-	cat_name.hide()
+	#cat_name.hide()
+	cat_name.hide_cat_name(picked.visible)
 
 func sprite_to_picked():
-	var pos = cat_name.position
-	pos.y = -100
-	cat_name.position = pos
+	#var pos = cat_name.position
+	#pos.y = -100
+	#cat_name.position = pos
+	reposition_cat_name(-120)
 	hissed = false
 	hide_all_sprite()
 	picked.show()
 
 
 func sprite_to_loaf():
-	var pos = cat_name.position
-	pos.y = -185
-	cat_name.position = pos
+	hissed = false
+	#var pos = cat_name.position
+	#pos.y = -185
+	#cat_name.position = pos
+	reposition_cat_name(-210.0)
 	hide_all_sprite()
 	loaf.show()
 	
 
 func sprite_to_angry():
-	var pos = cat_name.position
-	pos.y = -185
-	cat_name.position = pos
+	#var pos = cat_name.position
+	#pos.y = -185
+	#cat_name.position = pos
+	reposition_cat_name(-185)
 	if !hissed:
 		hissed = true
 		SfxManager.play(SfxManager.hiss)
+		
 	hide_all_sprite()
 	angry.show()
 	
 
 func sprite_to_sit():
-	var pos = cat_name.position
-	pos.y = -220
-	cat_name.position = pos
+	#var pos = cat_name.position
+	#pos.y = -220
+	#cat_name.position = pos
+	reposition_cat_name(-240)
 	hide_all_sprite()
 	sit.show()
 	
@@ -215,3 +227,22 @@ func hide_all_sprite():
 	picked.hide()
 	angry.hide()
 	sit.hide()
+
+#func hide_cat_name():
+	#if picked.visible: return
+	#nametag_animations.play_backwards("appear")
+	#await nametag_animations.animation_finished
+	#cat_name.hide()
+	#
+#func show_cat_name():
+	#if picked.visible: return
+	#cat_name.show()
+	#nametag_animations.play("appear")
+	#await nametag_animations.animation_finished
+	
+func reposition_cat_name(offset: float):
+	var pos = cat_name.position
+	pos.y = offset
+	cat_name.position.y = pos.y
+	
+	

@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=3 uid="uid://b46e43lsj0r2p"]
+
+[ext_resource type="Script" uid="uid://omvcko3apxsf" path="res://src/stages/pause.gd" id="1_swdrp"]
+[ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="2_6hqwh"]
+[ext_resource type="FontFile" uid="uid://b5v20ed87aryq" path="res://assets/fonts/bold.otf" id="2_176gy"]
+[ext_resource type="PackedScene" uid="uid://csbdk31ddh25l" path="res://src/stages/optionsMenu.tscn" id="4_oj0qc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swdrp"]
+bg_color = Color(0.530813, 0.224137, 0.247841, 0.960784)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Pause" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_swdrp")
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+process_mode = 2
+layer = 128
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="PauseLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.156863, 0.156863, 0.156863, 0.854902)
+
+[node name="PauseOptionsMenu" parent="PauseLayer" instance=ExtResource("4_oj0qc")]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="PauseLayer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_swdrp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseLayer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.5
+offset_top = -146.5
+offset_right = 109.5
+offset_bottom = 146.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PauseLayer/MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_176gy")
+theme_override_font_sizes/font_size = 70
+text = "Paused"
+
+[node name="ResumeButton" type="Button" parent="PauseLayer/MarginContainer/Panel/VBoxContainer"]
+process_mode = 2
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_6hqwh")
+theme_override_font_sizes/font_size = 40
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="PauseLayer/MarginContainer/Panel/VBoxContainer"]
+process_mode = 2
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_6hqwh")
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="PauseLayer/MarginContainer/Panel/VBoxContainer"]
+process_mode = 2
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_6hqwh")
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+
+[connection signal="focus_entered" from="PauseLayer/MarginContainer/Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_focus_entered"]
+[connection signal="pressed" from="PauseLayer/MarginContainer/Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseLayer/MarginContainer/Panel/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PauseLayer/MarginContainer/Panel/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

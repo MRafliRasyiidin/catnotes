@@ -10,17 +10,24 @@ extends Node2D
 @onready var cat_spots: TileMapLayer = $CatSpots
 @onready var cats: Node2D = $Cats
 @onready var continue_button: TextureButton = $GUI/Continue
+@onready var transition_anim: AnimationPlayer = $Transition/AnimationPlayer
+@onready var pause_button: TextureButton = $GUI/PauseButton
+@onready var pause: Node = $GUI/Pause
 
 var is_complete: bool = false
 
 func _ready() -> void:
-	var rules_path = "res://src/rules/stage_%d_rule.gd" % GlobalState.stage_counter
+	var scene_name = get_tree().current_scene.scene_file_path.get_file().get_basename()
+	var rules_path = "res://src/rules/%s_rule.gd" % scene_name
 	var rules = load(rules_path)
 	GlobalState.placement_rules = rules.new()
-	notes.make_children(GlobalState.placement_rules.rules_text)
+	notes.setup_page(GlobalState.placement_rules.rules_text)
 	set_cat_init_position()
 	set_cat_name()
 	set_tile_in_room()
+	
+	transition_anim.play_backwards("fade")
+	await transition_anim.animation_finished
 
 func _process(delta):
 	is_complete = true
@@ -29,11 +36,15 @@ func _process(delta):
 		if cat.is_dragging():
 			is_complete = false
 			break
+
+	await get_tree().create_timer(0.2).timeout
+	
 	if is_complete:
 		for cat in cat_list:
 			if not cat.is_loaf():
 				is_complete = false
 				break
+				
 	if is_complete && not GlobalState.cat_locations.values().has(Vector2i(0,0)):
 		continue_button.show()
 	else:
@@ -129,13 +140,16 @@ func _input(event):
 				print("Tile ", tile_coords, " is not part of any room")
 		else: print("Unavailable tile at ", tile_coords)
 
-
 func _on_continue_pressed() -> void:
 	SfxManager.play(SfxManager.click)
+	continue_button.disabled = true
 	GlobalState.stage_counter += 1
-	if GlobalState.stage_counter > 5:
+	transition_anim.play("fade")
+	await transition_anim.animation_finished
+	if GlobalState.stage_counter > GlobalState.max_stage:
 		get_tree().change_scene_to_file("res://src/main_menu/main_menu.tscn")
-	get_tree().change_scene_to_file("res://src/transition.tscn")
+	else:
+		get_tree().change_scene_to_file("res://src/transition.tscn")
 
 func get_neighbor_tiles(tile: Vector2i) -> Array:
 	var offsets = [
@@ -156,3 +170,6 @@ func get_neighbor_tiles(tile: Vector2i) -> Array:
 		neighbors.append(pos)
 
 	return neighbors
+
+func _on_pause_button_pressed() -> void:
+	pause.pause()

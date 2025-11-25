@@ -1,11 +1,9 @@
-[gd_scene load_steps=2 format=4 uid="uid://bebag8uauvwtx"]
+[gd_scene load_steps=3 format=4 uid="uid://bebag8uauvwtx"]
 
 [ext_resource type="PackedScene" uid="uid://dsvasai1gucls" path="res://src/stages/stage_2.tscn" id="1_0w3pj"]
+[ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="2_axl22"]
 
-[node name="Stage" instance=ExtResource("1_0w3pj")]
-
-[node name="LivingRoom" parent="Rooms" index="2"]
-position = Vector2(1475.5, 1669)
+[node name="Stage2" instance=ExtResource("1_0w3pj")]
 
 [node name="CatBed" parent="CatBeds" index="0"]
 position = Vector2(754, 532)
@@ -24,3 +22,12 @@ position = Vector2(1651, 1970)
 
 [node name="CatSpots" parent="." index="3"]
 tile_map_data = PackedByteArray("AAD1/yMAAAAAAAAAAAD1/xwAAAAAAAAAAAAAABsAAAAAAAAAAADz/z0AAAAAAAAAAADv/ycAAAAAAAAAAAAAACEAAAAAAAAAAADu/yAAAAAAAAAAAAA=")
+
+[node name="Plant" parent="." index="6"]
+material = null
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="11"]
+layer = -2
+
+[node name="Background" parent="CanvasLayer" index="0" instance=ExtResource("2_axl22")]
+mouse_filter = 2

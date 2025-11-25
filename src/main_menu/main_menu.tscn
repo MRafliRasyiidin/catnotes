@@ -1,9 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://dmltxnihbpwlh"]
+[gd_scene load_steps=48 format=3 uid="uid://dmltxnihbpwlh"]
 
 [ext_resource type="Script" uid="uid://dvqgnlgc8r5yi" path="res://src/main_menu/main_menu.gd" id="1_b2bbe"]
 [ext_resource type="Texture2D" uid="uid://di8dd225girdl" path="res://assets/ui/Button monyong kiri.PNG" id="2_amn4d"]
 [ext_resource type="Texture2D" uid="uid://bxklivgrtcvj4" path="res://assets/rooms/bedroom.PNG" id="2_vccap"]
-[ext_resource type="Texture2D" uid="uid://vf2wy6g05qrc" path="res://assets/ui/main_menu_background.png" id="3_bk001"]
 [ext_resource type="Texture2D" uid="uid://xgba6olr5sgp" path="res://assets/ui/Button monyong kiri hover.PNG" id="3_pwul8"]
 [ext_resource type="Texture2D" uid="uid://dr2wngq57xchy" path="res://assets/rooms/living_room.PNG" id="4_abxxg"]
 [ext_resource type="Texture2D" uid="uid://ccm1wyea5ouey" path="res://assets/ui/Button monyong kanan.PNG" id="4_no1ax"]
@@ -13,12 +12,21 @@
 [ext_resource type="Shader" uid="uid://chnwk2mfy371l" path="res://src/shaders/main_menu.gdshader" id="6_abxxg"]
 [ext_resource type="Texture2D" uid="uid://cv56e3un2j5db" path="res://assets/rooms/work_room.png" id="9_bk001"]
 [ext_resource type="Texture2D" uid="uid://bhrw65rfkh0ua" path="res://assets/ui/title_sheet_cat.png" id="9_iy15y"]
+[ext_resource type="Texture2D" uid="uid://b25sgvdk8qx4e" path="res://assets/ui/title/cat_0.png" id="10_gtgn3"]
 [ext_resource type="Texture2D" uid="uid://dl7gij3407wwf" path="res://assets/ui/title_sheet_notes.png" id="10_uk432"]
+[ext_resource type="Texture2D" uid="uid://03s0jnnmlxaa" path="res://assets/ui/title/notes_0.png" id="11_jxocj"]
+[ext_resource type="Texture2D" uid="uid://beaa4xdr8p402" path="res://assets/ui/title/cat_1.png" id="12_n0ljs"]
+[ext_resource type="Texture2D" uid="uid://g5ll13m6bend" path="res://assets/ui/title/cat_2.png" id="13_nd4tj"]
+[ext_resource type="Texture2D" uid="uid://0gs8dk0wk2fl" path="res://assets/ui/title/notes_1.png" id="14_yxfv3"]
+[ext_resource type="Texture2D" uid="uid://bgokwonj6tpd" path="res://assets/ui/title/notes_2.png" id="15_ff3dm"]
 [ext_resource type="Script" uid="uid://kyuoayk3qxwi" path="res://src/main_menu/camera.gd" id="15_iy15y"]
+[ext_resource type="Shader" uid="uid://0wmnxt2qmxow" path="res://src/shaders/transition.gdshader" id="22_yxfv3"]
+[ext_resource type="Texture2D" uid="uid://cryc13uv58jcw" path="res://assets/ui/transition_mask_cat.png" id="23_ff3dm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_plxga"]
 shader = ExtResource("6_abxxg")
 shader_parameter/blur_radius = 20.0
+shader_parameter/samples = 8
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtgn3"]
 atlas = ExtResource("9_iy15y")
@@ -108,6 +116,68 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Animation" id="Animation_o8snk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cat:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_gtgn3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Notes:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_jxocj")]
+}
+
+[sub_resource type="Animation" id="Animation_udluw"]
+resource_name = "blink"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cat:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1.5, 1.6, 1.8, 1.9, 2.9, 3, 3.2, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_gtgn3"), ExtResource("10_gtgn3"), ExtResource("12_n0ljs"), ExtResource("13_nd4tj"), ExtResource("12_n0ljs"), ExtResource("10_gtgn3"), ExtResource("12_n0ljs"), ExtResource("13_nd4tj"), ExtResource("12_n0ljs"), ExtResource("10_gtgn3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Notes:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1.06667, 1.16667, 1.36667, 1.46667, 2.03333, 2.13333, 2.33333, 2.43333, 4.26667, 4.36667, 4.56667, 4.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_jxocj"), ExtResource("11_jxocj"), ExtResource("14_yxfv3"), ExtResource("15_ff3dm"), ExtResource("14_yxfv3"), ExtResource("11_jxocj"), ExtResource("14_yxfv3"), ExtResource("15_ff3dm"), ExtResource("14_yxfv3"), ExtResource("11_jxocj"), ExtResource("14_yxfv3"), ExtResource("15_ff3dm"), ExtResource("14_yxfv3"), ExtResource("11_jxocj")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqixs"]
+_data = {
+&"RESET": SubResource("Animation_o8snk"),
+&"blink": SubResource("Animation_udluw")
+}
+
 [sub_resource type="Curve" id="Curve_abxxg"]
 _data = [Vector2(0, 0.303851), 0.0, 0.173067, 0, 0, Vector2(1, 0), -0.0264584, 0.0, 0, 0]
 point_count = 2
@@ -158,11 +228,68 @@ scale_max = 5.0
 scale_curve = SubResource("CurveXYZTexture_2qygu")
 alpha_curve = SubResource("CurveTexture_uj25x")
 
+[sub_resource type="Animation" id="Animation_2114x"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_tm8es"]
+resource_name = "fade"
+length = 1.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pjvct"]
+_data = {
+&"RESET": SubResource("Animation_2114x"),
+&"fade": SubResource("Animation_tm8es")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udluw"]
+shader = ExtResource("22_yxfv3")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 1
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = false
+shader_parameter/grid_size = Vector2(1, 1)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/mask_texture = ExtResource("23_ff3dm")
+shader_parameter/use_mask_size = true
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 6
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(0, 0)
+
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_b2bbe")
 
 [node name="Rooms" type="Node2D" parent="."]
-position = Vector2(-927, -902)
 
 [node name="Bedroom" type="Sprite2D" parent="Rooms"]
 position = Vector2(1849.5, 1007)
@@ -190,29 +317,43 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="TextureRect" parent="CanvasLayer"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 3840.0
-offset_bottom = 2160.0
+[node name="Title" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -392.0
+offset_top = 58.91
+offset_right = 392.0
+offset_bottom = 653.91
 grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_bk001")
+theme_override_constants/separation = -40
 
-[node name="Title" type="Node2D" parent="CanvasLayer"]
-
-[node name="Cat" type="AnimatedSprite2D" parent="CanvasLayer/Title"]
+[node name="Cat3" type="AnimatedSprite2D" parent="CanvasLayer/Title"]
+visible = false
 position = Vector2(959, 267)
 sprite_frames = SubResource("SpriteFrames_prrv1")
 frame_progress = 0.812084
 
-[node name="Notes" type="AnimatedSprite2D" parent="CanvasLayer/Title"]
+[node name="Notes3" type="AnimatedSprite2D" parent="CanvasLayer/Title"]
+visible = false
 position = Vector2(960, 535)
 sprite_frames = SubResource("SpriteFrames_n0ljs")
 frame_progress = 0.889196
+
+[node name="Cat" type="TextureRect" parent="CanvasLayer/Title"]
+layout_mode = 2
+texture = ExtResource("10_gtgn3")
+stretch_mode = 3
+
+[node name="Notes" type="TextureRect" parent="CanvasLayer/Title"]
+layout_mode = 2
+texture = ExtResource("11_jxocj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Title"]
+libraries = {
+&"": SubResource("AnimationLibrary_qqixs")
+}
+movie_quit_on_finish = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
@@ -283,8 +424,28 @@ randomness = 0.3
 process_material = SubResource("ParticleProcessMaterial_jxocj")
 
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
-anchor_mode = 0
+position = Vector2(1921, 1484)
+drag_horizontal_enabled = true
 script = ExtResource("15_iy15y")
+
+[node name="Transition" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_pjvct")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+material = SubResource("ShaderMaterial_udluw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
