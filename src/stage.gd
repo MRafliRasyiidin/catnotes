@@ -17,7 +17,8 @@ extends Node2D
 var is_complete: bool = false
 
 func _ready() -> void:
-	var rules_path = "res://src/rules/stage_%d_rule.gd" % GlobalState.stage_counter
+	var scene_name = get_tree().current_scene.scene_file_path.get_file().get_basename()
+	var rules_path = "res://src/rules/%s_rule.gd" % scene_name
 	var rules = load(rules_path)
 	GlobalState.placement_rules = rules.new()
 	notes.setup_page(GlobalState.placement_rules.rules_text)

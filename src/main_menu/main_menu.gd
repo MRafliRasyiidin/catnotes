@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var blinker: AnimationPlayer = $CanvasLayer/Title/AnimationPlayer
 @onready var transition_anim: AnimationPlayer = $Transition/AnimationPlayer
+@onready var start_button: TextureButton = $CanvasLayer/VBoxContainer/Start
 
 
 func _ready() -> void:
@@ -13,6 +14,7 @@ func _ready() -> void:
 	await transition_anim.animation_finished
 
 func _on_start_pressed() -> void:
+	start_button.disabled = true
 	SfxManager.play(SfxManager.click)
 	transition_anim.play("fade")
 	await transition_anim.animation_finished
