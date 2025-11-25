@@ -8,7 +8,7 @@ extends Node
 	bgm
 ]
 
-# 🎧 Internal Audio Player
+# Internal Audio Player
 @onready var music_player: AudioStreamPlayer = AudioStreamPlayer.new()
 var current_track: AudioStream = null
 

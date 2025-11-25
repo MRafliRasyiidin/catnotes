@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://dbqhstk8rdpn1"]
+[gd_scene load_steps=46 format=4 uid="uid://boowxysroxwth"]
 
 [ext_resource type="Script" uid="uid://b6qrls8qs32y3" path="res://src/stage.gd" id="1_4p0iq"]
 [ext_resource type="Texture2D" uid="uid://bxklivgrtcvj4" path="res://assets/rooms/bedroom.PNG" id="2_koe6o"]
@@ -19,11 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://ccm1wyea5ouey" path="res://assets/ui/Button monyong kanan.PNG" id="16_b6xey"]
 [ext_resource type="Texture2D" uid="uid://1d6xd2rekxc0" path="res://assets/ui/Button monyong kanan hover.PNG" id="17_i7rkc"]
 [ext_resource type="Texture2D" uid="uid://b0yhjip0hldoe" path="res://assets/objects/plant.PNG" id="17_sifj1"]
-[ext_resource type="Shader" path="res://src/shaders/plant.gdshader" id="17_xs5sn"]
+[ext_resource type="Shader" uid="uid://k38machql6ou" path="res://src/shaders/plant.gdshader" id="17_xs5sn"]
 [ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="18_l5nk7"]
 [ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="19_g1xpg"]
 [ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="20_edg2l"]
-[ext_resource type="Shader" path="res://src/shaders/transition.gdshader" id="25_upnby"]
+[ext_resource type="Shader" uid="uid://0wmnxt2qmxow" path="res://src/shaders/transition.gdshader" id="25_upnby"]
 [ext_resource type="Texture2D" uid="uid://cryc13uv58jcw" path="res://assets/ui/transition_mask_cat.png" id="26_ctb5m"]
 
 [sub_resource type="Animation" id="Animation_ny263"]
@@ -222,7 +222,7 @@ shader_parameter/clock_feather = 0.0
 shader_parameter/progress = 0.0
 shader_parameter/progress_bias = Vector2(0, 0)
 
-[node name="Stage" type="Node2D"]
+[node name="Stage2" type="Node2D"]
 script = ExtResource("1_4p0iq")
 
 [node name="Rooms" type="Node2D" parent="."]
