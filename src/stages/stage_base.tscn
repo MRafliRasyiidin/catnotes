@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://b1ed5bvx36hpo" path="res://assets/objects/debug_tile.png" id="7_tuj6d"]
 [ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="10_mknuf"]
 [ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="11_w6q0l"]
-[ext_resource type="Texture2D" uid="uid://ccm1wyea5ouey" path="res://assets/ui/Button monyong kanan.PNG" id="15_50b1g"]
+[ext_resource type="Texture2D" uid="uid://2iyoigd6pgm0" path="res://assets/ui/button/Continue.PNG" id="14_umbcp"]
+[ext_resource type="Texture2D" uid="uid://dfxb8olr86i5h" path="res://assets/ui/button/Continue hover.PNG" id="15_akbpn"]
 [ext_resource type="Texture2D" uid="uid://b0yhjip0hldoe" path="res://assets/objects/plant.PNG" id="15_g8xog"]
 [ext_resource type="Texture2D" uid="uid://ylihr5juv5q3" path="res://assets/objects/tv.png" id="16_k8rew"]
-[ext_resource type="Texture2D" uid="uid://1d6xd2rekxc0" path="res://assets/ui/Button monyong kanan hover.PNG" id="16_mn14n"]
 [ext_resource type="Script" uid="uid://cs165wups6322" path="res://src/tv.gd" id="16_ny263"]
 [ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="17_mn14n"]
 [ext_resource type="Shader" path="res://src/shaders/plant.gdshader" id="17_ny263"]
@@ -315,10 +315,11 @@ anchor_bottom = 1.0
 offset_top = -146.0
 offset_right = 371.0
 grow_vertical = 0
-texture_normal = ExtResource("15_50b1g")
-texture_hover = ExtResource("16_mn14n")
+texture_normal = ExtResource("14_umbcp")
+texture_hover = ExtResource("15_akbpn")
 
 [node name="ContinueText" type="Label" parent="GUI/Continue"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

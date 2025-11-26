@@ -1,5 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqv18w5aguhpp"]
+[gd_scene load_steps=4 format=3 uid="uid://cqv18w5aguhpp"]
 
 [ext_resource type="PackedScene" uid="uid://boowxysroxwth" path="res://src/stages/stage_9.tscn" id="1_h3xgm"]
+[ext_resource type="Texture2D" uid="uid://2iyoigd6pgm0" path="res://assets/ui/button/Continue.PNG" id="2_y4aff"]
+[ext_resource type="Texture2D" uid="uid://dfxb8olr86i5h" path="res://assets/ui/button/Continue hover.PNG" id="3_gncyc"]
 
 [node name="Stage2" instance=ExtResource("1_h3xgm")]
+
+[node name="Continue" parent="GUI" index="0"]
+texture_normal = ExtResource("2_y4aff")
+texture_hover = ExtResource("3_gncyc")
