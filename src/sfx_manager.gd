@@ -7,13 +7,14 @@ extends Node
 @onready var hiss = preload("res://assets/sfx/hiss.mp3")
 @onready var phone = preload("res://assets/sfx/phone.mp3")
 @onready var pop = preload("res://assets/sfx/pop.mp3")
+@onready var rain = preload("res://assets/sfx/rain.ogg")
 @onready var pillows = [
 	preload("res://assets/sfx/pillow_1.mp3"),
 	preload("res://assets/sfx/pillow_2.mp3")
 ]
 @onready var meows = [
 	#preload("res://assets/sfx/meow_1.mp3"),
-	preload("res://assets/sfx/meow_2.mp3"), #Buat Choco
+	preload("res://assets/sfx/meow_2.mp3"),
 	preload("res://assets/sfx/meow_3.mp3"),
 	preload("res://assets/sfx/meow_4.mp3"),
 	preload("res://assets/sfx/meow_5.mp3"),
@@ -22,6 +23,8 @@ extends Node
 ]
 
 var _last_meow_indices: Array = []
+
+var rain_player: AudioStreamPlayer = null
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -64,3 +67,40 @@ func play_random_meow():
 		_last_meow_indices.pop_front()
 	
 	play(meows[new_index])
+
+
+func play_fade_in(sound: AudioStream, duration := 1.0) -> AudioStreamPlayer:
+	if not sound:
+		return null
+
+	var p = AudioStreamPlayer.new()
+	add_child(p)
+	p.stream = sound
+	p.bus = "SFX"
+	p.volume_db = -40.0    # start silent
+	p.play()
+
+	var tween = get_tree().create_tween()
+	tween.tween_property(p, "volume_db", 0.0, duration)\
+		.set_trans(Tween.TRANS_SINE)\
+		.set_ease(Tween.EASE_OUT)
+
+	return p
+
+func fade_out_and_stop(player: AudioStreamPlayer, duration := 1.0):
+	if not player or !is_instance_valid(player):
+		return
+
+	var tween = get_tree().create_tween()
+
+	tween.tween_property(player, "volume_db", -40.0, duration)\
+		.set_trans(Tween.TRANS_SINE)\
+		.set_ease(Tween.EASE_IN)
+
+	tween.finished.connect(func():
+		if is_instance_valid(player):
+			player.stop()
+			player.queue_free()
+	)
+	
+	

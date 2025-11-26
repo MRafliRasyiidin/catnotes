@@ -37,7 +37,7 @@ texture = ExtResource("2_4gug8")
 flip_h = true
 
 [node name="CatSpots" parent="." index="3"]
-tile_map_data = PackedByteArray("AAD1/xwAAAAAAAAAAAD8/x8AAAAAAAAAAAACACAAAAAAAAAAAAD6/ykAAAAAAAAAAAD6/yQAAAAAAAAAAAD7/y4AAAAAAAAAAADv/zQAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AADv/zQAAAAAAAAAAAD1/xwAAAAAAAAAAAD8/x8AAAAAAAAAAAACACAAAAAAAAAAAAD6/ykAAAAAAAAAAAD6/yQAAAAAAAAAAAD7/y4AAAAAAAAAAAA=")
 
 [node name="Choco" parent="Cats" index="0" instance=ExtResource("2_hjyse")]
 position = Vector2(613, 642)

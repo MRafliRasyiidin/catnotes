@@ -20,8 +20,9 @@ extends Node2D
 var is_complete: bool = false
 var completion_checked: bool = false
 
-var tissue_event_stage = 9 #stage number when Tissue dies. RIP
-var choco_event_stage = 10 #stage number when Choco went missing
+var rain_stages: Array = [5,6,8,9,10]
+var tissue_event_stage: int = 9 #stage number when Tissue dies. RIP
+var choco_event_stage: int = 10 #stage number when Choco went missing
 
 func _ready() -> void:
 	gui.visible = true
@@ -35,6 +36,11 @@ func _ready() -> void:
 	set_cat_init_position()
 	set_cat_name()
 	set_tile_in_room()
+	
+	if rain_stages.has(GlobalState.stage_counter):
+		SfxManager.rain_player = SfxManager.play_fade_in(SfxManager.rain, 1.5)
+	else:
+		SfxManager.rain_player = null
 	
 	transition_anim.play_backwards("fade")
 	await transition_anim.animation_finished
