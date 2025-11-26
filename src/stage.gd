@@ -13,12 +13,21 @@ extends Node2D
 @onready var transition_anim: AnimationPlayer = $Transition/AnimationPlayer
 @onready var pause_button: TextureButton = $GUI/PauseButton
 @onready var pause: Node = $GUI/Pause
+@onready var transition: CanvasLayer = $Transition
+@onready var gui: CanvasLayer = $GUI
+
 
 var is_complete: bool = false
 var completion_checked: bool = false
 var current_stage: int
 
+var tissue_event_stage = 9 #stage number when Tissue dies. RIP
+var choco_event_stage = 10 #stage number when Choco went missing
+
 func _ready() -> void:
+	gui.visible = true
+	transition.visible = true
+	
 	var scene_name = get_tree().current_scene.scene_file_path.get_file().get_basename()
 	var rules_path = "res://src/rules/%s_rule.gd" % scene_name
 	current_stage = int(scene_name[-1])
@@ -65,13 +74,16 @@ func set_cat_init_position():
 		"Nima": Vector2i(0,0),
 	}
 	GlobalState.occupied_tiles = {}
-	if current_stage >= 4:
+	if GlobalState.stage_counter >= tissue_event_stage: # Tissue gak ada dari level x dan seterusnya
 		GlobalState.cat_locations["Tissue"] = Vector2i(-1,0)
+	if GlobalState.stage_counter == choco_event_stage: # Choco ilang di level x trus kembali lagi level selanjutnya
+		GlobalState.cat_locations["Choco"] = Vector2i(-1,0)
 
 func set_cat_name():
 	print(choco, tissue, chris)
-	choco.set_meta('cat_name', 'Choco')
-	if current_stage < 4:
+	if GlobalState.stage_counter != choco_event_stage: # Sama kyk komen di atas
+		choco.set_meta('cat_name', 'Choco')
+	if GlobalState.stage_counter < tissue_event_stage: # Sama kyk komen di atas
 		tissue.set_meta('cat_name', 'Tissue')
 	chris.set_meta('cat_name', 'Chris')
 	boom.set_meta('cat_name', 'Boom')

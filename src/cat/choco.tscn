@@ -407,6 +407,7 @@ position = Vector2(-8, -190)
 texture = ExtResource("8_du1bo")
 
 [node name="Loaf" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_mlu7n")
 offset = Vector2(0, -145)
@@ -425,7 +426,6 @@ texture = ExtResource("4_mlu7n")
 offset = Vector2(0, -145)
 
 [node name="Sit" type="Sprite2D" parent="."]
-visible = false
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_o67mf")
 offset = Vector2(175, -330)
