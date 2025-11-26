@@ -6,30 +6,40 @@ var rules_text: Array[Array] = [
 	],
 ]
 
+# Common coords:
+# - Sofa near window = (-11,28)
+# - Bed (0, 27)
+# - Near TV (-17, 30)
+
 var rule: Dictionary = {
 	"Choco":{
 		"coor": [],
 		"cat": [],
-		"tv": true
+		"tv": false
 	},
 	"Tissue": {
 		"coor": [],
-		"cat": []
+		"cat": [],
+		"tv": false
 	},
 	"Chris": {
 		"coor": [],
-		"cat": []
+		"cat": [],
+		"tv": false
 	},
 	"Boom": {
 		"coor": [],
-		"cat": []
+		"cat": [],
+		"tv": false
 	},
 	"Nima": {
 		"coor": [],
-		"cat": []
+		"cat": [],
+		"tv": false
 	},
 	"Miko": {
 		"coor": [],
-		"cat": []
+		"cat": [],
+		"tv": false
 	}
 }

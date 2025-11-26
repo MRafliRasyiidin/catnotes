@@ -1,5 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqv18w5aguhpp"]
+[gd_scene load_steps=9 format=4 uid="uid://d1tysey8ctie1"]
 
-[ext_resource type="PackedScene" uid="uid://boowxysroxwth" path="res://src/stages/stage_4.tscn" id="1_h3xgm"]
+[ext_resource type="PackedScene" uid="uid://bcr0j1my6itkn" path="res://src/stages/stage_base.tscn" id="1_h3xgm"]
+[ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="2_283ir"]
+[ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="2_lgfxy"]
+[ext_resource type="PackedScene" uid="uid://ck1wf4gtsqeb7" path="res://src/cat/tissue.tscn" id="3_lgfxy"]
+[ext_resource type="PackedScene" uid="uid://c55jr5w8w6e5j" path="res://src/cat/chris.tscn" id="4_3842w"]
+[ext_resource type="PackedScene" uid="uid://dvegrdwc5tbh7" path="res://src/cat/boom.tscn" id="5_q47p8"]
+[ext_resource type="PackedScene" uid="uid://b1wwxgrr8mtgj" path="res://src/cat/nima.tscn" id="6_poojs"]
+[ext_resource type="PackedScene" uid="uid://bql2im40ga5vh" path="res://src/cat/miko.tscn" id="7_qj45r"]
 
-[node name="Stage2" instance=ExtResource("1_h3xgm")]
+[node name="Stage" instance=ExtResource("1_h3xgm")]
+
+[node name="CatBed" parent="CatBeds" index="0"]
+position = Vector2(816, 431)
+
+[node name="CatBed3" type="Sprite2D" parent="CatBeds" index="1"]
+position = Vector2(222, 986)
+texture = ExtResource("2_lgfxy")
+
+[node name="CatBed4" type="Sprite2D" parent="CatBeds" index="2"]
+position = Vector2(1660, 1618)
+texture = ExtResource("2_lgfxy")
+
+[node name="CatBed5" type="Sprite2D" parent="CatBeds" index="3"]
+position = Vector2(1181, 1059)
+texture = ExtResource("2_lgfxy")
+
+[node name="CatBed2" parent="CatBeds" index="4"]
+position = Vector2(763, 1024)
+
+[node name="CatSpots" parent="." index="3"]
+tile_map_data = PackedByteArray("AAAAABsAAAAAAAAAAAACACAAAAAAAAAAAAD1/yMAAAAAAAAAAAD8/ywAAAAAAAAAAAD4/zgAAAAAAAAAAAD5/ygAAAAAAAAAAAA=")
+
+[node name="Choco" parent="Cats" index="0" instance=ExtResource("2_283ir")]
+position = Vector2(1322, 1307)
+
+[node name="Tissue" parent="Cats" index="1" instance=ExtResource("3_lgfxy")]
+position = Vector2(1399, 952)
+
+[node name="Chris" parent="Cats" index="2" instance=ExtResource("4_3842w")]
+position = Vector2(527, 535)
+
+[node name="Boom" parent="Cats" index="3" instance=ExtResource("5_q47p8")]
+position = Vector2(830, 1393)
+
+[node name="Nima" parent="Cats" index="4" instance=ExtResource("6_poojs")]
+position = Vector2(171, 1451)
+
+[node name="Miko" parent="Cats" index="5" instance=ExtResource("7_qj45r")]
+position = Vector2(-221, 1067)
