@@ -74,7 +74,7 @@ alignment = 1
 
 [node name="FirstRow" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 150
+theme_override_constants/separation = 100
 alignment = 1
 
 [node name="1" type="TextureButton" parent="VBoxContainer/FirstRow" groups=["stage_buttons"]]
@@ -179,7 +179,7 @@ vertical_alignment = 1
 
 [node name="SecondRow" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 150
+theme_override_constants/separation = 100
 alignment = 1
 
 [node name="5" type="TextureButton" parent="VBoxContainer/SecondRow" groups=["stage_buttons"]]
@@ -284,7 +284,7 @@ vertical_alignment = 1
 
 [node name="ThirdRow" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 150
+theme_override_constants/separation = 100
 alignment = 1
 
 [node name="9" type="TextureButton" parent="VBoxContainer/ThirdRow" groups=["stage_buttons"]]
