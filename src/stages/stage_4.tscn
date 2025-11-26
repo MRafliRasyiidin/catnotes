@@ -1,30 +1,13 @@
-[gd_scene load_steps=46 format=4 uid="uid://dbqhstk8rdpn1"]
+[gd_scene load_steps=9 format=4 uid="uid://dbqhstk8rdpn1"]
 
-[ext_resource type="Script" uid="uid://b6qrls8qs32y3" path="res://src/stage.gd" id="1_4p0iq"]
-[ext_resource type="Texture2D" uid="uid://bxklivgrtcvj4" path="res://assets/rooms/bedroom.PNG" id="2_koe6o"]
-[ext_resource type="Texture2D" uid="uid://cv56e3un2j5db" path="res://assets/rooms/work_room.png" id="3_b8hgy"]
-[ext_resource type="Texture2D" uid="uid://dr2wngq57xchy" path="res://assets/rooms/living_room.PNG" id="4_4oadt"]
-[ext_resource type="Texture2D" uid="uid://g8hppg27p11u" path="res://assets/rooms/kitchen.png" id="5_oc7tl"]
-[ext_resource type="Script" uid="uid://cs165wups6322" path="res://src/tv.gd" id="6_4oadt"]
-[ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="6_i6jap"]
-[ext_resource type="Texture2D" uid="uid://ylihr5juv5q3" path="res://assets/objects/tv.png" id="7_oc7tl"]
-[ext_resource type="Texture2D" uid="uid://be60pqfdaouj0" path="res://assets/objects/paws.png" id="7_sifj1"]
-[ext_resource type="Texture2D" uid="uid://b1ed5bvx36hpo" path="res://assets/objects/debug_tile.png" id="8_xs5sn"]
-[ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="9_upnby"]
-[ext_resource type="PackedScene" uid="uid://c55jr5w8w6e5j" path="res://src/cat/chris.tscn" id="11_c4b6u"]
-[ext_resource type="PackedScene" uid="uid://dvegrdwc5tbh7" path="res://src/cat/boom.tscn" id="12_mhsuk"]
-[ext_resource type="PackedScene" uid="uid://b1wwxgrr8mtgj" path="res://src/cat/nima.tscn" id="13_816u5"]
-[ext_resource type="PackedScene" uid="uid://bql2im40ga5vh" path="res://src/cat/miko.tscn" id="14_v7fqm"]
-[ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="15_f7e63"]
-[ext_resource type="Texture2D" uid="uid://ccm1wyea5ouey" path="res://assets/ui/Button monyong kanan.PNG" id="16_b6xey"]
-[ext_resource type="Texture2D" uid="uid://1d6xd2rekxc0" path="res://assets/ui/Button monyong kanan hover.PNG" id="17_i7rkc"]
-[ext_resource type="Texture2D" uid="uid://b0yhjip0hldoe" path="res://assets/objects/plant.PNG" id="17_sifj1"]
-[ext_resource type="Shader" path="res://src/shaders/plant.gdshader" id="17_xs5sn"]
-[ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="18_l5nk7"]
-[ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="19_g1xpg"]
-[ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="20_edg2l"]
-[ext_resource type="Shader" path="res://src/shaders/transition.gdshader" id="25_upnby"]
-[ext_resource type="Texture2D" uid="uid://cryc13uv58jcw" path="res://assets/ui/transition_mask_cat.png" id="26_ctb5m"]
+[ext_resource type="PackedScene" uid="uid://bcr0j1my6itkn" path="res://src/stages/stage_base.tscn" id="1_6u4cr"]
+[ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="2_4gug8"]
+[ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="2_hjyse"]
+[ext_resource type="PackedScene" uid="uid://ck1wf4gtsqeb7" path="res://src/cat/tissue.tscn" id="3_4gug8"]
+[ext_resource type="PackedScene" uid="uid://c55jr5w8w6e5j" path="res://src/cat/chris.tscn" id="4_c7jad"]
+[ext_resource type="PackedScene" uid="uid://dvegrdwc5tbh7" path="res://src/cat/boom.tscn" id="5_1acuu"]
+[ext_resource type="PackedScene" uid="uid://b1wwxgrr8mtgj" path="res://src/cat/nima.tscn" id="6_4866m"]
+[ext_resource type="PackedScene" uid="uid://bql2im40ga5vh" path="res://src/cat/miko.tscn" id="7_ole2l"]
 
 [node name="Stage" instance=ExtResource("1_6u4cr")]
 
@@ -54,7 +37,7 @@ texture = ExtResource("2_4gug8")
 flip_h = true
 
 [node name="CatSpots" parent="." index="3"]
-tile_map_data = PackedByteArray("AAD1/xwAAAAAAAAAAAD8/x8AAAAAAAAAAAACACAAAAAAAAAAAAD6/ykAAAAAAAAAAAD6/yQAAAAAAAAAAAD7/y4AAAAAAAAAAADv/zQAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AADv/zQAAAAAAAAAAAD1/xwAAAAAAAAAAAD8/x8AAAAAAAAAAAACACAAAAAAAAAAAAD6/ykAAAAAAAAAAAD6/yQAAAAAAAAAAAD7/y4AAAAAAAAAAAA=")
 
 [node name="Choco" parent="Cats" index="0" instance=ExtResource("2_hjyse")]
 position = Vector2(613, 642)

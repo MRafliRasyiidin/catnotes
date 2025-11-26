@@ -30,7 +30,7 @@ texture = ExtResource("2_lgfxy")
 position = Vector2(763, 1024)
 
 [node name="CatSpots" parent="." index="3"]
-tile_map_data = PackedByteArray("AAAAABsAAAAAAAAAAAACACAAAAAAAAAAAAD1/yMAAAAAAAAAAAD8/ywAAAAAAAAAAAD4/zgAAAAAAAAAAAD5/ygAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD1/yMAAAAAAAAAAAAAABsAAAAAAAAAAAACACAAAAAAAAAAAAD8/ywAAAAAAAAAAAD4/zgAAAAAAAAAAAD5/ygAAAAAAAAAAAA=")
 
 [node name="Choco" parent="Cats" index="0" instance=ExtResource("2_283ir")]
 position = Vector2(1322, 1307)

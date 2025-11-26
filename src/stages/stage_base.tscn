@@ -16,11 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://1d6xd2rekxc0" path="res://assets/ui/Button monyong kanan hover.PNG" id="16_mn14n"]
 [ext_resource type="Script" uid="uid://cs165wups6322" path="res://src/tv.gd" id="16_ny263"]
 [ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="17_mn14n"]
-[ext_resource type="Shader" uid="uid://k38machql6ou" path="res://src/shaders/plant.gdshader" id="17_ny263"]
+[ext_resource type="Shader" path="res://src/shaders/plant.gdshader" id="17_ny263"]
 [ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="19_5ytyl"]
 [ext_resource type="Texture2D" uid="uid://cxv28514udhw1" path="res://assets/ui/button/battleui_pause.png" id="24_6x52l"]
 [ext_resource type="PackedScene" uid="uid://cfc071j6ctgxm" path="res://src/stages/pause.tscn" id="24_2114x"]
-[ext_resource type="Shader" uid="uid://0wmnxt2qmxow" path="res://src/shaders/transition.gdshader" id="25_6v5t4"]
+[ext_resource type="Shader" path="res://src/shaders/transition.gdshader" id="25_6v5t4"]
 [ext_resource type="Texture2D" uid="uid://cwc5f78ixnrxd" path="res://assets/ui/button/battleui_pause_active (1).png" id="25_ymu3r"]
 [ext_resource type="Texture2D" uid="uid://cryc13uv58jcw" path="res://assets/ui/transition_mask_cat.png" id="26_tm8es"]
 
