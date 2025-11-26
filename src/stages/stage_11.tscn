@@ -1,5 +1,65 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqv18w5aguhpp"]
+[gd_scene load_steps=10 format=4 uid="uid://dcm0wtybsq6sq"]
 
-[ext_resource type="PackedScene" uid="uid://boowxysroxwth" path="res://src/stages/stage_9.tscn" id="1_h3xgm"]
+[ext_resource type="PackedScene" uid="uid://bcr0j1my6itkn" path="res://src/stages/stage_base.tscn" id="1_0omfb"]
+[ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="5_gc0w4"]
+[ext_resource type="Texture2D" uid="uid://c0itdgvkkrtlm" path="res://assets/objects/picture_tissue.png" id="6_vlyko"]
+[ext_resource type="Texture2D" uid="uid://bsadml6j2uvjt" path="res://assets/objects/cat_bed_dark.png" id="7_jn486"]
+[ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="8_ehkl5"]
+[ext_resource type="PackedScene" uid="uid://c55jr5w8w6e5j" path="res://src/cat/chris.tscn" id="9_q35yn"]
+[ext_resource type="PackedScene" uid="uid://dvegrdwc5tbh7" path="res://src/cat/boom.tscn" id="10_us1gk"]
+[ext_resource type="PackedScene" uid="uid://b1wwxgrr8mtgj" path="res://src/cat/nima.tscn" id="11_arvvu"]
+[ext_resource type="PackedScene" uid="uid://bql2im40ga5vh" path="res://src/cat/miko.tscn" id="12_vayoh"]
 
-[node name="Stage2" instance=ExtResource("1_h3xgm")]
+[node name="Stage" instance=ExtResource("1_0omfb")]
+
+[node name="PictureTissue" type="Sprite2D" parent="." index="1"]
+position = Vector2(1698, 699)
+texture = ExtResource("6_vlyko")
+
+[node name="TV" parent="." index="2"]
+togglable = true
+
+[node name="CatBed" parent="CatBeds" index="0"]
+position = Vector2(816, 430)
+
+[node name="CatBed2" parent="CatBeds" index="1"]
+position = Vector2(-323, 1090)
+texture = ExtResource("7_jn486")
+
+[node name="CatBed4" type="Sprite2D" parent="CatBeds" index="2"]
+position = Vector2(639, 605)
+texture = ExtResource("7_jn486")
+flip_h = true
+
+[node name="CatBed8" type="Sprite2D" parent="CatBeds" index="3"]
+position = Vector2(341, 1267)
+texture = ExtResource("8_ehkl5")
+flip_h = true
+
+[node name="CatBed9" type="Sprite2D" parent="CatBeds" index="4"]
+position = Vector2(1414, 2037)
+texture = ExtResource("8_ehkl5")
+flip_h = true
+
+[node name="CatBed10" type="Sprite2D" parent="CatBeds" index="5"]
+position = Vector2(1179, 1681)
+texture = ExtResource("7_jn486")
+
+[node name="CatSpots" parent="." index="4"]
+position = Vector2(-2, 0)
+tile_map_data = PackedByteArray("AAAAABsAAAAAAAAAAAD+/yEAAAAAAAAAAADz/zUAAAAAAAAAAADw/zwAAAAAAAAAAADv/yAAAAAAAAAAAADy/ygAAAAAAAAAAAA=")
+
+[node name="Choco" parent="Cats" index="0" instance=ExtResource("5_gc0w4")]
+position = Vector2(825, 1386)
+
+[node name="Chris" parent="Cats" index="1" instance=ExtResource("9_q35yn")]
+position = Vector2(1307, 984)
+
+[node name="Boom" parent="Cats" index="2" instance=ExtResource("10_us1gk")]
+position = Vector2(492, 198)
+
+[node name="Nima" parent="Cats" index="3" instance=ExtResource("11_arvvu")]
+position = Vector2(-43, 1456)
+
+[node name="Miko" parent="Cats" index="4" instance=ExtResource("12_vayoh")]
+position = Vector2(49, 1026)

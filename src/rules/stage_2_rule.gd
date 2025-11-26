@@ -15,54 +15,52 @@ var rules_text: Array[Array] = [
 
 var rule: Dictionary = {
 	"Choco":{
-		"coor": [
-			Vector2i(-18, 43),
-			Vector2i(-12, 38),
-			Vector2i(-2, 34),
-			Vector2i(-5, 40),
-			Vector2i(-3, 45),
-			Vector2i(-5, 62)
+		"not_tile": [
+			
 			],
+		"only_tile": [
+			Vector2i(-11,28)
+		],
 		"cat": [],
 		"tv": false
 	},
 	"Tissue": {
-		"coor": [
+		"not_tile": [
 			
 		],
 		"cat": [],
 		"tv": false
 	},
 	"Chris": {
-		"coor": [
+		"not_tile": [
 			
 			],
 		"cat": [],
 		"tv": false
 	},
 	"Boom": {
-		"coor": [
+		"not_tile": [
 			
 		],
 		"cat": [],
 		"tv": false
 	},
 	"Nima": {
-		"coor": [
+		"not_tile": [
 			
 		],
 		"cat": [],
 		"tv": false
 	},
 	"Miko": {
-		"coor": [
-			Vector2i(-18, 43),
-			Vector2i(-12, 38),
-			Vector2i(-11, 28),
-			Vector2i(-2, 34),
-			Vector2i(-5, 62),
+		"not_tile": [
+			#Vector2i(-18, 43),
+			#Vector2i(-12, 38),
+			#Vector2i(-11, 28),
+			#Vector2i(-2, 34),
+			#Vector2i(-9, 56)
 			],
 		"cat": [],
-		"tv": false
+		"only_room": ["office"]
 	}
 }

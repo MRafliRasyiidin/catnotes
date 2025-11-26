@@ -1,30 +1,37 @@
-[gd_scene load_steps=9 format=4 uid="uid://dbqhstk8rdpn1"]
+[gd_scene load_steps=11 format=4 uid="uid://0co30hxtc3qp"]
 
 [ext_resource type="PackedScene" uid="uid://bcr0j1my6itkn" path="res://src/stages/stage_base.tscn" id="1_6u4cr"]
+[ext_resource type="Texture2D" uid="uid://ve3taeebimbg" path="res://assets/objects/bed.png" id="2_1acuu"]
 [ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="2_4gug8"]
 [ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="2_hjyse"]
 [ext_resource type="PackedScene" uid="uid://ck1wf4gtsqeb7" path="res://src/cat/tissue.tscn" id="3_4gug8"]
+[ext_resource type="Texture2D" uid="uid://bsadml6j2uvjt" path="res://assets/objects/cat_bed_dark.png" id="3_4866m"]
 [ext_resource type="PackedScene" uid="uid://c55jr5w8w6e5j" path="res://src/cat/chris.tscn" id="4_c7jad"]
 [ext_resource type="PackedScene" uid="uid://dvegrdwc5tbh7" path="res://src/cat/boom.tscn" id="5_1acuu"]
 [ext_resource type="PackedScene" uid="uid://b1wwxgrr8mtgj" path="res://src/cat/nima.tscn" id="6_4866m"]
 [ext_resource type="PackedScene" uid="uid://bql2im40ga5vh" path="res://src/cat/miko.tscn" id="7_ole2l"]
 
-[node name="Stage" instance=ExtResource("1_6u4cr")]
+[node name="Stage2" instance=ExtResource("1_6u4cr")]
+
+[node name="Bed" type="Sprite2D" parent="." index="2"]
+position = Vector2(1758, 946)
+texture = ExtResource("2_1acuu")
 
 [node name="CatBed" parent="CatBeds" index="0"]
 position = Vector2(818, 429)
+texture = ExtResource("3_4866m")
 
 [node name="CatBed2" parent="CatBeds" index="1"]
 position = Vector2(878, 1022)
 
 [node name="CatBed3" type="Sprite2D" parent="CatBeds" index="2"]
 position = Vector2(1230, 1157)
-texture = ExtResource("2_4gug8")
+texture = ExtResource("3_4866m")
 flip_h = true
 
 [node name="CatBed4" type="Sprite2D" parent="CatBeds" index="3"]
 position = Vector2(396, 604)
-texture = ExtResource("2_4gug8")
+texture = ExtResource("3_4866m")
 
 [node name="CatBed5" type="Sprite2D" parent="CatBeds" index="4"]
 position = Vector2(586, 841)
@@ -32,27 +39,27 @@ texture = ExtResource("2_4gug8")
 flip_h = true
 
 [node name="CatBed6" type="Sprite2D" parent="CatBeds" index="5"]
-position = Vector2(886, 1791)
+position = Vector2(1064, 1896)
 texture = ExtResource("2_4gug8")
 flip_h = true
 
-[node name="CatSpots" parent="." index="3"]
-tile_map_data = PackedByteArray("AADv/zQAAAAAAAAAAAD1/xwAAAAAAAAAAAD8/x8AAAAAAAAAAAACACAAAAAAAAAAAAD6/ykAAAAAAAAAAAD6/yQAAAAAAAAAAAD7/y4AAAAAAAAAAAA=")
+[node name="CatSpots" parent="." index="4"]
+tile_map_data = PackedByteArray("AAD1/xwAAAAAAAAAAAD8/x8AAAAAAAAAAAACACAAAAAAAAAAAAD6/ykAAAAAAAAAAAD6/yQAAAAAAAAAAAD7/y4AAAAAAAAAAADv/zcAAAAAAAAAAAA=")
 
 [node name="Choco" parent="Cats" index="0" instance=ExtResource("2_hjyse")]
-position = Vector2(613, 642)
+position = Vector2(-249, 1274)
 
 [node name="Tissue" parent="Cats" index="1" instance=ExtResource("3_4gug8")]
-position = Vector2(873, 1481)
+position = Vector2(726, 713)
 
 [node name="Chris" parent="Cats" index="2" instance=ExtResource("4_c7jad")]
-position = Vector2(-143, 1165)
+position = Vector2(-551, 808)
 
 [node name="Boom" parent="Cats" index="3" instance=ExtResource("5_1acuu")]
-position = Vector2(149, 1515)
+position = Vector2(312, 1337)
 
 [node name="Nima" parent="Cats" index="4" instance=ExtResource("6_4866m")]
-position = Vector2(500, 1200)
+position = Vector2(884, 1476)
 
 [node name="Miko" parent="Cats" index="5" instance=ExtResource("7_ole2l")]
-position = Vector2(1221, 1113)
+position = Vector2(1410, 952)

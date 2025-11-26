@@ -39,7 +39,6 @@ font_color = Color(0.768627, 0.572549, 0.443137, 1)
 [sub_resource type="Theme" id="Theme_6l13p"]
 
 [node name="Notes" type="Control"]
-clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -123,35 +122,39 @@ bbcode_enabled = true
 fit_content = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect"]
-custom_minimum_size = Vector2(412, 0)
+custom_minimum_size = Vector2(100, 300)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -205.0
-offset_top = 26.0
-offset_right = 1167.0
-offset_bottom = 275.0
+offset_left = -279.0
+offset_top = 45.0
+offset_right = 1521.0
+offset_bottom = 345.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.3, 0.3)
 size_flags_vertical = 8
-theme_override_constants/separation = 1000
+theme_override_constants/separation = 1200
 alignment = 1
 
 [node name="PreviousPage" type="TextureButton" parent="TextureRect/HBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 2
 texture_normal = ExtResource("6_rk0ok")
 texture_hover = ExtResource("7_cxqhp")
+stretch_mode = 3
 
 [node name="NextPage" type="TextureButton" parent="TextureRect/HBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 10
 texture_normal = ExtResource("8_5ic4o")
 texture_hover = ExtResource("9_rk0ok")
+stretch_mode = 3
 
 [connection signal="pressed" from="TextureRect/HBoxContainer/PreviousPage" to="." method="_on_previous_page_pressed"]
 [connection signal="pressed" from="TextureRect/HBoxContainer/NextPage" to="." method="_on_next_page_pressed"]

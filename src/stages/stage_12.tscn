@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=4 uid="uid://cjoaqpegombpe"]
+
+[ext_resource type="PackedScene" uid="uid://bcr0j1my6itkn" path="res://src/stages/stage_base.tscn" id="1_482un"]
+[ext_resource type="Texture2D" uid="uid://c0itdgvkkrtlm" path="res://assets/objects/picture_tissue.png" id="2_ctyth"]
+[ext_resource type="Texture2D" uid="uid://bsadml6j2uvjt" path="res://assets/objects/cat_bed_dark.png" id="3_tc6w0"]
+[ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="4_uc23e"]
+[ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="5_klmcs"]
+[ext_resource type="PackedScene" uid="uid://c55jr5w8w6e5j" path="res://src/cat/chris.tscn" id="6_88mwf"]
+[ext_resource type="PackedScene" uid="uid://dvegrdwc5tbh7" path="res://src/cat/boom.tscn" id="7_uufwe"]
+[ext_resource type="PackedScene" uid="uid://b1wwxgrr8mtgj" path="res://src/cat/nima.tscn" id="8_wc4s4"]
+[ext_resource type="PackedScene" uid="uid://bql2im40ga5vh" path="res://src/cat/miko.tscn" id="9_ymk7y"]
+
+[node name="Stage" instance=ExtResource("1_482un")]
+
+[node name="PictureTissue" type="Sprite2D" parent="." index="1"]
+position = Vector2(1698, 699)
+texture = ExtResource("2_ctyth")
+
+[node name="TV" parent="." index="2"]
+togglable = true
+
+[node name="CatBed" parent="CatBeds" index="0"]
+position = Vector2(816, 430)
+
+[node name="CatBed2" parent="CatBeds" index="1"]
+position = Vector2(276, 1585)
+texture = ExtResource("3_tc6w0")
+
+[node name="CatBed4" type="Sprite2D" parent="CatBeds" index="2"]
+position = Vector2(933, 1056)
+texture = ExtResource("3_tc6w0")
+flip_h = true
+
+[node name="CatBed8" type="Sprite2D" parent="CatBeds" index="3"]
+position = Vector2(161, 1231)
+texture = ExtResource("4_uc23e")
+flip_h = true
+
+[node name="CatBed9" type="Sprite2D" parent="CatBeds" index="4"]
+position = Vector2(1005, 1847)
+texture = ExtResource("4_uc23e")
+flip_h = true
+
+[node name="CatSpots" parent="." index="4"]
+position = Vector2(-2, 0)
+tile_map_data = PackedByteArray("AAD1/x4AAAAAAAAAAADx/yYAAAAAAAAAAAAAABsAAAAAAAAAAAD6/yoAAAAAAAAAAADv/zYAAAAAAAAAAADt/ywAAAAAAAAAAAA=")
+
+[node name="Choco" parent="Cats" index="0" instance=ExtResource("5_klmcs")]
+position = Vector2(1351, 1313)
+
+[node name="Chris" parent="Cats" index="1" instance=ExtResource("6_88mwf")]
+position = Vector2(992, 692)
+
+[node name="Boom" parent="Cats" index="2" instance=ExtResource("7_uufwe")]
+position = Vector2(632, 704)
+
+[node name="Nima" parent="Cats" index="3" instance=ExtResource("8_wc4s4")]
+position = Vector2(59, 570)
+
+[node name="Miko" parent="Cats" index="4" instance=ExtResource("9_ymk7y")]
+position = Vector2(49, 1026)

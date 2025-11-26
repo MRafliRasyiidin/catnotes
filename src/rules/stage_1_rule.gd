@@ -13,33 +13,27 @@ var rules_text: Array[Array] = [
 
 var rule: Dictionary = {
 	"Choco":{
-		"coor": [],
+		"not_tile": [],
 		"cat": [],
-		"tv": false,
-		"same_room": ["Tissue"]
 	},
 	"Tissue": {
-		"coor": [],
+		"not_tile": [],
 		"cat": [],
-		"tv": false
 	},
 	"Chris": {
-		"coor": [],
+		"not_tile": [],
 		"cat": [],
-		"tv": false
 	},
 	"Boom": {
-		"coor": [],
+		"not_tile": [],
 		"cat": [],
-		"tv": false
 	},
 	"Nima": {
-		"coor": [],
+		"not_tile": [],
 		"cat": [],
-		"tv": false
 	},
 	"Miko": {
-		"coor": [],
+		"not_tile": [],
 		"cat": [],
 		"tv": false
 	}

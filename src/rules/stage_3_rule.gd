@@ -4,8 +4,8 @@ var rules_text: Array[Array] = [
 		#"[color=#d44d13][b]Tissue[/b][/color]’s been sleeping more lately. She doesn’t eat as much.",
 		#"[color=#d44d13][b]Choco[/b][/color] seems restless. Maybe he misses going outside.",
 		"[color=#d44d13][b]Nima[/b][/color] scratched the sofa again. I shouldn't put her near it.",
-		"[color=#d44d13][b]Boom[/b][/color] always hissed at the stove whenever I cook."
-		#"[color=#d44d13][b]Miko[/b][/color] hissed at [color=#d44d13][b]Chris[/b][/color] again."
+		"[color=#d44d13][b]Boom[/b][/color] always hissed at the stove whenever I cook.",
+		"[color=#d44d13][b]Miko[/b][/color] has been avoiding the living room recently."
 	],
 ]
 
@@ -16,28 +16,28 @@ var rules_text: Array[Array] = [
 
 var rule: Dictionary = {
 	"Choco":{
-		"coor": [
+		"not_tile": [
 			
 			],
 		"cat": []
 	},
 	"Tissue": {
-		"coor": [],
+		"not_tile": [],
 		"cat": []
 	},
 	"Chris": {
-		"coor": [],
+		"not_tile": [],
 		"cat": []
 	},
 	"Boom": {
-		"coor": [
+		"not_tile": [
 			Vector2i(-13, 53),
 			Vector2i(-8, 57)
 		],
 		"cat": []
 	},
 	"Nima": {
-		"coor": [
+		"not_tile": [
 			Vector2i(-19, 35),
 			Vector2i(-15, 41),
 			Vector2i(-12, 36)
@@ -45,7 +45,11 @@ var rule: Dictionary = {
 		"cat": []
 	},
 	"Miko": {
-		"coor": [],
+		"not_tile": [
+			Vector2i(-19, 35),
+			Vector2i(-15, 41),
+			Vector2i(-12, 36),
+		],
 		"cat": []
 	}
 }

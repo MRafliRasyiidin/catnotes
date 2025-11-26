@@ -83,7 +83,7 @@ func _toggle_texture_rect_position() -> void:
 	tween.tween_property(texture_rect, "position:y", target_y, 0.4).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 
 func set_month() -> void:
-	if GlobalState.months && GlobalState.stage_counter < 6:
+	if GlobalState.months && GlobalState.stage_counter <= GlobalState.max_stage:
 		month.text = GlobalState.months[GlobalState.stage_counter-1]
 	else:
 		month.text = "Unknown Scene"

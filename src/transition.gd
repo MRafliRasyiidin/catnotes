@@ -21,7 +21,7 @@ func _ready() -> void:
 	await transition_anim.animation_finished
 	
 	var stage_path = "res://src/stages/stage_%d.tscn" % GlobalState.stage_counter
-	if GlobalState.stage_counter > 5:
+	if GlobalState.stage_counter > GlobalState.max_stage:
 		get_tree().change_scene_to_file("res://src/main_menu/main_menu.tscn")
 	else:
 		get_tree().change_scene_to_file(stage_path)

@@ -1,6 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://btpnocdagqcgk"]
+[gd_scene load_steps=11 format=3 uid="uid://btpnocdagqcgk"]
 
 [ext_resource type="PackedScene" uid="uid://bcr0j1my6itkn" path="res://src/stages/stage_base.tscn" id="1_v2dmm"]
+[ext_resource type="Texture2D" uid="uid://ve3taeebimbg" path="res://assets/objects/bed.png" id="2_j4iy1"]
+[ext_resource type="Texture2D" uid="uid://bsadml6j2uvjt" path="res://assets/objects/cat_bed_dark.png" id="2_x34ab"]
 [ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="6_nygk3"]
 [ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="8_lbqjn"]
 [ext_resource type="PackedScene" uid="uid://ck1wf4gtsqeb7" path="res://src/cat/tissue.tscn" id="9_jgjmt"]
@@ -11,6 +13,16 @@
 
 [node name="Stage" instance=ExtResource("1_v2dmm")]
 
+[node name="Bed" type="Sprite2D" parent="." index="1"]
+position = Vector2(1758, 946)
+texture = ExtResource("2_j4iy1")
+
+[node name="CatBed" parent="CatBeds" index="0"]
+texture = ExtResource("2_x34ab")
+
+[node name="CatBed2" parent="CatBeds" index="1"]
+texture = ExtResource("2_x34ab")
+
 [node name="CatBed3" type="Sprite2D" parent="CatBeds" index="2"]
 position = Vector2(219, 983)
 texture = ExtResource("6_nygk3")
@@ -18,7 +30,7 @@ flip_h = true
 
 [node name="CatBed4" type="Sprite2D" parent="CatBeds" index="3"]
 position = Vector2(-501, 1123)
-texture = ExtResource("6_nygk3")
+texture = ExtResource("2_x34ab")
 flip_h = true
 
 [node name="CatBed5" type="Sprite2D" parent="CatBeds" index="4"]

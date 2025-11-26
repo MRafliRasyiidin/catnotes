@@ -2,14 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://bcr0j1my6itkn" path="res://src/stages/stage_base.tscn" id="1_h3xgm"]
 [ext_resource type="PackedScene" uid="uid://cs33sds6xcktt" path="res://src/cat/choco.tscn" id="2_283ir"]
-[ext_resource type="Texture2D" uid="uid://bad4bruvvkeq1" path="res://assets/objects/cat_bed.PNG" id="2_lgfxy"]
 [ext_resource type="PackedScene" uid="uid://ck1wf4gtsqeb7" path="res://src/cat/tissue.tscn" id="3_lgfxy"]
+[ext_resource type="Texture2D" uid="uid://bsadml6j2uvjt" path="res://assets/objects/cat_bed_dark.png" id="3_poojs"]
 [ext_resource type="PackedScene" uid="uid://c55jr5w8w6e5j" path="res://src/cat/chris.tscn" id="4_3842w"]
 [ext_resource type="PackedScene" uid="uid://dvegrdwc5tbh7" path="res://src/cat/boom.tscn" id="5_q47p8"]
 [ext_resource type="PackedScene" uid="uid://b1wwxgrr8mtgj" path="res://src/cat/nima.tscn" id="6_poojs"]
 [ext_resource type="PackedScene" uid="uid://bql2im40ga5vh" path="res://src/cat/miko.tscn" id="7_qj45r"]
 
 [node name="Stage" instance=ExtResource("1_h3xgm")]
+
+[node name="TV" parent="." index="1"]
+togglable = true
 
 [node name="CatBed" parent="CatBeds" index="0"]
 position = Vector2(816, 431)
@@ -18,19 +21,19 @@ position = Vector2(816, 431)
 position = Vector2(763, 1024)
 
 [node name="CatBed3" type="Sprite2D" parent="CatBeds" index="2"]
-position = Vector2(222, 986)
-texture = ExtResource("2_lgfxy")
+position = Vector2(-441, 1093)
+texture = ExtResource("3_poojs")
 
 [node name="CatBed4" type="Sprite2D" parent="CatBeds" index="3"]
-position = Vector2(1660, 1618)
-texture = ExtResource("2_lgfxy")
+position = Vector2(340, 1269)
+texture = ExtResource("3_poojs")
 
 [node name="CatBed5" type="Sprite2D" parent="CatBeds" index="4"]
 position = Vector2(1181, 1059)
-texture = ExtResource("2_lgfxy")
+texture = ExtResource("3_poojs")
 
 [node name="CatSpots" parent="." index="3"]
-tile_map_data = PackedByteArray("AAD1/yMAAAAAAAAAAAAAABsAAAAAAAAAAAACACAAAAAAAAAAAAD8/ywAAAAAAAAAAAD4/zgAAAAAAAAAAAD5/ygAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAABsAAAAAAAAAAAACACAAAAAAAAAAAAD8/ywAAAAAAAAAAAD5/ygAAAAAAAAAAADu/x8AAAAAAAAAAADy/ygAAAAAAAAAAAA=")
 
 [node name="Choco" parent="Cats" index="0" instance=ExtResource("2_283ir")]
 position = Vector2(1322, 1307)
@@ -45,7 +48,7 @@ position = Vector2(527, 535)
 position = Vector2(830, 1393)
 
 [node name="Nima" parent="Cats" index="4" instance=ExtResource("6_poojs")]
-position = Vector2(171, 1451)
+position = Vector2(-2, 1495)
 
 [node name="Miko" parent="Cats" index="5" instance=ExtResource("7_qj45r")]
 position = Vector2(-221, 1067)

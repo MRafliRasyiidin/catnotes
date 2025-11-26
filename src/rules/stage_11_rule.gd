@@ -1,45 +1,49 @@
 var rules_text: Array[Array] = [
 	#"[color=#d44d13][b]Lala[/b][/color] wants to sit near the window"
 	[
-		"[color=#d44d13][b]Choco[/b][/color] has calmed down lately, He naps by the window in my bedroom",
-		"[color=#d44d13][b]Nima[/b][/color] wants to be in the kitchen for some reason.",
-		"[color=#d44d13][b]Miko[/b][/color] and [color=#d44d13][b]Chris[/b][/color] are at it as always.",
-		"[color=#d44d13][b]Chris[/b][/color] still doesn't like [color=#d44d13][b]Boom[/b][/color] but also doesn't like the office.",
-		"I’m thinking of fostering another cat soon."
-	],
+		"[color=#d44d13][b]Choco[/b][/color] came back. She doesn't like the new kitchen.",
+		"[color=#d44d13][b]Boom[/b][/color] is more accepting of other cats now, but he still wants to be in the bedroom.",
+		"[color=#d44d13][b]Nima[/b][/color] wants to be in the kitchen for some reason. I guess she missed it so much.",
+		
+		#"I’m thinking of fostering another cat soon."
+	],[
+		"[color=#d44d13][b]Miko[/b][/color] and [color=#d44d13][b]Chris[/b][/color] are at it as always. Not surprised at all.",
+		"[color=#d44d13][b]Chris[/b][/color] doesn't [color=#d44d13][b]Boom[/b][/color] again. Wonder what happened?",
+		"[color=#d44d13][b]Chris[/b][/color] wants to watch the TV but [color=#d44d13][b]Choho[/b][/color] hates it.",
+	]
 ]
 
 var rule: Dictionary = {
 	"Choco":{
-		"coor": [
-			Vector2i(-19, 31),
-			Vector2i(-11, 28),
-			Vector2i(-11, 35),
-			#Vector2i(2, 31),
-			Vector2i(-6, 40),
-			Vector2i(-16, 62),
+		"not_tile": [
 
 			],
+		"avoid_room": ["kitchen"],
 		"cat": []
 	},
 	"Tissue": {
-		"coor": [],
+		"not_tile": [],
 		"cat": []
 	},
 	"Chris": {
-		"coor": [Vector2i(-6, 40)],
-		"cat": ["Boom"]
+		"not_tile": [
+			
+		],
+		"cat": [],
+		"tv_prefer": true
 	},
 	"Boom": {
-		"coor": [],
+		"not_tile": [],
+		"only_room":["bedroom"],
 		"cat": []
 	},
 	"Nima": {
-		"coor": [],
+		"not_tile": [],
+		"only_room":["kitchen"],
 		"cat": []
 	},
 	"Miko": {
-		"coor": [],
+		"not_tile": [],
 		"cat": ["Chris"]
 	}
 }

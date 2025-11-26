@@ -2,7 +2,7 @@ extends Node
 
 static var occupied_tiles = {}
 static var placement_rules = null
-static var stage_counter = 5
+static var stage_counter = 1
 static var cat_locations = {
 	"Choco": Vector2i(0,0),
 	"Tissue": Vector2i(0,0),
@@ -22,7 +22,7 @@ static var months = [
 	"September","October","November","December",
 	"January","February","March","April"
 	]
-static var max_stage = 5
+static var max_stage = 12
 static var tv_on = false
 
 static var is_grabbing_cat: bool = false

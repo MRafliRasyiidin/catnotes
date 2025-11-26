@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cowpntnbfjp3g"
-path="res://.godot/imported/Jan.png-33ccf3cced63720d73f6fb19c163e576.ctex"
+uid="uid://bsadml6j2uvjt"
+path="res://.godot/imported/cat_bed_dark.png-a058f30afa246710e11af34544d7b075.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Stage selection/Jan.png"
-dest_files=["res://.godot/imported/Jan.png-33ccf3cced63720d73f6fb19c163e576.ctex"]
+source_file="res://assets/objects/cat_bed_dark.png"
+dest_files=["res://.godot/imported/cat_bed_dark.png-a058f30afa246710e11af34544d7b075.ctex"]
 
 [params]
 
