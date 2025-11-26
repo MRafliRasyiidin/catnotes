@@ -13,6 +13,7 @@ extends Node
 var current_track: AudioStream = null
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(music_player)
 	music_player.bus = "Music" # optional audio bus
 	music_player.autoplay = false
