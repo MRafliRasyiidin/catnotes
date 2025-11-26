@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g5ll13m6bend"
-path="res://.godot/imported/cat_2.png-e80f90249289b0699a6935e402fec65c.ctex"
+uid="uid://cpby6vt1hll30"
+path="res://.godot/imported/June.png-c298641dd86b95e8205c12489d3c3ebc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/title/cat_2.png"
-dest_files=["res://.godot/imported/cat_2.png-e80f90249289b0699a6935e402fec65c.ctex"]
+source_file="res://assets/ui/Stage selection/June.png"
+dest_files=["res://.godot/imported/June.png-c298641dd86b95e8205c12489d3c3ebc.ctex"]
 
 [params]
 

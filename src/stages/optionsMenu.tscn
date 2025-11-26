@@ -1,42 +1,66 @@
-[gd_scene load_steps=8 format=3 uid="uid://yekira2jno65"]
+[gd_scene load_steps=18 format=3 uid="uid://yekira2jno65"]
 
 [ext_resource type="Script" uid="uid://dcv8xokxofxy1" path="res://src/stages/pause_options_menu.gd" id="1_njpcn"]
 [ext_resource type="FontFile" uid="uid://b5v20ed87aryq" path="res://assets/fonts/bold.otf" id="2_3nr6p"]
-[ext_resource type="FontFile" uid="uid://due2vapjee7gm" path="res://assets/fonts/regular.otf" id="3_44h10"]
+[ext_resource type="Texture2D" uid="uid://bxtn5tvbblvp1" path="res://assets/ui/Settings ui/Settings bg.png" id="2_dyu16"]
+[ext_resource type="Texture2D" uid="uid://4fbosda8i5d7" path="res://assets/ui/Settings ui/Back button.png" id="3_dyu16"]
+[ext_resource type="Texture2D" uid="uid://bbp0wua4x15vv" path="res://assets/ui/Settings ui/Back button hover.png" id="4_xcibm"]
+[ext_resource type="Texture2D" uid="uid://jaodxr34hxr2" path="res://assets/ui/Settings ui/Box ceklis.PNG" id="6_lcas1"]
+[ext_resource type="Texture2D" uid="uid://dm473vy012snl" path="res://assets/ui/Settings ui/Box.PNG" id="7_cuoxb"]
+[ext_resource type="Texture2D" uid="uid://cegyy45f7j1uy" path="res://assets/ui/Settings ui/Slider tombol.png" id="8_bqwty"]
+[ext_resource type="Texture2D" uid="uid://cc8o8ff0estj0" path="res://assets/ui/Settings ui/Slider isi.png" id="9_5sofc"]
+[ext_resource type="Texture2D" uid="uid://bhi75nm34fv21" path="res://assets/ui/Settings ui/Slider kosong.png" id="10_5sofc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jf24q"]
-bg_color = Color(0.529412, 0.223529, 0.247059, 0.960784)
+bg_color = Color(0.6, 0.6, 0.6, 0)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
-shadow_color = Color(0, 0, 0, 0.25)
+shadow_color = Color(0, 0, 0, 0)
 shadow_size = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esou5"]
-bg_color = Color(0.357656, 0.138697, 0.156056, 0.960784)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_afpyg"]
+texture = ExtResource("10_5sofc")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_suefm"]
-bg_color = Color(0.356863, 0.137255, 0.156863, 0.960784)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-shadow_color = Color(0, 0, 0, 0.15)
-shadow_size = 2
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nj6us"]
+texture = ExtResource("9_5sofc")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtxv0"]
-bg_color = Color(0.422919, 0.169031, 0.191533, 0.960784)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-shadow_color = Color(0, 0, 0, 0.15)
-shadow_size = 2
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqwty"]
+texture = ExtResource("9_5sofc")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5sofc"]
+texture = ExtResource("10_5sofc")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xhuwd"]
+texture = ExtResource("9_5sofc")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6oxk"]
+texture = ExtResource("9_5sofc")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
 
 [node name="PauseOptionsMenu" type="Control"]
 process_mode = 2
@@ -64,17 +88,32 @@ theme_override_constants/margin_bottom = 120
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jf24q")
 
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dyu16")
+
+[node name="BackButton" type="TextureButton" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -137.0
+offset_top = 47.0
+offset_right = -10.0
+offset_bottom = 119.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_dyu16")
+texture_hover = ExtResource("4_xcibm")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/separation = 32
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_3nr6p")
-theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = SubResource("StyleBoxFlat_esou5")
-text = "Options"
-horizontal_alignment = 1
 
 [node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -96,14 +135,19 @@ theme_override_constants/separation = 32
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_44h10")
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("2_3nr6p")
 theme_override_font_sizes/font_size = 32
 text = "Fullscreen"
 
 [node name="Checkbox" type="CheckBox" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 24
+theme_override_icons/checked = ExtResource("6_lcas1")
+theme_override_icons/unchecked = ExtResource("7_cuoxb")
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 visible = false
@@ -122,15 +166,24 @@ theme_override_constants/separation = 32
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_44h10")
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("2_3nr6p")
 theme_override_font_sizes/font_size = 32
 text = "Music"
 
 [node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(500, 32)
 layout_mode = 2
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme_override_constants/grabber_offset = 0
+theme_override_icons/grabber = ExtResource("8_bqwty")
+theme_override_icons/grabber_highlight = ExtResource("8_bqwty")
+theme_override_icons/grabber_disabled = ExtResource("8_bqwty")
+theme_override_icons/tick = ExtResource("8_bqwty")
+theme_override_styles/slider = SubResource("StyleBoxTexture_afpyg")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_nj6us")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_bqwty")
 min_value = -40.0
 max_value = 0.0
 step = 0.1
@@ -142,15 +195,24 @@ theme_override_constants/separation = 32
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_44h10")
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("2_3nr6p")
 theme_override_font_sizes/font_size = 32
 text = "Sound Effects"
 
 [node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(500, 32)
 layout_mode = 2
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme_override_constants/grabber_offset = 0
+theme_override_icons/grabber = ExtResource("8_bqwty")
+theme_override_icons/grabber_highlight = ExtResource("8_bqwty")
+theme_override_icons/grabber_disabled = ExtResource("8_bqwty")
+theme_override_icons/tick = ExtResource("8_bqwty")
+theme_override_styles/slider = SubResource("StyleBoxTexture_5sofc")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_xhuwd")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_m6oxk")
 min_value = -40.0
 max_value = 0.0
 step = 0.1
@@ -159,16 +221,4 @@ step = 0.1
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
-process_mode = 2
-custom_minimum_size = Vector2(200, 64)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 10
-mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 32
-theme_override_styles/hover = SubResource("StyleBoxFlat_suefm")
-theme_override_styles/normal = SubResource("StyleBoxFlat_qtxv0")
-text = "Back"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/BackButton" to="." method="_on_back_button_pressed"]

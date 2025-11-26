@@ -1,0 +1,388 @@
+[gd_scene load_steps=28 format=3 uid="uid://b1v173f5vffwq"]
+
+[ext_resource type="Script" uid="uid://dtxhd2n4qanyl" path="res://src/main_menu/stage_selection.gd" id="1_6pgtg"]
+[ext_resource type="Texture2D" uid="uid://crgqd6q1tjw44" path="res://assets/ui/menu/belakangnya (1).png" id="1_86xp5"]
+[ext_resource type="Texture2D" uid="uid://sj1c4efkj2il" path="res://assets/ui/Stage selection/May.png" id="3_2un8p"]
+[ext_resource type="Texture2D" uid="uid://byxiu77pbw50y" path="res://assets/ui/Stage selection/Hover ver/May hover.png" id="4_8277o"]
+[ext_resource type="FontFile" uid="uid://b5v20ed87aryq" path="res://assets/fonts/bold.otf" id="4_h3bh5"]
+[ext_resource type="Texture2D" uid="uid://cpby6vt1hll30" path="res://assets/ui/Stage selection/June.png" id="4_mtjrb"]
+[ext_resource type="Texture2D" uid="uid://bhs4k8hxweox5" path="res://assets/ui/Stage selection/Jul.png" id="5_achqv"]
+[ext_resource type="Texture2D" uid="uid://b1mjhrofl6xfy" path="res://assets/ui/Stage selection/Aug.png" id="6_pb14g"]
+[ext_resource type="Texture2D" uid="uid://bbso5jmy0mojh" path="res://assets/ui/Stage selection/Hover ver/June hover.png" id="7_hlwvq"]
+[ext_resource type="Texture2D" uid="uid://bispa3f22otpc" path="res://assets/ui/Stage selection/Sept.png" id="7_yrkey"]
+[ext_resource type="Texture2D" uid="uid://dv8o56p6jm0" path="res://assets/ui/Stage selection/Oct.png" id="8_w5s8o"]
+[ext_resource type="Texture2D" uid="uid://cpufpcci6gv5u" path="res://assets/ui/Stage selection/Hover ver/July hover.png" id="9_pud5t"]
+[ext_resource type="Texture2D" uid="uid://dqte0l258gj8g" path="res://assets/ui/Stage selection/Nov.png" id="9_w5s8o"]
+[ext_resource type="Texture2D" uid="uid://dkqjvmawtgesq" path="res://assets/ui/Stage selection/Dec.png" id="10_yrkey"]
+[ext_resource type="Texture2D" uid="uid://b1dtv6j3xw5dn" path="res://assets/ui/Stage selection/Hover ver/August hover.png" id="11_tig00"]
+[ext_resource type="Texture2D" uid="uid://cowpntnbfjp3g" path="res://assets/ui/Stage selection/Jan.PNG" id="12_gun6f"]
+[ext_resource type="Texture2D" uid="uid://bl5ugsq0ce0rv" path="res://assets/ui/Stage selection/Feb.png" id="12_h3bh5"]
+[ext_resource type="Texture2D" uid="uid://pkvajnmxqi07" path="res://assets/ui/Stage selection/Hover ver/Sept hover.png" id="13_8277o"]
+[ext_resource type="Texture2D" uid="uid://k1qj22cvbbqv" path="res://assets/ui/Stage selection/Mar.png" id="13_gun6f"]
+[ext_resource type="Texture2D" uid="uid://xpbc8puga5jr" path="res://assets/ui/Stage selection/Apr.png" id="14_8277o"]
+[ext_resource type="Texture2D" uid="uid://063ygiy4j1ij" path="res://assets/ui/Stage selection/Hover ver/Oct hover.png" id="15_63ts2"]
+[ext_resource type="Texture2D" uid="uid://di8rsofa4lknn" path="res://assets/ui/Stage selection/Hover ver/Nov hover.png" id="17_p4mql"]
+[ext_resource type="Texture2D" uid="uid://blm71otxqo2h6" path="res://assets/ui/Stage selection/Hover ver/Dec hover.png" id="19_7gwfr"]
+[ext_resource type="Texture2D" uid="uid://cpie26wgvf8uo" path="res://assets/ui/Stage selection/Hover ver/Jan hover.png" id="21_stvxr"]
+[ext_resource type="Texture2D" uid="uid://jqsrhoglr03g" path="res://assets/ui/Stage selection/Hover ver/Feb hover.png" id="23_nprv0"]
+[ext_resource type="Texture2D" uid="uid://36j1p0xl6iem" path="res://assets/ui/Stage selection/Hover ver/March hover.png" id="25_xfojl"]
+[ext_resource type="Texture2D" uid="uid://d5hqhshc22db" path="res://assets/ui/Stage selection/Hover ver/April hover.png" id="27_kx1ry"]
+
+[node name="StageSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_6pgtg")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_86xp5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="FirstRow" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="1" type="TextureButton" parent="VBoxContainer/FirstRow" groups=["stage_buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("3_2un8p")
+texture_hover = ExtResource("4_8277o")
+
+[node name="Label" type="Label" parent="VBoxContainer/FirstRow/1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -44.0
+offset_right = 23.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("4_h3bh5")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="TextureButton" parent="VBoxContainer/FirstRow" groups=["stage_buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("4_mtjrb")
+texture_hover = ExtResource("7_hlwvq")
+
+[node name="Label" type="Label" parent="VBoxContainer/FirstRow/2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -44.0
+offset_right = 23.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("4_h3bh5")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="3" type="TextureButton" parent="VBoxContainer/FirstRow" groups=["stage_buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("5_achqv")
+texture_hover = ExtResource("9_pud5t")
+
+[node name="Label" type="Label" parent="VBoxContainer/FirstRow/3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -44.0
+offset_right = 23.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("4_h3bh5")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="4" type="TextureButton" parent="VBoxContainer/FirstRow" groups=["stage_buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("6_pb14g")
+texture_hover = ExtResource("11_tig00")
+
+[node name="Label" type="Label" parent="VBoxContainer/FirstRow/4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -44.0
+offset_right = 23.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("4_h3bh5")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SecondRow" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="5" type="TextureButton" parent="VBoxContainer/SecondRow" groups=["stage_buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("7_yrkey")
+texture_hover = ExtResource("13_8277o")
+
+[node name="Label" type="Label" parent="VBoxContainer/SecondRow/5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -44.0
+offset_right = 23.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("4_h3bh5")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="6" type="TextureButton" parent="VBoxContainer/SecondRow" groups=["stage_buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("8_w5s8o")
+texture_hover = ExtResource("15_63ts2")
+
+[node name="Label" type="Label" parent="VBoxContainer/SecondRow/6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -44.0
+offset_right = 23.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("4_h3bh5")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="7" type="TextureButton" parent="VBoxContainer/SecondRow" groups=["stage_buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("9_w5s8o")
+texture_hover = ExtResource("17_p4mql")
+
+[node name="Label" type="Label" parent="VBoxContainer/SecondRow/7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -44.0
+offset_right = 23.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("4_h3bh5")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="8" type="TextureButton" parent="VBoxContainer/SecondRow" groups=["stage_buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("10_yrkey")
+texture_hover = ExtResource("19_7gwfr")
+
+[node name="Label" type="Label" parent="VBoxContainer/SecondRow/8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -44.0
+offset_right = 23.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("4_h3bh5")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThirdRow" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="9" type="TextureButton" parent="VBoxContainer/ThirdRow" groups=["stage_buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("12_gun6f")
+texture_hover = ExtResource("21_stvxr")
+
+[node name="Label" type="Label" parent="VBoxContainer/ThirdRow/9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -44.0
+offset_right = 23.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("4_h3bh5")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="10" type="TextureButton" parent="VBoxContainer/ThirdRow" groups=["stage_buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("12_h3bh5")
+texture_hover = ExtResource("23_nprv0")
+
+[node name="Label" type="Label" parent="VBoxContainer/ThirdRow/10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -44.0
+offset_right = 23.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("4_h3bh5")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="11" type="TextureButton" parent="VBoxContainer/ThirdRow" groups=["stage_buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("13_gun6f")
+texture_hover = ExtResource("25_xfojl")
+
+[node name="Label" type="Label" parent="VBoxContainer/ThirdRow/11"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -44.0
+offset_right = 23.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("4_h3bh5")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="12" type="TextureButton" parent="VBoxContainer/ThirdRow" groups=["stage_buttons"]]
+layout_mode = 2
+texture_normal = ExtResource("14_8277o")
+texture_hover = ExtResource("27_kx1ry")
+
+[node name="Label" type="Label" parent="VBoxContainer/ThirdRow/12"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -44.0
+offset_right = 23.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.278431, 0.121569, 0.392157, 1)
+theme_override_fonts/font = ExtResource("4_h3bh5")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

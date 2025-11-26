@@ -40,12 +40,13 @@ func _on_fullscreen_toggled(pressed):
 		center_window()
 		print("Mode click:", DisplayServer.window_get_mode())
 		print("Size click:", DisplayServer.window_get_size())
+	fullscreen_checkbox.release_focus()
 
 func _on_resolution_selected(index):
 	center_window()
 
 func _on_music_volume_changed(value):
-	SfxManager.play(SfxManager.click)
+	#SfxManager.play(SfxManager.click)
 	var music_bus_idx = AudioServer.get_bus_index("Music")
 	if music_bus_idx != -1:
 		# If slider is at minimum, mute the audio
@@ -55,7 +56,6 @@ func _on_music_volume_changed(value):
 			AudioServer.set_bus_volume_db(music_bus_idx, value)
 
 func _on_sfx_volume_changed(value):
-	SfxManager.play(SfxManager.click)
 	var sfx_bus_idx = AudioServer.get_bus_index("SFX")
 	if sfx_bus_idx != -1:
 		# If slider is at minimum, mute the audio
@@ -96,8 +96,7 @@ func load_settings():
 		if sfx_bus_idx != -1:
 			AudioServer.set_bus_volume_db(sfx_bus_idx, sfx_slider.value)
 
-
-func _on_button_pressed() -> void:
+func _on_back_button_pressed() -> void:
 	SfxManager.play(SfxManager.click)
 	emit_signal("back_options_pressed")
 	self.hide()

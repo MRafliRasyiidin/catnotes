@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dmltxnihbpwlh"]
+[gd_scene load_steps=49 format=3 uid="uid://dmltxnihbpwlh"]
 
 [ext_resource type="Script" uid="uid://dvqgnlgc8r5yi" path="res://src/main_menu/main_menu.gd" id="1_b2bbe"]
 [ext_resource type="Texture2D" uid="uid://di8dd225girdl" path="res://assets/ui/Button monyong kiri.PNG" id="2_amn4d"]
@@ -12,15 +12,16 @@
 [ext_resource type="Shader" uid="uid://chnwk2mfy371l" path="res://src/shaders/main_menu.gdshader" id="6_abxxg"]
 [ext_resource type="Texture2D" uid="uid://cv56e3un2j5db" path="res://assets/rooms/work_room.png" id="9_bk001"]
 [ext_resource type="Texture2D" uid="uid://bhrw65rfkh0ua" path="res://assets/ui/title_sheet_cat.png" id="9_iy15y"]
-[ext_resource type="Texture2D" uid="uid://b25sgvdk8qx4e" path="res://assets/ui/title/cat_0.png" id="10_gtgn3"]
+[ext_resource type="Texture2D" uid="uid://b25sgvdk8qx4e" path="res://assets/ui/menu/cat_0.png" id="10_gtgn3"]
 [ext_resource type="Texture2D" uid="uid://dl7gij3407wwf" path="res://assets/ui/title_sheet_notes.png" id="10_uk432"]
-[ext_resource type="Texture2D" uid="uid://03s0jnnmlxaa" path="res://assets/ui/title/notes_0.png" id="11_jxocj"]
-[ext_resource type="Texture2D" uid="uid://beaa4xdr8p402" path="res://assets/ui/title/cat_1.png" id="12_n0ljs"]
-[ext_resource type="Texture2D" uid="uid://g5ll13m6bend" path="res://assets/ui/title/cat_2.png" id="13_nd4tj"]
-[ext_resource type="Texture2D" uid="uid://0gs8dk0wk2fl" path="res://assets/ui/title/notes_1.png" id="14_yxfv3"]
-[ext_resource type="Texture2D" uid="uid://bgokwonj6tpd" path="res://assets/ui/title/notes_2.png" id="15_ff3dm"]
-[ext_resource type="Script" uid="uid://kyuoayk3qxwi" path="res://src/main_menu/camera.gd" id="15_iy15y"]
-[ext_resource type="Shader" uid="uid://0wmnxt2qmxow" path="res://src/shaders/transition.gdshader" id="22_yxfv3"]
+[ext_resource type="Texture2D" uid="uid://03s0jnnmlxaa" path="res://assets/ui/menu/notes_0.png" id="11_jxocj"]
+[ext_resource type="Texture2D" uid="uid://beaa4xdr8p402" path="res://assets/ui/menu/cat_1.png" id="12_n0ljs"]
+[ext_resource type="Texture2D" uid="uid://g5ll13m6bend" path="res://assets/ui/menu/cat_2.png" id="13_nd4tj"]
+[ext_resource type="Texture2D" uid="uid://0gs8dk0wk2fl" path="res://assets/ui/menu/notes_1.png" id="14_yxfv3"]
+[ext_resource type="Texture2D" uid="uid://bgokwonj6tpd" path="res://assets/ui/menu/notes_2.png" id="15_ff3dm"]
+[ext_resource type="Script" path="res://src/main_menu/camera.gd" id="15_iy15y"]
+[ext_resource type="PackedScene" uid="uid://b1v173f5vffwq" path="res://src/main_menu/stage_selection.tscn" id="15_yxfv3"]
+[ext_resource type="Shader" path="res://src/shaders/transition.gdshader" id="22_yxfv3"]
 [ext_resource type="Texture2D" uid="uid://cryc13uv58jcw" path="res://assets/ui/transition_mask_cat.png" id="23_ff3dm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_plxga"]
@@ -322,10 +323,11 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -392.0
-offset_top = 58.91
+offset_top = 19.0
 offset_right = 392.0
-offset_bottom = 653.91
+offset_bottom = 614.0
 grow_horizontal = 2
+scale = Vector2(0.95, 0.95)
 theme_override_constants/separation = -40
 
 [node name="Cat3" type="AnimatedSprite2D" parent="CanvasLayer/Title"]
@@ -362,9 +364,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -185.0
-offset_top = 169.0
+offset_top = 60.0
 offset_right = 186.0
-offset_bottom = 465.0
+offset_bottom = 506.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -391,10 +393,33 @@ theme_override_fonts/font = ExtResource("4_wrmdx")
 theme_override_font_sizes/font_size = 100
 text = "Start"
 
-[node name="Exit" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+[node name="Stages" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_no1ax")
 texture_hover = ExtResource("5_wrmdx")
+
+[node name="StagesText" type="Label" parent="CanvasLayer/VBoxContainer/Stages"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.137255, 0.0901961, 0.219608, 1)
+theme_override_fonts/font = ExtResource("4_wrmdx")
+theme_override_font_sizes/font_size = 100
+text = "Stages"
+
+[node name="Exit" type="TextureButton" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_amn4d")
+texture_hover = ExtResource("3_pwul8")
 
 [node name="ExitText" type="Label" parent="CanvasLayer/VBoxContainer/Exit"]
 layout_mode = 1
@@ -414,6 +439,14 @@ theme_override_fonts/font = ExtResource("4_wrmdx")
 theme_override_font_sizes/font_size = 100
 text = "Exit"
 
+[node name="StageSelection" parent="CanvasLayer" instance=ExtResource("15_yxfv3")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
 [node name="Particles" type="Node2D" parent="CanvasLayer"]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/Particles"]
@@ -430,6 +463,7 @@ script = ExtResource("15_iy15y")
 
 [node name="Transition" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
 root_node = NodePath("../..")
@@ -448,4 +482,5 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Stages" to="." method="_on_stages_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
