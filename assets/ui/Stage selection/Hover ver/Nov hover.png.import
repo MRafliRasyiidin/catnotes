@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cowpntnbfjp3g"
-path="res://.godot/imported/Jan.PNG-0406ed15741328020c649d8a12647728.ctex"
+uid="uid://di8rsofa4lknn"
+path="res://.godot/imported/Nov hover.png-37915c56610ee62d6518cc990a031dd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Stage selection/Jan.PNG"
-dest_files=["res://.godot/imported/Jan.PNG-0406ed15741328020c649d8a12647728.ctex"]
+source_file="res://assets/ui/Stage selection/Hover ver/Nov hover.png"
+dest_files=["res://.godot/imported/Nov hover.png-37915c56610ee62d6518cc990a031dd8.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cowpntnbfjp3g"
-path="res://.godot/imported/Jan.PNG-0406ed15741328020c649d8a12647728.ctex"
+uid="uid://txcelik06u7j"
+path="res://.godot/imported/Kanan hover.png-61943da15bacaf98dd624fdf6a7fa188.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Stage selection/Jan.PNG"
-dest_files=["res://.godot/imported/Jan.PNG-0406ed15741328020c649d8a12647728.ctex"]
+source_file="res://assets/ui/button/Kanan hover.png"
+dest_files=["res://.godot/imported/Kanan hover.png-61943da15bacaf98dd624fdf6a7fa188.ctex"]
 
 [params]
 

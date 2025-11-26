@@ -5,8 +5,8 @@ extends Control
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var expand: Label = $TextureRect/MarginContainer/VSplitContainer/VBoxContainer2/Expand
 @onready var month: Label = $TextureRect/MarginContainer/VSplitContainer/VBoxContainer2/Month
-@onready var previous_page: TextureButton = $TextureRect/MarginContainer/HBoxContainer/PreviousPage
-@onready var next_page: TextureButton = $TextureRect/MarginContainer/HBoxContainer/NextPage
+@onready var previous_page: TextureButton = $TextureRect/HBoxContainer/PreviousPage
+@onready var next_page: TextureButton = $TextureRect/HBoxContainer/NextPage
 
 var notes: Array = []
 var is_moved_up: bool = false

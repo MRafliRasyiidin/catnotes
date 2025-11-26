@@ -5,10 +5,10 @@
 [ext_resource type="FontFile" uid="uid://88g5u5nhvmv0" path="res://assets/fonts/variable.ttf" id="2_6crdd"]
 [ext_resource type="FontFile" uid="uid://due2vapjee7gm" path="res://assets/fonts/regular.otf" id="4_k02u4"]
 [ext_resource type="FontFile" uid="uid://b5v20ed87aryq" path="res://assets/fonts/bold.otf" id="5_wn0ix"]
-[ext_resource type="Texture2D" uid="uid://d320utx1knssc" path="res://assets/ui/button/right_hover.png" id="6_6l13p"]
-[ext_resource type="Texture2D" uid="uid://doo803ajem357" path="res://assets/ui/button/right.png" id="7_5ic4o"]
-[ext_resource type="Texture2D" uid="uid://bhvdtadmbi4a6" path="res://assets/ui/button/left_hover.png" id="8_rk0ok"]
-[ext_resource type="Texture2D" uid="uid://dxha4tv2vd65f" path="res://assets/ui/button/left.png" id="9_cxqhp"]
+[ext_resource type="Texture2D" uid="uid://v8jhupubj1gj" path="res://assets/ui/button/Kiri.png" id="6_rk0ok"]
+[ext_resource type="Texture2D" uid="uid://v1t1nqd62e42" path="res://assets/ui/button/Kiri hover.png" id="7_cxqhp"]
+[ext_resource type="Texture2D" uid="uid://b1po64mr1syn1" path="res://assets/ui/button/Kanan.png" id="8_5ic4o"]
+[ext_resource type="Texture2D" uid="uid://txcelik06u7j" path="res://assets/ui/button/Kanan hover.png" id="9_rk0ok"]
 
 [sub_resource type="FontVariation" id="FontVariation_rk0ok"]
 base_font = ExtResource("2_6crdd")
@@ -122,23 +122,36 @@ theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 fit_content = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect"]
 custom_minimum_size = Vector2(412, 0)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = 26.0
+offset_right = 1167.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
 size_flags_vertical = 8
+theme_override_constants/separation = 1000
 alignment = 1
 
-[node name="PreviousPage" type="TextureButton" parent="TextureRect/MarginContainer/HBoxContainer"]
+[node name="PreviousPage" type="TextureButton" parent="TextureRect/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
-texture_normal = ExtResource("8_rk0ok")
-texture_hover = ExtResource("9_cxqhp")
+texture_normal = ExtResource("6_rk0ok")
+texture_hover = ExtResource("7_cxqhp")
 
-[node name="NextPage" type="TextureButton" parent="TextureRect/MarginContainer/HBoxContainer"]
+[node name="NextPage" type="TextureButton" parent="TextureRect/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
-texture_normal = ExtResource("6_6l13p")
-texture_hover = ExtResource("7_5ic4o")
+texture_normal = ExtResource("8_5ic4o")
+texture_hover = ExtResource("9_rk0ok")
 
-[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/PreviousPage" to="." method="_on_previous_page_pressed"]
-[connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/NextPage" to="." method="_on_next_page_pressed"]
+[connection signal="pressed" from="TextureRect/HBoxContainer/PreviousPage" to="." method="_on_previous_page_pressed"]
+[connection signal="pressed" from="TextureRect/HBoxContainer/NextPage" to="." method="_on_next_page_pressed"]
