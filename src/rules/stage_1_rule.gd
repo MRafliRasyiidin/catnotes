@@ -15,7 +15,8 @@ var rule: Dictionary = {
 	"Choco":{
 		"coor": [],
 		"cat": [],
-		"tv": false
+		"tv": false,
+		"same_room": ["Tissue"]
 	},
 	"Tissue": {
 		"coor": [],

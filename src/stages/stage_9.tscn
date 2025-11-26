@@ -16,14 +16,14 @@
 [ext_resource type="PackedScene" uid="uid://b1wwxgrr8mtgj" path="res://src/cat/nima.tscn" id="13_816u5"]
 [ext_resource type="PackedScene" uid="uid://bql2im40ga5vh" path="res://src/cat/miko.tscn" id="14_v7fqm"]
 [ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="15_f7e63"]
-[ext_resource type="Texture2D" uid="uid://ccm1wyea5ouey" path="res://assets/ui/Button monyong kanan.PNG" id="16_b6xey"]
-[ext_resource type="Texture2D" uid="uid://1d6xd2rekxc0" path="res://assets/ui/Button monyong kanan hover.PNG" id="17_i7rkc"]
 [ext_resource type="Texture2D" uid="uid://b0yhjip0hldoe" path="res://assets/objects/plant.PNG" id="17_sifj1"]
-[ext_resource type="Shader" uid="uid://k38machql6ou" path="res://src/shaders/plant.gdshader" id="17_xs5sn"]
+[ext_resource type="Shader" path="res://src/shaders/plant.gdshader" id="17_xs5sn"]
 [ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="18_l5nk7"]
 [ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="19_g1xpg"]
+[ext_resource type="Texture2D" uid="uid://2iyoigd6pgm0" path="res://assets/ui/button/Continue.PNG" id="19_vi3r8"]
 [ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="20_edg2l"]
-[ext_resource type="Shader" uid="uid://0wmnxt2qmxow" path="res://src/shaders/transition.gdshader" id="25_upnby"]
+[ext_resource type="Texture2D" uid="uid://dfxb8olr86i5h" path="res://assets/ui/button/Continue hover.PNG" id="20_rfl8k"]
+[ext_resource type="Shader" path="res://src/shaders/transition.gdshader" id="25_upnby"]
 [ext_resource type="Texture2D" uid="uid://cryc13uv58jcw" path="res://assets/ui/transition_mask_cat.png" id="26_ctb5m"]
 
 [sub_resource type="Animation" id="Animation_ny263"]
@@ -347,8 +347,8 @@ anchor_bottom = 1.0
 offset_top = -146.0
 offset_right = 371.0
 grow_vertical = 0
-texture_normal = ExtResource("16_b6xey")
-texture_hover = ExtResource("17_i7rkc")
+texture_normal = ExtResource("19_vi3r8")
+texture_hover = ExtResource("20_rfl8k")
 
 [node name="ContinueText" type="Label" parent="GUI/Continue"]
 layout_mode = 1
