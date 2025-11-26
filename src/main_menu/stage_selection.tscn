@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b1v173f5vffwq"]
+[gd_scene load_steps=30 format=3 uid="uid://b1v173f5vffwq"]
 
 [ext_resource type="Script" uid="uid://dtxhd2n4qanyl" path="res://src/main_menu/stage_selection.gd" id="1_6pgtg"]
 [ext_resource type="Texture2D" uid="uid://b3mswl4vdfvo" path="res://assets/ui/Stage selection/Hover ver/Stage selection container.PNG" id="2_kx1ry"]
@@ -27,7 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://jqsrhoglr03g" path="res://assets/ui/Stage selection/Hover ver/Feb hover.png" id="23_nprv0"]
 [ext_resource type="Texture2D" uid="uid://36j1p0xl6iem" path="res://assets/ui/Stage selection/Hover ver/March hover.png" id="25_xfojl"]
 [ext_resource type="Texture2D" uid="uid://d5hqhshc22db" path="res://assets/ui/Stage selection/Hover ver/April hover.png" id="27_kx1ry"]
-[ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="28_jq8ng"]
+[ext_resource type="Texture2D" uid="uid://23x6g5pgvjqv" path="res://assets/ui/button/Back.PNG" id="29_1q6ly"]
+[ext_resource type="Texture2D" uid="uid://e7nqu3ovnpj6" path="res://assets/ui/button/Back hover.PNG" id="30_8jwuf"]
 
 [node name="StageSelection" type="Control"]
 layout_mode = 3
@@ -388,8 +389,15 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -2
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -147.0
+offset_right = 425.0
+grow_vertical = 0
+texture_normal = ExtResource("29_1q6ly")
+texture_hover = ExtResource("30_8jwuf")
 
-[node name="Background" parent="Background" instance=ExtResource("28_jq8ng")]
-mouse_filter = 2
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

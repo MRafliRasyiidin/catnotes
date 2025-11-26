@@ -21,3 +21,8 @@ func _on_stage_pressed(btn: TextureButton, stage: String) -> void:
 	var scene = "res://src/stages/stage_%s.tscn" % stage
 	if FileAccess.file_exists(scene):
 		get_tree().change_scene_to_file(scene)
+
+
+func _on_back_button_pressed() -> void:
+	SfxManager.play(SfxManager.click)
+	self.hide()
