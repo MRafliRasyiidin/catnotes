@@ -33,6 +33,7 @@ func _ready() -> void:
 	var rules_path = "res://src/rules/%s_rule.gd" % scene_name
 	current_stage = int(scene_name[-1])
 	GlobalState.stage_counter = int(scene_name[-1])
+	GlobalState.unlocked_stage[scene_name[-1]] = true
 	var rules = load(rules_path)
 	GlobalState.placement_rules = rules.new()
 	notes.setup_page(GlobalState.placement_rules.rules_text)
