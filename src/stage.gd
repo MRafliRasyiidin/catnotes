@@ -19,6 +19,7 @@ extends Node2D
 
 var is_complete: bool = false
 var completion_checked: bool = false
+var current_stage: int
 
 var tissue_event_stage = 9 #stage number when Tissue dies. RIP
 var choco_event_stage = 10 #stage number when Choco went missing
@@ -29,6 +30,8 @@ func _ready() -> void:
 	
 	var scene_name = get_tree().current_scene.scene_file_path.get_file().get_basename()
 	var rules_path = "res://src/rules/%s_rule.gd" % scene_name
+	current_stage = int(scene_name[-1])
+	GlobalState.stage_counter = int(scene_name[-1])
 	var rules = load(rules_path)
 	GlobalState.placement_rules = rules.new()
 	notes.setup_page(GlobalState.placement_rules.rules_text)

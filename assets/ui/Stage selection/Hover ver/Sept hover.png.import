@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b25sgvdk8qx4e"
-path="res://.godot/imported/cat_0.png-1fb81d1c7db393033035c59cdc07b46c.ctex"
+uid="uid://pkvajnmxqi07"
+path="res://.godot/imported/Sept hover.png-869d89212335c3f2158d4460db16d8fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/title/cat_0.png"
-dest_files=["res://.godot/imported/cat_0.png-1fb81d1c7db393033035c59cdc07b46c.ctex"]
+source_file="res://assets/ui/Stage selection/Hover ver/Sept hover.png"
+dest_files=["res://.godot/imported/Sept hover.png-869d89212335c3f2158d4460db16d8fd.ctex"]
 
 [params]
 

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b1wwxgrr8mtgj" path="res://src/cat/nima.tscn" id="7_q4db0"]
 [ext_resource type="PackedScene" uid="uid://bql2im40ga5vh" path="res://src/cat/miko.tscn" id="8_k1tss"]
 
-[node name="Stage" instance=ExtResource("1_a007p")]
+[node name="Stage2" instance=ExtResource("1_a007p")]
 
 [node name="CatBed" parent="CatBeds" index="0"]
 position = Vector2(699, 640)

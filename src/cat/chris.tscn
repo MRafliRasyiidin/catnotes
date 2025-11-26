@@ -8,20 +8,20 @@
 
 [node name="Chris" instance=ExtResource("1_sb7yc")]
 
-[node name="Loaf" parent="." index="0"]
+[node name="Loaf" parent="." index="1"]
 position = Vector2(1.42109e-14, -8)
 texture = ExtResource("2_k5jmc")
 offset = Vector2(70, -145)
 
-[node name="Picked" parent="." index="1"]
+[node name="Picked" parent="." index="2"]
 position = Vector2(2.38419e-07, 2.38419e-07)
 texture = ExtResource("3_mn0oj")
 offset = Vector2(110, 315)
 
-[node name="Angry" parent="." index="2"]
+[node name="Angry" parent="." index="3"]
 texture = ExtResource("4_ak2qb")
 
-[node name="Sit" parent="." index="3"]
+[node name="Sit" parent="." index="4"]
 texture = ExtResource("5_wvw4v")
 
 [node name="Name" parent="." index="8"]
