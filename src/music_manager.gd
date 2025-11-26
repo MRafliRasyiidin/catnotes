@@ -18,6 +18,7 @@ func _ready():
 	music_player.autoplay = false
 	music_player.volume_db = -4
 	music_player.finished.connect(_on_music_finished)
+	MusicManager.play_music(MusicManager.bgm)
 
 # ▶️ Play a specific track
 func play_music(stream: AudioStream):

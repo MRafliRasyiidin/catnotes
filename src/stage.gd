@@ -15,10 +15,13 @@ extends Node2D
 @onready var pause: Node = $GUI/Pause
 
 var is_complete: bool = false
+var current_stage: int
 
 func _ready() -> void:
 	var scene_name = get_tree().current_scene.scene_file_path.get_file().get_basename()
 	var rules_path = "res://src/rules/%s_rule.gd" % scene_name
+	current_stage = int(scene_name[-1])
+	GlobalState.stage_counter = int(scene_name[-1])
 	var rules = load(rules_path)
 	GlobalState.placement_rules = rules.new()
 	notes.setup_page(GlobalState.placement_rules.rules_text)
@@ -60,13 +63,13 @@ func set_cat_init_position():
 		"Nima": Vector2i(0,0),
 	}
 	GlobalState.occupied_tiles = {}
-	if GlobalState.stage_counter >= 4:
+	if current_stage >= 4:
 		GlobalState.cat_locations["Tissue"] = Vector2i(-1,0)
 
 func set_cat_name():
 	print(choco, tissue, chris)
 	choco.set_meta('cat_name', 'Choco')
-	if GlobalState.stage_counter < 4:
+	if current_stage < 4:
 		tissue.set_meta('cat_name', 'Tissue')
 	chris.set_meta('cat_name', 'Chris')
 	boom.set_meta('cat_name', 'Boom')
