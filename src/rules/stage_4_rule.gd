@@ -44,6 +44,7 @@ var rule: Dictionary = {
 	},
 	"Chris": {
 		"not_tile": [],
+		"avoid_room":["living_room"],
 		"cat": []
 	},
 	"Boom": {

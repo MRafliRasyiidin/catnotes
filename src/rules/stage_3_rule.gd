@@ -38,10 +38,11 @@ var rule: Dictionary = {
 	},
 	"Nima": {
 		"not_tile": [
-			Vector2i(-19, 35),
-			Vector2i(-15, 41),
-			Vector2i(-12, 36)
+			#Vector2i(-19, 35),
+			#Vector2i(-15, 41),
+			#Vector2i(-12, 36)
 		],
+		"avoid_room": ["living_room"],
 		"cat": []
 	},
 	"Miko": {
