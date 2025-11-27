@@ -2,7 +2,7 @@ extends Node
 
 static var occupied_tiles = {}
 static var placement_rules = null
-static var stage_counter = 1
+static var stage_counter = 12
 static var cat_locations = {
 	"Choco": Vector2i(0,0),
 	"Tissue": Vector2i(0,0),
@@ -20,7 +20,7 @@ static var room_tiles: Dictionary = {
 static var months = [
 	"May","June","July","August",
 	"September","October","November","December",
-	"January","February","March","April"
+	"January","February","March","April","May"
 	]
 static var max_stage = 12
 static var tv_on = false

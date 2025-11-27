@@ -13,16 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://b1wwxgrr8mtgj" path="res://src/cat/nima.tscn" id="13_816u5"]
 [ext_resource type="Texture2D" uid="uid://c0itdgvkkrtlm" path="res://assets/objects/picture_tissue.png" id="13_efh51"]
 [ext_resource type="PackedScene" uid="uid://bql2im40ga5vh" path="res://src/cat/miko.tscn" id="14_v7fqm"]
-[ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="15_f7e63"]
-[ext_resource type="Texture2D" uid="uid://b0yhjip0hldoe" path="res://assets/objects/plant.PNG" id="17_sifj1"]
-[ext_resource type="Shader" path="res://src/shaders/plant.gdshader" id="17_xs5sn"]
-[ext_resource type="FontFile" uid="uid://b66pq5t5qiypp" path="res://assets/fonts/medium.otf" id="18_l5nk7"]
-[ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="19_g1xpg"]
-[ext_resource type="Texture2D" uid="uid://cxk0resj6ncyc" path="res://assets/ui/button/Continue (1).PNG" id="19_vi3r8"]
-[ext_resource type="PackedScene" uid="uid://bdcr37n6cn2ee" path="res://src/background.tscn" id="20_edg2l"]
-[ext_resource type="Texture2D" uid="uid://hxll1wiaaoc3" path="res://assets/ui/button/Continue hover (1).PNG" id="20_rfl8k"]
-[ext_resource type="Shader" path="res://src/shaders/transition.gdshader" id="25_upnby"]
-[ext_resource type="Texture2D" uid="uid://cryc13uv58jcw" path="res://assets/ui/transition_mask_cat.png" id="26_ctb5m"]
 
 [node name="Stage" instance=ExtResource("1_efh51")]
 

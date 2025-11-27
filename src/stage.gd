@@ -181,7 +181,7 @@ func _on_continue_pressed() -> void:
 	transition_anim.play("fade")
 	await transition_anim.animation_finished
 	if GlobalState.stage_counter > GlobalState.max_stage:
-		get_tree().change_scene_to_file("res://src/main_menu/main_menu.tscn")
+		get_tree().change_scene_to_file("res://src/ending.tscn")
 	else:
 		get_tree().change_scene_to_file("res://src/transition.tscn")
 
