@@ -26,6 +26,7 @@ var tissue_event_stage: int = 9 #stage number when Tissue dies. RIP
 var choco_event_stage: int = 10 #stage number when Choco went missing
 
 func _ready() -> void:
+	
 	gui.visible = true
 	transition.visible = true
 	
@@ -49,10 +50,14 @@ func _ready() -> void:
 	set_cat_name()
 	set_tile_in_room()
 	
+		
+	
 	if rain_stages.has(GlobalState.stage_counter):
+		MusicManager.play_music(MusicManager.bgm_rain)
 		SfxManager.rain_player = SfxManager.play_fade_in(SfxManager.rain, 1.5)
 	else:
 		SfxManager.rain_player = null
+		MusicManager.play_music(MusicManager.bgm)
 	
 	transition_anim.play_backwards("fade")
 	await transition_anim.animation_finished
