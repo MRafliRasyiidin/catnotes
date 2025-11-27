@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://b1ed5bvx36hpo" path="res://assets/objects/debug_tile.png" id="7_tuj6d"]
 [ext_resource type="Script" uid="uid://cic8d5wkbeiya" path="res://src/camera.gd" id="10_mknuf"]
 [ext_resource type="PackedScene" uid="uid://dfl0uyblwqhx" path="res://src/notes.tscn" id="11_w6q0l"]
-[ext_resource type="Texture2D" uid="uid://2iyoigd6pgm0" path="res://assets/ui/button/Continue.PNG" id="14_umbcp"]
-[ext_resource type="Texture2D" uid="uid://dfxb8olr86i5h" path="res://assets/ui/button/Continue hover.PNG" id="15_akbpn"]
+[ext_resource type="Texture2D" uid="uid://cxk0resj6ncyc" path="res://assets/ui/button/Continue (1).PNG" id="14_umbcp"]
+[ext_resource type="Texture2D" uid="uid://hxll1wiaaoc3" path="res://assets/ui/button/Continue hover (1).PNG" id="15_akbpn"]
 [ext_resource type="Texture2D" uid="uid://b0yhjip0hldoe" path="res://assets/objects/plant.PNG" id="15_g8xog"]
 [ext_resource type="Texture2D" uid="uid://ylihr5juv5q3" path="res://assets/objects/tv.png" id="16_k8rew"]
 [ext_resource type="Script" uid="uid://cs165wups6322" path="res://src/tv.gd" id="16_ny263"]
@@ -359,6 +359,7 @@ layer = -2
 
 [node name="Background" parent="Background" instance=ExtResource("19_5ytyl")]
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Transition" type="CanvasLayer" parent="."]
 layer = 2

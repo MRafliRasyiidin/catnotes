@@ -9,7 +9,7 @@ extends Node2D
 func _ready() -> void:
 	MusicManager.play_music(MusicManager.bgm)
 	blinker.play("blink")
-	
+
 	transition_anim.play_backwards("fade")
 	await transition_anim.animation_finished
 

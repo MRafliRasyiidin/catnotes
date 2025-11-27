@@ -439,14 +439,6 @@ theme_override_fonts/font = ExtResource("4_wrmdx")
 theme_override_font_sizes/font_size = 100
 text = "Exit"
 
-[node name="StageSelection" parent="CanvasLayer" instance=ExtResource("15_yxfv3")]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-
 [node name="Particles" type="Node2D" parent="CanvasLayer"]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/Particles"]
@@ -460,6 +452,9 @@ process_material = SubResource("ParticleProcessMaterial_jxocj")
 position = Vector2(1921, 1484)
 drag_horizontal_enabled = true
 script = ExtResource("15_iy15y")
+
+[node name="StageSelection" parent="CanvasLayer" instance=ExtResource("15_yxfv3")]
+visible = false
 
 [node name="Transition" type="CanvasLayer" parent="."]
 layer = 2
