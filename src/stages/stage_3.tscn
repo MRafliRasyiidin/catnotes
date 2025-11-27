@@ -14,6 +14,7 @@
 [node name="Stage" instance=ExtResource("1_0w3pj")]
 
 [node name="Bed" type="Sprite2D" parent="." index="2"]
+visible = false
 position = Vector2(1758, 946)
 texture = ExtResource("2_dmyev")
 
@@ -40,8 +41,13 @@ texture = ExtResource("2_hap0y")
 position = Vector2(1716, 1653)
 texture = ExtResource("2_6t4pe")
 
+[node name="CatBed7" type="Sprite2D" parent="CatBeds" index="6"]
+position = Vector2(878, 1446)
+texture = ExtResource("2_6t4pe")
+flip_h = true
+
 [node name="CatSpots" parent="." index="4"]
-tile_map_data = PackedByteArray("AADt/yMAAAAAAAAAAAD0/yQAAAAAAAAAAADx/ykAAAAAAAAAAAD6/ysAAAAAAAAAAADz/zUAAAAAAAAAAAD4/zkAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AADt/yMAAAAAAAAAAAD0/yQAAAAAAAAAAADx/ykAAAAAAAAAAAD6/ysAAAAAAAAAAADz/zUAAAAAAAAAAAD4/zkAAAAAAAAAAAD0/y8AAAAAAAAAAAA=")
 
 [node name="Choco" parent="Cats" index="0" instance=ExtResource("2_ftkfs")]
 position = Vector2(2028, 1410)
