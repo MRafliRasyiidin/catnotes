@@ -5,7 +5,7 @@ var rules_text: Array[Array] = [
 		#"I think I heard [color=#d44d13][b]Chris[/b][/color] hissing at [color=#d44d13][b]Boom[/b][/color]. Maybe don't put them in the same room.",
 		"[color=#d44d13][b]Tissue[/b][/color] still loves the living room.",
 		"[color=#d44d13][b]Chris[/b][/color] wants to sleep in the living room. He likes to watch this show on TV recently. It keeps distracting him.",
-		"[color=#0c19ad][b]HINTS:[/b][/color]\nYou can now [b]turn on the TV.[/b]",
+		"[color=#0c19ad][b]HINTS:[/b][/color]\nYou can now [b]click the TV to turn it on.[/b]",
 		
 		
 		

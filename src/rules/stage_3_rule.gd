@@ -34,6 +34,7 @@ var rule: Dictionary = {
 			Vector2i(-13, 53),
 			Vector2i(-8, 57)
 		],
+		"avoid_room":["kitchen"],
 		"cat": []
 	},
 	"Nima": {
@@ -51,6 +52,7 @@ var rule: Dictionary = {
 			Vector2i(-15, 41),
 			Vector2i(-12, 36),
 		],
+		"avoid_room":["living_room"],
 		"cat": []
 	}
 }

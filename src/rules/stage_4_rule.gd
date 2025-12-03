@@ -24,11 +24,9 @@ var rules_text: Array[Array] = [
 var rule: Dictionary = {
 	"Choco":{
 		"not_tile": [
-			Vector2i(-6, 36),
-			Vector2i(-4, 31),
-			Vector2i(-6, 41),
-			Vector2i(-5, 46)
+			
 			],
+		"only_tile":[Vector2i(-11,28),Vector2i(2,32)],
 		"cat": []
 	},
 	"Tissue": {

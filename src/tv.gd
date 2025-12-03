@@ -23,10 +23,19 @@ func _check_hover():
 
 	if hovering and !is_hovered:
 		is_hovered = true
+		if tv_on:
+			sprite_2d.frame = 3
+		else:
+			sprite_2d.frame = 2
 		print("TV hovered")
 		# TODO: trigger hover visual indicator here
+		
 	elif !hovering and is_hovered:
 		is_hovered = false
+		if tv_on:
+			sprite_2d.frame = 1
+		else:
+			sprite_2d.frame = 0
 		print("TV unhovered")
 		# TODO: disable hover visual indicator here
 
@@ -41,6 +50,8 @@ func _input(event):
 
 func _toggle_tv():
 	if !togglable: return
+	
+	SfxManager.play(SfxManager.click)
 	
 	tv_on = !tv_on
 	GlobalState.tv_on = tv_on
