@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cv8pprqt3kn5"]
+[gd_scene load_steps=14 format=4 uid="uid://boowxysroxwth"]
 
 [ext_resource type="PackedScene" uid="uid://bcr0j1my6itkn" path="res://src/stages/stage_base.tscn" id="1_efh51"]
 [ext_resource type="Texture2D" uid="uid://b7a6baqqi2bki" path="res://assets/rooms/bedroom_rain.png" id="2_nc5up"]
