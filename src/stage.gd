@@ -42,7 +42,8 @@ func _ready() -> void:
 	
 	#current_stage = int(scene_name[-1])
 	#GlobalState.stage_counter = int(scene_name[-1])
-	GlobalState.unlocked_stage[scene_name[-1]] = true
+	var index = int(scene_name.split("_")[-1])
+	GlobalState.unlocked_stage[str(index)] = true
 	var rules = load(rules_path)
 	GlobalState.placement_rules = rules.new()
 	notes.setup_page(GlobalState.placement_rules.rules_text)
