@@ -5,9 +5,12 @@ extends Node2D
 
 @export var togglable: bool = false
 
-var tv_on: bool = false
+@onready var tv_on: bool = false
 var is_hovered: bool = false
 
+
+func _ready() -> void:
+	GlobalState.tv_on = tv_on
 
 func _process(delta):
 	_check_hover()
